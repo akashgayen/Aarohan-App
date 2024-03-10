@@ -7,9 +7,9 @@ import 'pause_button.dart';
 // This class represents the pause menu overlay.
 class PauseMenu extends StatelessWidget {
   static const String id = 'PauseMenu';
-  final SpacescapeGame gameRef;
+  final SpacescapeGame? gameRef;
 
-  const PauseMenu({Key key,  this.gameRef}) : super(key: key);
+  const PauseMenu({Key? key,  this.gameRef}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +41,9 @@ class PauseMenu extends StatelessWidget {
             width: MediaQuery.of(context).size.width / 3,
             child: ElevatedButton(
               onPressed: () {
-                gameRef.resumeEngine();
-                gameRef.overlays.remove(PauseMenu.id);
-                gameRef.overlays.add(PauseButton.id);
+                gameRef!.resumeEngine();
+                gameRef!.overlays.remove(PauseMenu.id);
+                gameRef!.overlays.add(PauseButton.id);
               },
               child: const Text('Resume'),
             ),
@@ -54,10 +54,10 @@ class PauseMenu extends StatelessWidget {
             width: MediaQuery.of(context).size.width / 3,
             child: ElevatedButton(
               onPressed: () {
-                gameRef.overlays.remove(PauseMenu.id);
-                gameRef.overlays.add(PauseButton.id);
-                gameRef.reset();
-                gameRef.resumeEngine();
+                gameRef!.overlays.remove(PauseMenu.id);
+                gameRef!.overlays.add(PauseButton.id);
+                gameRef!.reset();
+                gameRef!.resumeEngine();
               },
               child: const Text('Restart'),
             ),
@@ -68,9 +68,9 @@ class PauseMenu extends StatelessWidget {
             width: MediaQuery.of(context).size.width / 3,
             child: ElevatedButton(
               onPressed: () {
-                gameRef.overlays.remove(PauseMenu.id);
-                gameRef.reset();
-                gameRef.resumeEngine();
+                gameRef!.overlays.remove(PauseMenu.id);
+                gameRef!.reset();
+                gameRef!.resumeEngine();
 
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(

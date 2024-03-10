@@ -23,14 +23,14 @@ class _RedeemState extends State<Redeem> {
   getuser()async{
     final FirebaseAuth _auth = FirebaseAuth.instance;
     AuthService authService = AuthService();
-    await authService.storeUser(_auth.currentUser);
+    await authService.storeUser(_auth.currentUser!);
   }
 
 
   @override
   Widget build(BuildContext context) {
     // getuser();
-    Users users = null;
+    Users? users = null;
     if(Users.us!=null){
       setState(() {
         users = Users.us;

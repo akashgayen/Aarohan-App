@@ -35,13 +35,13 @@ class AuthService {
     Users.us = Users.fromJson(user_data);
   }
 
-  Future<User> gSignIn() async {
+  Future<User?> gSignIn() async {
     try {
-      final GoogleSignInAccount googleSignInAccount =
+      final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
 
       final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount.authentication;
+          await googleSignInAccount!.authentication;
 
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,
@@ -50,10 +50,10 @@ class AuthService {
       final UserCredential authResult =
           await _auth.signInWithCredential(credential);
 
-      final User user = authResult.user;
+      final User? user = authResult.user;
 
       Map<String, dynamic> user_data = {
-        "name": user.displayName,
+        "name": user!.displayName,
         "email": user.email,
         "photoURL": user.photoURL,
         "id": user.uid,
@@ -63,7 +63,7 @@ class AuthService {
       // assert(!user.isAnonymous);
       // assert(await user.getIdToken() != null);
       Users.us = Users.fromJson(user_data);
-      final User currentUser = _auth.currentUser;
+      final User currentUser = _auth.currentUser!;
       DocumentSnapshot doc =
           await _firestore.collection("Users").doc(user.uid).get();
       if (!doc.exists) {
@@ -88,7 +88,6 @@ class AuthService {
 
     } on FirebaseAuthException catch (e) {
       print(e.message);
-      return null;
     }
   }
 
@@ -98,7 +97,7 @@ class AuthService {
   }
 
   Future<User> getUser() async {
-    final User user = _auth.currentUser;
+    final User user = _auth.currentUser!;
 
     // in the login page, based on the return value, the animation to be shown is decided.
     return user;

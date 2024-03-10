@@ -26,8 +26,8 @@ class _LeaderboardState extends State<Leaderboard> {
 
   bool showBottomMenu = false;
   bool showdialog = false;
-  int _coins;
-  String _referralCode;
+  int? _coins;
+  String? _referralCode;
 
   // QRViewController controller;
   @override

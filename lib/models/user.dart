@@ -18,11 +18,11 @@ class Users {
     this.calendar
   });
 
-  String name;
-  String email;
-  String photoURL;
-  String id;
-  List calendar;
+  String? name;
+  String? email;
+  String? photoURL;
+  String? id;
+  List? calendar;
 
   factory Users.fromJson(Map<dynamic, dynamic> json) => Users(
     name: json["name"],
@@ -33,7 +33,7 @@ class Users {
   );
 
   factory Users.fromFirestore(DocumentSnapshot documentSnapshot) {
-    return Users.fromJson(documentSnapshot.data());
+    return Users.fromJson(documentSnapshot.data() as Map);
   }
 
   Map<dynamic, dynamic> toJson() => {

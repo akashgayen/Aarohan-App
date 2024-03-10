@@ -13,7 +13,7 @@ class ComingResponse {
     this.comingItem,
   });
 
-  List<ComingItem> comingItem;
+  List<ComingItem>? comingItem;
 
   factory ComingResponse.fromJson(Map<String, dynamic> json) =>
       ComingResponse(
@@ -22,7 +22,7 @@ class ComingResponse {
       );
 
   Map<String, dynamic> toJson() => {
-    "ComingItem": List<dynamic>.from(comingItem.map((x) => x.toJson())),
+    "ComingItem": List<dynamic>.from(comingItem!.map((x) => x.toJson())),
   };
   static ComingResponse comingResponse = ComingResponse();
 }
@@ -30,7 +30,7 @@ class ComingResponse {
 class ComingItem {
   ComingItem({this.flag,this.title});
 
-bool flag; String title;
+bool? flag; String? title;
 
   factory ComingItem.fromJson(Map<String, dynamic> json) => ComingItem(
     flag: json['flag'],
@@ -38,7 +38,7 @@ bool flag; String title;
   );
 
   factory ComingItem.fromFirestore(DocumentSnapshot documentSnapshot) {
-    return ComingItem.fromJson(documentSnapshot.data());
+    return ComingItem.fromJson(documentSnapshot.data() as Map<String,dynamic>);
   }
 
   Map<String, dynamic> toJson() =>

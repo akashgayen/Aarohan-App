@@ -6,7 +6,7 @@ import './pages/home_page.dart';
 import './pages/authentication.dart';
 
 class Interfecio extends StatefulWidget {
-  const Interfecio({Key key}) : super(key: key);
+  const Interfecio({Key? key}) : super(key: key);
 
   @override
   _MyAppState createState() => _MyAppState();

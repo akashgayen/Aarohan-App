@@ -13,7 +13,7 @@ class PrelimResponse {
     this.prelimItem,
   });
 
-  List<PrelimItem> prelimItem;
+  List<PrelimItem>? prelimItem;
 
   factory PrelimResponse.fromJson(Map<String, dynamic> json) =>
       PrelimResponse(
@@ -22,7 +22,7 @@ class PrelimResponse {
       );
 
   Map<String, dynamic> toJson() => {
-    "PrelimItem": List<dynamic>.from(prelimItem.map((x) => x.toJson())),
+    "PrelimItem": List<dynamic>.from(prelimItem!.map((x) => x.toJson())),
   };
   static PrelimResponse prelimResponse = PrelimResponse();
 }
@@ -30,7 +30,7 @@ class PrelimResponse {
 class PrelimItem {
   PrelimItem({this.url,this.title});
 
-  String url;   String title;
+  String? url;   String? title;
 
   factory PrelimItem.fromJson(Map<String, dynamic> json) => PrelimItem(
       url: json['url'],
@@ -39,7 +39,7 @@ class PrelimItem {
   );
 
   factory PrelimItem.fromFirestore(DocumentSnapshot documentSnapshot) {
-    return PrelimItem.fromJson(documentSnapshot.data());
+    return PrelimItem.fromJson(documentSnapshot.data() as Map<String,dynamic>);
   }
 
   Map<String, dynamic> toJson() =>

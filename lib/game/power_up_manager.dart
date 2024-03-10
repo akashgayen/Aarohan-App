@@ -17,21 +17,21 @@ enum PowerUpTypes { health, freeze, nuke, multiFire }
 class PowerUpManager extends Component
     with KnowsGameSize, HasGameRef<SpacescapeGame> {
   // Controls the frequency of spawning power ups.
-   Timer _spawnTimer;
+   Timer? _spawnTimer;
 
   // Controls the amount of time for which this component
   /// should be freezed when [Freeze] power is activated.
-   Timer _freezeTimer;
+   Timer? _freezeTimer;
 
   // A random number generator.
   Random random = Random();
 
   // Storing these static sprites so that
   // they stay alive across multiple restarts.
-  static Sprite nukeSprite;
-  static Sprite healthSprite;
-  static Sprite freezeSprite;
-  static Sprite multiFireSprite;
+  static Sprite? nukeSprite;
+  static Sprite? healthSprite;
+  static Sprite? freezeSprite;
+  static Sprite? multiFireSprite;
 
   // A private static map which stores a generator function for each power up.
   static final  Map<PowerUpTypes, PowerUp Function(Vector2 position, Vector2 size)> _powerUpMap = {
@@ -60,7 +60,7 @@ class PowerUpManager extends Component
     // Restarts the spawn timer after 2 seconds are
     // elapsed from start of freeze timer.
     _freezeTimer = Timer(2, onTick: () {
-      _spawnTimer.start();
+      _spawnTimer!.start();
     });
   }
 
@@ -101,7 +101,7 @@ class PowerUpManager extends Component
   @override
   void onMount() {
     // Start the spawn timer as soon as this component is mounted.
-    _spawnTimer.start();
+    _spawnTimer!.start();
 
     healthSprite = Sprite(gameRef.images.fromCache('icon_plusSmall.png'));
     nukeSprite = Sprite(gameRef.images.fromCache('nuke.png'));
@@ -114,31 +114,31 @@ class PowerUpManager extends Component
   @override
   void onRemove() {
     // Stop the spawn timer as soon as this component is removed.
-    _spawnTimer.stop();
+    _spawnTimer!.stop();
     super.onRemove();
   }
 
   @override
   void update(double dt) {
-    _spawnTimer.update(dt);
-    _freezeTimer.update(dt);
+    _spawnTimer!.update(dt);
+    _freezeTimer!.update(dt);
     super.update(dt);
   }
 
   // This method gets called when the game is being restarted.
   void reset() {
     // Stop all the timers.
-    _spawnTimer.stop();
-    _spawnTimer.start();
+    _spawnTimer!.stop();
+    _spawnTimer!.start();
   }
 
   // This method gets called when freeze power is activated.
   void freeze() {
     // Stop the spawn timer.
-    _spawnTimer.stop();
+    _spawnTimer!.stop();
 
     // Restart the freeze timer.
-    _freezeTimer.stop();
-    _freezeTimer.start();
+    _freezeTimer!.stop();
+    _freezeTimer!.start();
   }
 }

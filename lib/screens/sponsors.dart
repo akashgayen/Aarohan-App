@@ -49,7 +49,7 @@ class _SponsorsState extends State<Sponsors> {
                     showBottomMenu = false;
                   });
                 },
-                onTap: null,
+                onTap: (){},
                 child: Stack(
                   children: [
                     Column(
@@ -90,7 +90,7 @@ class _SponsorsState extends State<Sponsors> {
                                             BorderRadius.circular(7.sp),
                                         child: CachedNetworkImage(
                                           imageUrl:
-                                              sponsorItems[index].imageUrl,
+                                              sponsorItems[index].imageUrl!,
                                           fit: BoxFit.fitWidth,
                                           errorWidget: (context, url, error) {
                                             print("Could not load content");

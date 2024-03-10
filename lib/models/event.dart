@@ -16,7 +16,7 @@ class EventResponse {
     this.eventItem,
   });
 
-  List<EventItem> eventItem;
+  List<EventItem>? eventItem;
 
   factory EventResponse.fromJson(Map<String, dynamic> json) => EventResponse(
     eventItem: List<EventItem>.from(
@@ -24,7 +24,7 @@ class EventResponse {
   );
 
   Map<String, dynamic> toJson() => {
-    "EventItem": List<dynamic>.from(eventItem.map((x) => x.toJson())),
+    "EventItem": List<dynamic>.from(eventItem!.map((x) => x.toJson())),
   };
   static EventResponse eventResponse = EventResponse();
 }
@@ -43,16 +43,16 @@ class EventItem {
     this.time
   });
 
-  String title;
-  String body;
-  String imageUrl;
-  String date;
-  String category;
-  List tag;
-  String link;
-  String location;
-  String contact;
-  String time;
+  String? title;
+  String? body;
+  String? imageUrl;
+  String? date;
+  String? category;
+  List? tag;
+  String? link;
+  String? location;
+  String? contact;
+  String? time;
 
   factory EventItem.fromJson(Map<String, dynamic> json) => EventItem(
     title: json["title"],
@@ -68,7 +68,7 @@ class EventItem {
   );
 
   factory EventItem.fromFirestore(DocumentSnapshot documentSnapshot) {
-    return EventItem.fromJson(documentSnapshot.data());
+    return EventItem.fromJson(documentSnapshot.data() as Map<String,dynamic>);
   }
 
   Map<String, dynamic> toJson() => {

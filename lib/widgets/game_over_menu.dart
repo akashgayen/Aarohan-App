@@ -7,9 +7,9 @@ import 'pause_button.dart';
 // This class represents the game over menu overlay.
 class GameOverMenu extends StatelessWidget {
   static const String id = 'GameOverMenu';
-  final SpacescapeGame gameRef;
+  final SpacescapeGame? gameRef;
 
-  const GameOverMenu({Key key,  this.gameRef}) : super(key: key);
+  const GameOverMenu({Key? key,  this.gameRef}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +41,10 @@ class GameOverMenu extends StatelessWidget {
             width: MediaQuery.of(context).size.width / 3,
             child: ElevatedButton(
               onPressed: () {
-                gameRef.overlays.remove(GameOverMenu.id);
-                gameRef.overlays.add(PauseButton.id);
-                gameRef.reset();
-                gameRef.resumeEngine();
+                gameRef!.overlays.remove(GameOverMenu.id);
+                gameRef!.overlays.add(PauseButton.id);
+                gameRef!.reset();
+                gameRef!.resumeEngine();
               },
               child: const Text('Restart'),
             ),
@@ -55,8 +55,8 @@ class GameOverMenu extends StatelessWidget {
             width: MediaQuery.of(context).size.width / 3,
             child: ElevatedButton(
               onPressed: () {
-                gameRef.overlays.remove(GameOverMenu.id);
-                gameRef.reset();
+                gameRef!.overlays.remove(GameOverMenu.id);
+                gameRef!.reset();
 
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(

@@ -60,7 +60,7 @@ class _TimelineState extends State<Timeline> {
                     showBottomMenu = false;
                   });
                 },
-                onTap: null,
+                onTap: (){},
                 child: Stack(
                   children: [
                     Column(
@@ -286,7 +286,7 @@ class _TimelineState extends State<Timeline> {
                                               height: 1.h,
                                             ),
                                             Timeline_List(
-                                                M[M.keys.elementAt(index)])
+                                                M[M.keys.elementAt(index)]!)
                                           ],
                                         ),
                                       );

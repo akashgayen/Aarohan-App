@@ -13,7 +13,7 @@ SpacescapeGame _spacescapeGame = SpacescapeGame();
 // This class represents the actual game screen
 // where all the action happens.
 class GamePlay extends StatelessWidget {
-  const GamePlay({Key key}) : super(key: key);
+  const GamePlay({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
 class DateModel{
-  String weekDay;
-  String date;
+  String? weekDay;
+  String? date;
 }

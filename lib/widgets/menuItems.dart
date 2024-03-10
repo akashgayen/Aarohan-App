@@ -11,9 +11,9 @@ import '../services/auth_services.dart';
 
 class MenuItems extends StatefulWidget {
   final dynamic leadingImage;
-  final String itemName;
-  final String routeName;
-  const MenuItems({Key key, this.leadingImage, this.itemName, this.routeName})
+  final String? itemName;
+  final String? routeName;
+  const MenuItems({Key? key, this.leadingImage, this.itemName, this.routeName})
       : super(key: key);
 
   @override
@@ -50,17 +50,17 @@ class _MenuItemsState extends State<MenuItems> {
               Navigator.pushReplacementNamed(context, '/login');
             } else if (widget.routeName == '/journo') {
               getLocation();
-              Navigator.pushNamed(context, widget.routeName);
+              Navigator.pushNamed(context, widget.routeName!);
             } else if (widget.routeName == '/eurekoin') {
               Eurekoin.isEurekoinUserRegistered().then((value) {
                 if (value == "0") {
                   Navigator.pushNamed(context, '/leaderboard');
                 } else {
-                  Navigator.pushNamed(context, widget.routeName);
+                  Navigator.pushNamed(context, widget.routeName!);
                 }
               });
             } else {
-              Navigator.pushNamed(context, widget.routeName);
+              Navigator.pushNamed(context, widget.routeName!);
             }
           },
           child: Stack(children: [
@@ -87,7 +87,7 @@ class _MenuItemsState extends State<MenuItems> {
               margin: EdgeInsets.only(left: 20.w),
               height: 6.h,
               child: Text(
-                widget.itemName,
+                widget.itemName!,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 3.h,

@@ -15,7 +15,7 @@ abstract class PowerUp extends SpriteComponent
     with HasGameRef<SpacescapeGame>, CollisionCallbacks {
   // Controls how long the power up should be visible
   // before getting destroyed if not picked.
-   Timer _timer;
+   Timer? _timer;
 
   // Abstract method which child classes should override
   /// and return a [Sprite] for the power up.
@@ -26,9 +26,9 @@ abstract class PowerUp extends SpriteComponent
   void onActivated();
 
   PowerUp({
-    Vector2 position,
-    Vector2 size,
-    Sprite sprite,
+    Vector2? position,
+    Vector2? size,
+    Sprite? sprite,
   }) : super(position: position, size: size, sprite: sprite) {
     // Power ups will be displayed only for 3 seconds
     // before getting destroyed.
@@ -37,7 +37,7 @@ abstract class PowerUp extends SpriteComponent
 
   @override
   void update(double dt) {
-    _timer.update(dt);
+    _timer!.update(dt);
     super.update(dt);
   }
 
@@ -56,7 +56,7 @@ abstract class PowerUp extends SpriteComponent
     sprite = getSprite();
 
     // Start the timer.
-    _timer.start();
+    _timer!.start();
     super.onMount();
   }
 
@@ -79,7 +79,7 @@ abstract class PowerUp extends SpriteComponent
 
 // This power up nukes all the enemies.
 class Nuke extends PowerUp {
-  Nuke({Vector2 position, Vector2 size})
+  Nuke({Vector2? position, Vector2? size})
       : super(position: position, size: size);
 
   @override
@@ -99,7 +99,7 @@ class Nuke extends PowerUp {
 
 // This power up increases player health by 10.
 class Health extends PowerUp {
-  Health({Vector2 position, Vector2 size})
+  Health({Vector2? position, Vector2? size})
       : super(position: position, size: size);
 
   @override
@@ -119,7 +119,7 @@ class Health extends PowerUp {
 
 // This power up freezes all enemies for some time.
 class Freeze extends PowerUp {
-  Freeze({Vector2 position, Vector2 size})
+  Freeze({Vector2? position, Vector2? size})
       : super(position: position, size: size);
 
   @override
@@ -151,11 +151,11 @@ class Freeze extends PowerUp {
 
 // This power up activate multi-fire for some time.
 class MultiFire extends PowerUp {
-  MultiFire({Vector2 position, Vector2 size})
+  MultiFire({Vector2? position, Vector2? size})
       : super(position: position, size: size);
 
   @override
-  Sprite getSprite() {
+  Sprite? getSprite() {
     return PowerUpManager.multiFireSprite;
   }
 

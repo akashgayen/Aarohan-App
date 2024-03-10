@@ -52,14 +52,11 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-<<<<<<< HEAD
   await FlutterConfig.loadEnvVariables();
-=======
   await Flame.device.fullScreen();
 
   // // Initialize hive.
   await initHive();
->>>>>>> d803f81 ([ADD] Game-Spacescapes)
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Firebase.initializeApp();
 
@@ -79,7 +76,7 @@ Future main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -90,8 +87,8 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      RemoteNotification remoteNotification = message.notification;
-      AndroidNotification androidNotification = message.notification.android;
+      RemoteNotification? remoteNotification = message.notification;
+      AndroidNotification? androidNotification = message.notification!.android;
       if (remoteNotification != null && androidNotification != null) {
         _localNotificationsPlugin.show(
             remoteNotification.hashCode,
@@ -106,8 +103,8 @@ class _MyAppState extends State<MyApp> {
       }
     });
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      RemoteNotification remoteNotification = message.notification;
-      AndroidNotification androidNotification = message.notification.android;
+      RemoteNotification? remoteNotification = message.notification;
+      AndroidNotification? androidNotification = message.notification!.android;
       if (remoteNotification != null && androidNotification != null) {}
     });
   }

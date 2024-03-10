@@ -5,10 +5,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:sizer/sizer.dart';
 
 class topBar extends StatefulWidget {
-  final String pageName;
+  final String? pageName;
 
   const topBar({
-    Key key,
+    Key? key,
     this.pageName,
   }) : super(key: key);
 
@@ -39,7 +39,7 @@ class _topBarState extends State<topBar> {
                     bottom: 1.h,
                   ),
                   child: Text(
-                    widget.pageName,
+                    widget.pageName!,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontFamily: 'Mons',

@@ -6,28 +6,28 @@ part 'spaceship_details.g.dart';
 
 class Spaceship {
   // Name of the spaceship.
-  final String name;
+  final String? name;
 
   // Cost of the spaceship.
   final int cost;
 
   // Cost of the spaceship.
-  final double speed;
+  final double? speed;
 
   // SpriteId to be used for displaying
   // this spaceship in game world.
-  final int spriteId;
+  final int? spriteId;
 
   // Path to the asset to be used for displaying
   // this spaceship outside game world.
-  final String assetPath;
+  final String? assetPath;
 
   // Level of the spaceship.
-  final int level;
+  final int? level;
 
   const Spaceship({
      this.name,
-     this.cost,
+     required this.cost,
      this.speed,
      this.spriteId,
      this.assetPath,

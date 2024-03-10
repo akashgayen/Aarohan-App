@@ -70,7 +70,7 @@ class _AuthPageState extends State<AuthPage> {
             .collection('JournoImg')
             .doc('backgroundImage')
             .get();
-    backgroundImageUrl = "${documentSnapshot.data()['imageUrl']}";
+    backgroundImageUrl = "${documentSnapshot.data()!['imageUrl']}";
     setState(() {
       _isLoading = false;
     });
@@ -200,15 +200,15 @@ class _AuthPageState extends State<AuthPage> {
           color: Colors.white.withOpacity(0.7),
         ),
       ),
-      validator: (String value) {
-        if (value.isEmpty) {
+      validator: (String? value) {
+        if (value!.isEmpty) {
           return "Please enter a valid username";
         }
       },
-      onSaved: (String value) {
+      onSaved: (String? value) {
         _authmode == AuthMode.login
-            ? _loginFormData["username"] = value
-            : _registerFormData["username"] = value;
+        ? _loginFormData["username"] = value!
+        : _registerFormData["username"] = value!;
       },
     );
   }
@@ -242,12 +242,12 @@ class _AuthPageState extends State<AuthPage> {
         ),
       ),
       obscureText: true,
-      validator: (String value) {
-        if (value.isEmpty) {
+      validator: (String? value) {
+        if (value!.isEmpty) {
           return "Password too short";
         }
       },
-      onSaved: (String value) {
+      onSaved: (String? value) {
         _authmode == AuthMode.login
             ? _loginFormData["password"] = value
             : _registerFormData["password"] = value;
@@ -282,12 +282,12 @@ class _AuthPageState extends State<AuthPage> {
           color: Colors.white.withOpacity(0.7),
         ),
       ),
-      validator: (String value) {
-        if (value.isEmpty) {
+      validator: (String? value) {
+        if (value!.isEmpty) {
           return "Please enter a valid name";
         }
       },
-      onSaved: (String value) {
+      onSaved: (String? value) {
         _registerFormData["name"] = value;
       },
     );
@@ -321,24 +321,24 @@ class _AuthPageState extends State<AuthPage> {
         ),
       ),
       keyboardType: TextInputType.emailAddress,
-      validator: (String value) {
-        if (value.isEmpty ||
+      validator: (String? value) {
+        if (value!.isEmpty ||
             !RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
                 .hasMatch(value)) {
           return 'Please enter a valid email';
         }
       },
-      onSaved: (String value) {
+      onSaved: (String? value) {
         _registerFormData["email"] = value;
       },
     );
   }
 
   void _submitForm(final Map<String, dynamic> user) async {
-    if (!_formKey.currentState.validate()) {
+    if (!_formKey.currentState!.validate()) {
       return;
     }
-    _formKey.currentState.save();
+    _formKey.currentState!.save();
     _authmode == AuthMode.login ? userLogin(user) : userRegister(user);
   }
 
@@ -450,11 +450,8 @@ class _AuthPageState extends State<AuthPage> {
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      primary: Colors.white.withOpacity(0.3),
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 10.0),
-                                      shadowColor:
-                                          Theme.of(context).accentColor,
                                     ),
                                     child: Text(
                                       '${_authmode == AuthMode.login ? 'LOGIN' : 'REGISTER'}',

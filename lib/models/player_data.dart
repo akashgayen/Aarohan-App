@@ -14,17 +14,17 @@ class PlayerData extends ChangeNotifier with HiveObjectMixin {
 
   // The spaceship type of player's current spaceship.
   @HiveField(0)
-  SpaceshipType spaceshipType;
+  SpaceshipType? spaceshipType;
 
   // List of all the spaceships owned by player.
   // Note that just storing their type is enough.
   @HiveField(1)
-  final List<SpaceshipType> ownedSpaceships;
+  final List<SpaceshipType>? ownedSpaceships;
 
   // Highest player score so far.
   @HiveField(2)
-  int _highScore;
-  int get highScore => _highScore;
+  int? _highScore;
+  int? get highScore => _highScore;
 
   // Balance money.
   @HiveField(3)
@@ -41,7 +41,7 @@ class PlayerData extends ChangeNotifier with HiveObjectMixin {
     _currentScore = newScore;
     // While setting currentScore to a new value
     // also make sure to update highScore.
-    if (_highScore < _currentScore) {
+    if (_highScore! < _currentScore) {
       _highScore = _currentScore;
     }
   }
@@ -50,7 +50,7 @@ class PlayerData extends ChangeNotifier with HiveObjectMixin {
      this.spaceshipType,
      this.ownedSpaceships,
     int highScore = 0,
-     this.money,
+     required this.money,
   }) {
     _highScore = highScore;
   }
@@ -77,7 +77,7 @@ class PlayerData extends ChangeNotifier with HiveObjectMixin {
 
   /// Returns true if given [SpaceshipType] is owned by player.
   bool isOwned(SpaceshipType spaceshipType) {
-    return ownedSpaceships.contains(spaceshipType);
+    return ownedSpaceships!.contains(spaceshipType);
   }
 
   /// Returns true if player has enough money to by given [SpaceshipType].
@@ -94,7 +94,7 @@ class PlayerData extends ChangeNotifier with HiveObjectMixin {
   void buy(SpaceshipType spaceshipType) {
     if (canBuy(spaceshipType) && (!isOwned(spaceshipType))) {
       money -= Spaceship.getSpaceshipByType(spaceshipType).cost;
-      ownedSpaceships.add(spaceshipType);
+      ownedSpaceships!.add(spaceshipType);
       notifyListeners();
 
       // Saves player data to disk.

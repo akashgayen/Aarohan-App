@@ -28,7 +28,7 @@ String apiUrl = "jdapi.nitdgplug.org";
 
 bool header = false;
 bool intro = false;
-ValueNotifier<double> lat, long;
+ValueNotifier<double>? lat, long;
 List<Marker> _markers = [];
 int x = 0;
 double mapZoom = 15.0;
@@ -83,8 +83,8 @@ class _HomePageState extends State<HomePage>
           desiredAccuracy: LocationAccuracy.high);
       print("Longi" + currentPosition.longitude.toString());
       setState(() {
-        lat.value = currentPosition.latitude;
-        long.value = currentPosition.longitude;
+        lat!.value = currentPosition.latitude;
+        long!.value = currentPosition.longitude;
       });
       print("Latit" + currentPosition.latitude.toString());
     }
@@ -411,7 +411,7 @@ class _HomePageState extends State<HomePage>
     }
   }
 
-  AnimationController _animationController;
+  AnimationController? _animationController;
 
   @override
   void initState() {
@@ -419,7 +419,7 @@ class _HomePageState extends State<HomePage>
     SharedPreferences.getInstance().then((value) {
       setState(() {
         _sharedPrefs = value;
-        _finalAnswerGiven = _sharedPrefs.get("finalAnswerGiven");
+        _finalAnswerGiven = _sharedPrefs.get("finalAnswerGiven") as bool;
         print("DATA FINAL ANSWER GIVEN : $_finalAnswerGiven");
       });
     });
@@ -432,10 +432,10 @@ class _HomePageState extends State<HomePage>
     // getMainQuestion();
     lat = ValueNotifier<double>(0.0);
     long = ValueNotifier<double>(0.0);
-    lat.addListener(() {
+    lat!.addListener(() {
       setState(() {});
     });
-    long.addListener(() {
+    long!.addListener(() {
       setState(() {});
     });
     getLevelData().then((val) {
@@ -587,8 +587,7 @@ class _HomePageState extends State<HomePage>
                                                                       .width /
                                                                   1.5,
                                                               child: Column(
-                                                                children: <
-                                                                    Widget>[
+                                                                children: <Widget>[
                                                                   const Text(
                                                                     "Are you sure you want to unlock this clue?",
                                                                     style:
@@ -602,8 +601,7 @@ class _HomePageState extends State<HomePage>
                                                                     ),
                                                                   ),
                                                                   ButtonBar(
-                                                                    children: <
-                                                                        Widget>[
+                                                                    children: <Widget>[
                                                                       // ignore: deprecated_member_use
                                                                       TextButton(
                                                                         style:
@@ -739,7 +737,7 @@ class _HomePageState extends State<HomePage>
                                                                           context,
                                                                       Widget
                                                                           child,
-                                                                      ImageChunkEvent
+                                                                      ImageChunkEvent?
                                                                           loadingProgress) {
                                                                 if (loadingProgress ==
                                                                     null) {

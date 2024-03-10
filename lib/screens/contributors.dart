@@ -82,7 +82,7 @@ class _ContributorsState extends State<Contributors> {
                                               topLeft: Radius.circular(7.sp)),
                                           child: CachedNetworkImage(
                                             imageUrl: contributorItems[index]
-                                                .imageUrl,
+                                                .imageUrl!,
                                             fit: BoxFit.cover,
                                             height: 17.h,
                                             width: 45.w,

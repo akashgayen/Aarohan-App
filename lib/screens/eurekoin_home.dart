@@ -12,7 +12,7 @@ class Eurekoin_Home extends StatefulWidget {
 class _Eurekoin_HomeState extends State<Eurekoin_Home> {
   TextEditingController editingController = TextEditingController();
 
-  void setEurekoinRegistered() async {
+  Future<void> setEurekoinRegistered() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('eurekoinregistered', true);
   }

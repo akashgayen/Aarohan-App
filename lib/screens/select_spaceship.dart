@@ -11,7 +11,7 @@ import 'main_menu.dart';
 // Represents the spaceship selection menu from where player can
 // change current spaceship or buy a new one.
 class SelectSpaceship extends StatelessWidget {
-  const SelectSpaceship({Key key}) : super(key: key);
+  const SelectSpaceship({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class SelectSpaceship extends StatelessWidget {
             Consumer<PlayerData>(
               builder: (context, playerData, child) {
                 final spaceship =
-                    Spaceship.getSpaceshipByType(playerData.spaceshipType);
+                    Spaceship.getSpaceshipByType(playerData.spaceshipType!);
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -65,8 +65,8 @@ class SelectSpaceship extends StatelessWidget {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(spaceship.assetPath),
-                      Text(spaceship.name),
+                      Image.asset(spaceship.assetPath!),
+                      Text(spaceship.name!),
                       Text('Speed: ${spaceship.speed}'),
                       Text('Level: ${spaceship.level}'),
                       Text('Cost: ${spaceship.cost}'),

@@ -5,24 +5,24 @@ import 'package:aarohan_app/services/auth_services.dart';
 enum Status { Uninitialized, Authenticated, Authenticating, Unauthenticated }
 
 class UserRepository with ChangeNotifier {
-  AuthService _authService;
+  AuthService? _authService;
   FirebaseAuth _auth = FirebaseAuth.instance;
-  User _user;
+  User? _user;
 
   Status _status = Status.Uninitialized;
 
   UserRepository.instance() : _auth = FirebaseAuth.instance {
-    _auth.authStateChanges().listen(_onAuthStateChanged);
+    _auth.authStateChanges().listen(_onAuthStateChanged as void Function(User? event)?);
   }
 
   Status get status => _status;
-  User get user => _user;
+  User? get user => _user;
 
   Future signIn() async {
     try {
       _status = Status.Authenticating;
       notifyListeners();
-      await _authService.gSignIn();
+      await _authService!.gSignIn();
     } catch (e) {
       _status = Status.Unauthenticated;
       notifyListeners();
@@ -30,7 +30,7 @@ class UserRepository with ChangeNotifier {
   }
 
   Future signOut() async {
-    await _authService.gSignOut();
+    await _authService!.gSignOut();
     _status = Status.Unauthenticated;
     notifyListeners();
     return Future.delayed(Duration.zero);

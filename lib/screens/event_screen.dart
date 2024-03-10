@@ -35,10 +35,10 @@ class _Event_DetailState extends State<Event_Detail> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     double threshold = 100;
-    data = ModalRoute.of(context).settings.arguments;
+    data = ModalRoute.of(context)?.settings.arguments as Map;
     EventItem eventItem = data['eventItem'];
-    bool vis = checkCalendar(eventItem.title, users.calendar);
-    List<String> textsplit = eventItem.contact.split('-');
+    bool vis = checkCalendar(eventItem.title!, users.calendar!);
+    List<String> textsplit = eventItem.contact!.split('-');
     return Sizer(
       builder: (context, orientation, deviceType) {
         return SafeArea(
@@ -108,7 +108,7 @@ class _Event_DetailState extends State<Event_Detail> {
                                     )),
                                     background: Container(
                                         child: CachedNetworkImage(
-                                      imageUrl: eventItem.imageUrl,
+                                      imageUrl: eventItem.imageUrl!,
                                       width: 100.w,
                                       fit: BoxFit.cover,
                                       height: 60.h,
@@ -192,7 +192,7 @@ class _Event_DetailState extends State<Event_Detail> {
                                                                 2.w,
                                                                 1.8.h),
                                                         child: Text(
-                                                            eventItem.date,
+                                                            eventItem.date!,
                                                             style: TextStyle(
                                                                 fontSize: 14.sp,
                                                                 fontFamily:
@@ -247,7 +247,7 @@ class _Event_DetailState extends State<Event_Detail> {
                                                         EdgeInsets.fromLTRB(2.w,
                                                             2.h, 2.w, 1.8.h),
                                                     child: Text(
-                                                        eventItem.category,
+                                                        eventItem.category!,
                                                         style: TextStyle(
                                                             fontSize: 14.sp,
                                                             fontFamily: 'Staat',
@@ -427,7 +427,7 @@ class _Event_DetailState extends State<Event_Detail> {
                                     Padding(
                                       padding:
                                           EdgeInsets.fromLTRB(5.w, 3.h, 2.w, 0),
-                                      child: Text(eventItem.title,
+                                      child: Text(eventItem.title!,
                                           style: TextStyle(
                                               fontSize: 21.5.sp,
                                               fontFamily: 'Poppins',
@@ -438,7 +438,7 @@ class _Event_DetailState extends State<Event_Detail> {
                                     Padding(
                                       padding: EdgeInsets.fromLTRB(
                                           5.w, 3.h, 7.w, 2.h),
-                                      child: Text(eventItem.body,
+                                      child: Text(eventItem.body!,
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 12.sp,

@@ -61,7 +61,7 @@ class _PrelimsState extends State<Prelims> {
                                       EdgeInsets.fromLTRB(4.w, 1.h, 4.w, 1.h),
                                   child: InkWell(
                                     onTap: () {
-                                      FocusManager.instance.primaryFocus
+                                      FocusManager.instance.primaryFocus!
                                           .unfocus();
                                       Navigator.push(
                                           context,

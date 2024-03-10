@@ -13,7 +13,7 @@ class ContactResponse {
     this.contactItem,
   });
 
-  List<ContactItem> contactItem;
+  List<ContactItem>? contactItem;
 
   factory ContactResponse.fromJson(Map<String, dynamic> json) =>
       ContactResponse(
@@ -22,17 +22,17 @@ class ContactResponse {
       );
 
   Map<String, dynamic> toJson() => {
-    "ContactItem": List<dynamic>.from(contactItem.map((x) => x.toJson())),
+    "ContactItem": List<dynamic>.from(contactItem!.map((x) => x.toJson())),
   };
   static ContactResponse contactResponse = ContactResponse();
 }
 
 class ContactItem {
-  ContactItem({this.phone, this.imageUrl, this.facebook,this.name});
+  ContactItem({this.phone, this.imageUrl, this.facebook, required this.name});
 
-  String phone;
-  String facebook;
-  String imageUrl;
+  String? phone;
+  String? facebook;
+  String? imageUrl;
   String name;
 
   factory ContactItem.fromJson(Map<String, dynamic> json) => ContactItem(
@@ -43,7 +43,7 @@ class ContactItem {
   );
 
   factory ContactItem.fromFirestore(DocumentSnapshot documentSnapshot) {
-    return ContactItem.fromJson(documentSnapshot.data());
+    return ContactItem.fromJson(documentSnapshot.data() as Map<String,dynamic>);
   }
 
   Map<String, dynamic> toJson() =>

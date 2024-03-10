@@ -16,7 +16,7 @@ class ScheduleResponse {
     this.dayItem,
   });
 
-  List<DayItem> dayItem;
+  List<DayItem>? dayItem;
 
   factory ScheduleResponse.fromJson(Map<String, dynamic> json) => ScheduleResponse(
     dayItem: List<DayItem>.from(
@@ -24,7 +24,7 @@ class ScheduleResponse {
   );
 
   Map<String, dynamic> toJson() => {
-    "DayItem": List<dynamic>.from(dayItem.map((x) => x.toJson())),
+    "DayItem": List<dynamic>.from(dayItem!.map((x) => x.toJson())),
   };
   static ScheduleResponse scheduleResponse = ScheduleResponse();
 }
@@ -34,14 +34,14 @@ class DayItem {
     this.events
   });
 
-  List events;
+  List? events;
 
   factory DayItem.fromJson(Map<String, dynamic> json) => DayItem(
     events: json['events']
   );
 
   factory DayItem.fromFirestore(DocumentSnapshot documentSnapshot) {
-    return DayItem.fromJson(documentSnapshot.data());
+    return DayItem.fromJson(documentSnapshot.data() as Map<String,dynamic>);
   }
 
   Map<String, dynamic> toJson() => {

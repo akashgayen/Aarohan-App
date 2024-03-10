@@ -78,7 +78,7 @@ class _ContactState extends State<Contact> {
                                             topLeft: Radius.circular(7.sp)),
                                         child: CachedNetworkImage(
                                           imageUrl:
-                                              contactItems[index].imageUrl,
+                                              contactItems[index].imageUrl!,
                                           fit: BoxFit.cover,
                                           height: 15.h,
                                           width: 45.w,

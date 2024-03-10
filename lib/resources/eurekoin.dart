@@ -6,10 +6,10 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Eurekoin {
-  static User currentUser = FirebaseAuth.instance.currentUser;
+  static User currentUser = FirebaseAuth.instance.currentUser!;
   static final String baseUrl = "https://eurekoinapi.nitdgplug.org";
-  static int userEurekoin;
-  static String userReferralCode;
+  static int? userEurekoin;
+  static String? userReferralCode;
   static var transHistory;
 
   // Future _getUser() async {
@@ -47,7 +47,7 @@ class Eurekoin {
   static Future getReferralCode() async {
     await dotenv.load(fileName: ".env");
 
-    var email = FirebaseAuth.instance.currentUser.providerData[0].email;
+    var email = FirebaseAuth.instance.currentUser!.providerData[0].email;
     var bytes = utf8.encode("$email" + "${dotenv.env['LOGIN_KEY']}");
     var encoded = sha1.convert(bytes);
     String apiUrl =
@@ -69,7 +69,7 @@ class Eurekoin {
 
   static Future getUserEurekoin() async {
     await dotenv.load(fileName: ".env");
-    var email = FirebaseAuth.instance.currentUser.providerData[0].email;
+    var email = FirebaseAuth.instance.currentUser!.providerData[0].email;
     var bytes = utf8.encode("$email" + "${dotenv.env['LOGIN_KEY']}");
     var encoded = sha1.convert(bytes);
     print(encoded);
@@ -86,7 +86,7 @@ class Eurekoin {
   static Future isEurekoinUserRegistered() async {
     await dotenv.load(fileName: ".env");
 
-    var email = FirebaseAuth.instance.currentUser.providerData[0].email;
+    var email = FirebaseAuth.instance.currentUser!.providerData[0].email;
     var bytes = utf8.encode("$email" + "${dotenv.env['LOGIN_KEY']}");
     var encoded = sha1.convert(bytes);
     String apiUrl = "$baseUrl/api/exists/?token=$encoded";
@@ -96,7 +96,7 @@ class Eurekoin {
     return status;
   }
 
-  static Future<List> suggestionListBuilder(String email) async {
+  static Future<List?> suggestionListBuilder(String email) async {
     if (email != '') {
       String apiUrl =
           "https://eurekoinapi.nitdgplug.org/api/users/?pattern=$email";
@@ -109,8 +109,8 @@ class Eurekoin {
   static Future transactionsHistory() async {
     await dotenv.load(fileName: ".env");
 
-    var email = FirebaseAuth.instance.currentUser.providerData[0].email;
-    var bytes = utf8.encode(email + "${dotenv.env['LOGIN_KEY']}");
+    var email = FirebaseAuth.instance.currentUser!.providerData[0].email;
+    var bytes = utf8.encode(email! + "${dotenv.env['LOGIN_KEY']}");
     var encoded = sha1.convert(bytes);
     print(email);
     String apiUrl =
@@ -127,7 +127,7 @@ class Eurekoin {
     await dotenv.load(fileName: ".env");
 
     var email = currentUser.providerData[0].email;
-    var bytes = utf8.encode("" + email + '${dotenv.env['LOGIN_KEY']}');
+    var bytes = utf8.encode("" + email! + '${dotenv.env['LOGIN_KEY']}');
 
     var encoded = sha1.convert(bytes);
     print(encoded.toString());
@@ -142,12 +142,12 @@ class Eurekoin {
 
   static Future registerEurekoinUser(var referalCode) async {
     print("NKJBJB");
-    var email = FirebaseAuth.instance.currentUser.providerData[0].email;
-    var name = FirebaseAuth.instance.currentUser.providerData[0].displayName;
+    var email = FirebaseAuth.instance.currentUser!.providerData[0].email;
+    var name = FirebaseAuth.instance.currentUser!.providerData[0].displayName;
     print(email);
     print(name);
     String apiUrl =
-        "$baseUrl/api/register?name=$name&email=$email&referred_invite_code=$referalCode&image=${FirebaseAuth.instance.currentUser.providerData[0].photoURL}";
+        "$baseUrl/api/register?name=$name&email=$email&referred_invite_code=$referalCode&image=${FirebaseAuth.instance.currentUser!.providerData[0].photoURL}";
     print(apiUrl);
     http.Response response = await http.get(Uri.parse(apiUrl));
     print(response.statusCode);

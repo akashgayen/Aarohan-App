@@ -16,7 +16,7 @@ import '../models/user.dart';
 import '../services/auth_services.dart';
 
 class BottomMenu extends StatefulWidget {
-  const BottomMenu({Key key}) : super(key: key);
+  const BottomMenu({Key? key}) : super(key: key);
 
   @override
   State<BottomMenu> createState() => _BottomMenuState();
@@ -28,7 +28,7 @@ class _BottomMenuState extends State<BottomMenu> {
   getuser() async {
     final FirebaseAuth _auth = FirebaseAuth.instance;
     AuthService authService = AuthService();
-    await authService.storeUser(_auth.currentUser);
+    await authService.storeUser(_auth.currentUser!);
   }
 
   List<String> menuBarIconsUnSelected = [
@@ -46,7 +46,7 @@ class _BottomMenuState extends State<BottomMenu> {
   String consoleIcon = 'assets/menuBarConsole0.png';
 
   final _firestore = FirebaseFirestore.instance;
-  String JDTitle;
+  String? JDTitle;
 
   @override
   void initState() {
@@ -63,7 +63,7 @@ class _BottomMenuState extends State<BottomMenu> {
     // String EventName = db
     getuser();
     List<ComingItem> comingItems = Provider.of<List<ComingItem>>(context);
-    Users users;
+    Users? users;
     if (Users.us != null) {
       setState(() {
         users = Users.us;
@@ -145,10 +145,10 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                   .circular(15),
                                                         ),
                                                         child: (users
-                                                                    .photoURL !=
+                                                                    ?.photoURL !=
                                                                 null)
                                                             ? Image.network(
-                                                                users.photoURL,
+                                                                users!.photoURL!,
                                                               )
                                                             : Image.asset(
                                                                 'assets/profile1.png'),
@@ -162,8 +162,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                 .start,
                                                         children: [
                                                           Text(
-                                                            (users.name != null)
-                                                                ? "${users.name}"
+                                                            (users?.name != null)
+                                                                ? "${users?.name}"
                                                                 : "",
                                                             style: TextStyle(
                                                                 fontFamily:
@@ -179,9 +179,9 @@ class _BottomMenuState extends State<BottomMenu> {
                                                             height: 1,
                                                           ),
                                                           Text(
-                                                            (users.email !=
+                                                            (users?.email !=
                                                                     null)
-                                                                ? "${users.email}"
+                                                                ? "${users?.email}"
                                                                 : "",
                                                             style: TextStyle(
                                                                 letterSpacing:
@@ -352,11 +352,11 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                         15),
                                                           ),
                                                           child: (users
-                                                                      .photoURL !=
+                                                                      ?.photoURL !=
                                                                   null)
                                                               ? Image.network(
-                                                                  users
-                                                                      .photoURL,
+                                                                  users!
+                                                                      .photoURL!,
                                                                 )
                                                               : Image.asset(
                                                                   'assets/profile1.png'),
@@ -370,9 +370,9 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              (users.name !=
+                                                              (users?.name !=
                                                                       null)
-                                                                  ? "${users.name}"
+                                                                  ? "${users?.name}"
                                                                   : "",
                                                               style: TextStyle(
                                                                   fontFamily:
@@ -388,9 +388,9 @@ class _BottomMenuState extends State<BottomMenu> {
                                                               height: 1,
                                                             ),
                                                             Text(
-                                                              (users.email !=
+                                                              (users?.email !=
                                                                       null)
-                                                                  ? "${users.email}"
+                                                                  ? "${users?.email}"
                                                                   : "",
                                                               style: TextStyle(
                                                                   letterSpacing:
@@ -541,11 +541,11 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                         15),
                                                           ),
                                                           child: (users
-                                                                      .photoURL !=
+                                                                      ?.photoURL !=
                                                                   null)
                                                               ? Image.network(
-                                                                  users
-                                                                      .photoURL,
+                                                                  users!
+                                                                      .photoURL!,
                                                                 )
                                                               : Image.asset(
                                                                   'assets/profile1.png'),
@@ -559,9 +559,9 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              (users.name !=
+                                                              (users?.name !=
                                                                       null)
-                                                                  ? "${users.name}"
+                                                                  ? "${users!.name}"
                                                                   : "",
                                                               style: TextStyle(
                                                                   fontFamily:
@@ -577,9 +577,9 @@ class _BottomMenuState extends State<BottomMenu> {
                                                               height: 1,
                                                             ),
                                                             Text(
-                                                              (users.email !=
+                                                              (users?.email !=
                                                                       null)
-                                                                  ? "${users.email}"
+                                                                  ? "${users!.email}"
                                                                   : "",
                                                               style: TextStyle(
                                                                   letterSpacing:
@@ -623,7 +623,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                   'assets/journo.png',
                                                               itemName:
                                                                   // 'Journo Detective',
-                                                                  JDTitle,
+                                                                  JDTitle!,
                                                               routeName:
                                                                   '/journo',
                                                             ),

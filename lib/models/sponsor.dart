@@ -14,7 +14,7 @@ class SponsorResponse {
     this.sponsorItem,
   });
 
-  List<SponsorItem> sponsorItem;
+  List<SponsorItem>? sponsorItem;
 
   factory SponsorResponse.fromJson(Map<String, dynamic> json) =>
       SponsorResponse(
@@ -23,7 +23,7 @@ class SponsorResponse {
       );
 
   Map<String, dynamic> toJson() => {
-    "SponsorItem": List<dynamic>.from(sponsorItem.map((x) => x.toJson())),
+    "SponsorItem": List<dynamic>.from(sponsorItem!.map((x) => x.toJson())),
   };
   static SponsorResponse sponsorResponse = SponsorResponse();
 }
@@ -36,10 +36,10 @@ class SponsorItem {
     this.priority
   });
 
-  String category;
-  String priority;
-  String imageUrl;
-  String description;
+  String? category;
+  String? priority;
+  String? imageUrl;
+  String? description;
 
   factory SponsorItem.fromJson(Map<String, dynamic> json) =>
       SponsorItem(category: json['category'],
@@ -50,7 +50,7 @@ class SponsorItem {
       );
 
   factory SponsorItem.fromFirestore(DocumentSnapshot documentSnapshot) {
-    return SponsorItem.fromJson(documentSnapshot.data());
+    return SponsorItem.fromJson(documentSnapshot.data() as Map<String,dynamic>);
   }
 
   Map<String, dynamic> toJson() => {"category" : category,

@@ -44,7 +44,7 @@ class Sort_Events {
       if (N[i['time']] == null) {
         N[i['time']] = [i['name']];
       } else
-        N[i['time']].add(i['name']);
+        N[i['time']]?.add(i['name']);
     }
     return N;
   }

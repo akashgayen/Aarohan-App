@@ -42,7 +42,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   ];
 
   int x = 0;
-  int selectedIndex;
+  int? selectedIndex;
   CarouselController buttonCarouselController = CarouselController();
 
   List<EventItem> arr = [];
@@ -51,7 +51,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   // GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
   bool showBottomMenu = false;
   bool search = false;
-  List<EventItem> eventItems;
+  List<EventItem>? eventItems;
 
   bool visibleBottomMenu = false;
 
@@ -63,7 +63,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
     } else {
       results = M
           .where((user) =>
-              user.title.toLowerCase().contains(enteredKeyword.toLowerCase()))
+              user.title!.toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
       // we use the toLowerCase() method to make it case-insensitive
     }
@@ -78,7 +78,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   void initState() {
     // at the beginning, all users are shown
 
-    _foundUsers = eventItems;
+    _foundUsers = eventItems!;
     super.initState();
   }
 
@@ -88,8 +88,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
     eventItems = Provider.of<List<EventItem>>(context);
 
     setState(() {
-      if (x == 0 && eventItems.length != 0) {
-        arr = eventItems;
+      if (x == 0 && eventItems!.length != 0) {
+        arr = eventItems!;
         x++;
       }
     });
@@ -158,7 +158,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                         setState(() {
                                           selectedIndex = -1;
                                         });
-                                        _runFilter(value, eventItems);
+                                        _runFilter(value, eventItems!);
                                       },
                                       decoration: InputDecoration(
                                           contentPadding: EdgeInsets.all(10.sp),
@@ -208,8 +208,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                     onTap: () {
                                       setState(() {
                                         selectedIndex = index;
-                                        _foundUsers = eventItems
-                                            .where((element) => (element.tag
+                                        _foundUsers = eventItems!
+                                            .where((element) => (element.tag!
                                                 .contains(tags[index])))
                                             .toList();
                                       });
@@ -278,7 +278,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             InkWell(
                               onTap: () {
                                 setState(() {
-                                  _foundUsers = eventItems;
+                                  _foundUsers = eventItems!;
                                 });
                                 setState(() {
                                   search = !search;
@@ -318,7 +318,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           InkWell(
                             onTap: () {
                               setState(() {
-                                arr = eventItems;
+                                arr = eventItems!;
                                 selectedcategory = "All";
                                 day = "0";
                               });
@@ -357,7 +357,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           InkWell(
                             onTap: () {
                               setState(() {
-                                arr = eventItems
+                                arr = eventItems!
                                     .where((element) =>
                                         element.category == "Workshop")
                                     .toList();
@@ -399,7 +399,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           InkWell(
                             onTap: () {
                               setState(() {
-                                arr = eventItems
+                                arr = eventItems!
                                     .where((element) =>
                                         element.category == "Event")
                                     .toList();
@@ -441,7 +441,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           InkWell(
                             onTap: () {
                               setState(() {
-                                arr = eventItems
+                                arr = eventItems!
                                     .where(
                                         (element) => element.category == "Talk")
                                     .toList();
@@ -557,7 +557,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                                       height: 40.h,
                                                       fit: BoxFit.cover),
                                                 ),
-                                                imageUrl: arr[index].imageUrl,
+                                                imageUrl: arr[index].imageUrl!,
                                               ),
                                             ),
                                           ),
@@ -593,7 +593,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                     EdgeInsets.fromLTRB(4.w, 1.h, 4.w, 1.h),
                                 child: InkWell(
                                   onTap: () {
-                                    FocusManager.instance.primaryFocus
+                                    FocusManager.instance.primaryFocus!
                                         .unfocus();
                                     Navigator.pushNamed(context, '/eventpage',
                                         arguments: {
@@ -625,7 +625,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                                     Radius.circular(10.sp)),
                                             child: CachedNetworkImage(
                                               imageUrl:
-                                                  _foundUsers[index].imageUrl,
+                                                  _foundUsers[index].imageUrl!,
                                               width: 23.w,
                                               fit: BoxFit.cover,
                                               height: 23.w,
@@ -740,9 +740,9 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             setState(() {
                               day = "3rd";
                               selectedcategory = "";
-                              arr = eventItems
+                              arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date).day == 3))
+                                      (DateTime.parse(element.date!).day == 3))
                                   .toList();
                             });
                           },
@@ -776,9 +776,9 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             setState(() {
                               day = "4th";
                               selectedcategory = "";
-                              arr = eventItems
+                              arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date).day == 4))
+                                      (DateTime.parse(element.date!).day == 4))
                                   .toList();
                             });
                           },
@@ -812,9 +812,9 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             setState(() {
                               day = "5th";
                               selectedcategory = "";
-                              arr = eventItems
+                              arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date).day == 5))
+                                      (DateTime.parse(element.date!).day == 5))
                                   .toList();
                             });
                           },
@@ -848,9 +848,9 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             setState(() {
                               day = "6th";
                               selectedcategory = "";
-                              arr = eventItems
+                              arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date).day == 6))
+                                      (DateTime.parse(element.date!).day == 6))
                                   .toList();
                             });
                           },
