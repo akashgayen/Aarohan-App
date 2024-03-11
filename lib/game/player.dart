@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:math';
 
 import 'package:flame/collisions.dart';
@@ -39,14 +41,14 @@ class Player extends SpriteComponent
 
   // A reference to PlayerData so that
   // we can modify money.
-   PlayerData _playerData;
+  late PlayerData _playerData;
   int get score => _playerData.currentScore;
 
   // If true, player will shoot 3 bullets at a time.
   bool _shootMultipleBullets = false;
 
   // Controls for how long multi-bullet power up is active.
-   Timer _powerUpTimer;
+  late Timer _powerUpTimer;
 
   // Holds an object of Random class to generate random numbers.
   final _random = Random();
@@ -59,11 +61,11 @@ class Player extends SpriteComponent
   }
 
   Player({
-     this.joystick,
-     this.spaceshipType,
-    Sprite sprite,
-    Vector2 position,
-    Vector2 size,
+    required this.joystick,
+    required this.spaceshipType,
+    required Sprite sprite,
+    required Vector2 position,
+    required Vector2 size,
   })  : _spaceship = Spaceship.getSpaceshipByType(spaceshipType),
         super(sprite: sprite, position: position, size: size) {
     // Sets power up timer to 4 seconds. After 4 seconds,
@@ -87,7 +89,7 @@ class Player extends SpriteComponent
     );
     add(shape);
 
-    _playerData = Provider.of<PlayerData>(gameRef.buildContext, listen: false);
+    _playerData = Provider.of<PlayerData>(gameRef.buildContext!, listen: false);
   }
 
   @override
@@ -159,11 +161,11 @@ class Player extends SpriteComponent
     // will be smaller and for devices with lower frame rates, it will be larger. Multiplying speed with
     // delta time ensure that player speed remains same irrespective of the device FPS.
     if (!joystick.delta.isZero()) {
-      position.add(joystick.relativeDelta * _spaceship.speed * dt);
+      position.add(joystick.relativeDelta * _spaceship.speed! * dt);
     }
 
     if (!keyboardDelta.isZero()) {
-      position.add(keyboardDelta * _spaceship.speed * dt);
+      position.add(keyboardDelta * _spaceship.speed! * dt);
     }
 
     // Clamp position of player such that the player sprite does not go outside the screen size.
@@ -197,7 +199,7 @@ class Player extends SpriteComponent
       sprite: gameRef.spriteSheet.getSpriteById(28),
       size: Vector2(64, 64),
       position: position.clone(),
-      level: _spaceship.level,
+      level: _spaceship.level!,
     );
 
     // Anchor it to center and add to game world.
@@ -217,7 +219,7 @@ class Player extends SpriteComponent
           sprite: gameRef.spriteSheet.getSpriteById(28),
           size: Vector2(64, 64),
           position: position.clone(),
-          level: _spaceship.level,
+          level: _spaceship.level!,
         );
 
         // Anchor it to center and add to game world.
@@ -261,7 +263,7 @@ class Player extends SpriteComponent
   void setSpaceshipType(SpaceshipType spaceshipType) {
     spaceshipType = spaceshipType;
     _spaceship = Spaceship.getSpaceshipByType(spaceshipType);
-    sprite = gameRef.spriteSheet.getSpriteById(_spaceship.spriteId);
+    sprite = gameRef.spriteSheet.getSpriteById(_spaceship.spriteId!);
   }
 
   // Allows player to first multiple bullets for 4 seconds when called.

@@ -23,7 +23,7 @@ class Enemy extends SpriteComponent
   Vector2 moveDirection = Vector2(0, 1);
 
   // Controls for how long enemy should be freezed.
-  Timer _freezeTimer;
+  late Timer _freezeTimer;
 
   // Holds an object of Random class to generate random numbers.
   final _random = Random();
@@ -58,10 +58,10 @@ class Enemy extends SpriteComponent
   }
 
   Enemy({
-    Sprite sprite,
-    this.enemyData,
-    Vector2 position,
-    Vector2 size,
+    required Sprite sprite,
+    required this.enemyData,
+    required Vector2 position,
+    required Vector2 size,
   }) : super(sprite: sprite, position: position, size: size) {
     // Rotates the enemy component by 180 degrees. This is needed because
     // all the sprites initially face the same direct, but we want enemies to be
@@ -69,19 +69,19 @@ class Enemy extends SpriteComponent
     angle = pi;
 
     // Set the current speed from enemyData.
-    _speed = enemyData.speed;
+    _speed = enemyData.speed!;
 
     // Set hitpoint to correct value from enemyData.
-    _hitPoints = enemyData.level * 10;
+    _hitPoints = (enemyData.level! * 10);
     _hpText.text = '$_hitPoints HP';
 
     // Sets freeze time to 2 seconds. After 2 seconds speed will be reset.
     _freezeTimer = Timer(2, onTick: () {
-      _speed = enemyData.speed;
+      _speed = enemyData.speed!;
     });
 
     // If this enemy can move horizontally, randomize the move direction.
-    if (enemyData.hMove) {
+    if (enemyData.hMove!) {
       moveDirection = getRandomDirection();
     }
   }
@@ -139,7 +139,7 @@ class Enemy extends SpriteComponent
     // player's score by 1.
     final command = Command<Player>(action: (player) {
       // Use the correct killPoint to increase player's score.
-      player.addToScore(enemyData.killPoint);
+      player.addToScore(enemyData.killPoint!);
     });
     gameRef.addCommand(command);
 

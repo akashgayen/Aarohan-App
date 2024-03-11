@@ -15,7 +15,7 @@ abstract class PowerUp extends SpriteComponent
     with HasGameRef<SpacescapeGame>, CollisionCallbacks {
   // Controls how long the power up should be visible
   // before getting destroyed if not picked.
-   Timer? _timer;
+  Timer? _timer;
 
   // Abstract method which child classes should override
   /// and return a [Sprite] for the power up.
@@ -84,7 +84,7 @@ class Nuke extends PowerUp {
 
   @override
   Sprite getSprite() {
-    return PowerUpManager.nukeSprite;
+    return PowerUpManager.nukeSprite!;
   }
 
   @override
@@ -104,7 +104,7 @@ class Health extends PowerUp {
 
   @override
   Sprite getSprite() {
-    return PowerUpManager.healthSprite;
+    return PowerUpManager.healthSprite!;
   }
 
   @override
@@ -124,7 +124,7 @@ class Freeze extends PowerUp {
 
   @override
   Sprite getSprite() {
-    return PowerUpManager.freezeSprite;
+    return PowerUpManager.freezeSprite!;
   }
 
   @override
@@ -155,8 +155,8 @@ class MultiFire extends PowerUp {
       : super(position: position, size: size);
 
   @override
-  Sprite? getSprite() {
-    return PowerUpManager.multiFireSprite;
+  Sprite getSprite() {
+    return PowerUpManager.multiFireSprite!;
   }
 
   @override

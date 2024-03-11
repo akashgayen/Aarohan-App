@@ -32,7 +32,7 @@ class AudioPlayerComponent extends Component with HasGameRef<SpacescapeGame> {
     if (!FlameAudio.audioCache.loadedFiles.containsKey(filename)) return;
 
     if (gameRef.buildContext != null) {
-      if (Provider.of<Settings>(gameRef.buildContext, listen: false)
+      if (Provider.of<Settings>(gameRef.buildContext!, listen: false)
           .backgroundMusic) {
         FlameAudio.bgm.play(filename);
       }
@@ -41,7 +41,7 @@ class AudioPlayerComponent extends Component with HasGameRef<SpacescapeGame> {
 
   void playSfx(String filename) {
     if (gameRef.buildContext != null) {
-      if (Provider.of<Settings>(gameRef.buildContext, listen: false)
+      if (Provider.of<Settings>(gameRef.buildContext!, listen: false)
           .soundEffects) {
         FlameAudio.play(filename);
       }

@@ -31,24 +31,24 @@ class SpacescapeGame extends FlameGame
         HasCollisionDetection,
         HasKeyboardHandlerComponents {
   // Stores a reference to player component.
-   Player _player;
+   late Player _player;
 
   // Stores a reference to the main spritesheet.
-   SpriteSheet spriteSheet;
+   late SpriteSheet spriteSheet;
 
   // Stores a reference to an enemy manager component.
-   EnemyManager _enemyManager;
+   late EnemyManager _enemyManager;
 
   // Stores a reference to an power-up manager component.
-   PowerUpManager _powerUpManager;
+   late PowerUpManager _powerUpManager;
 
   // Displays player score on top left.
-   TextComponent _playerScore;
+   late TextComponent _playerScore;
 
   // Displays player helth on top right.
-   TextComponent _playerHealth;
+   late TextComponent _playerHealth;
 
-   AudioPlayerComponent _audioPlayerComponent;
+   late AudioPlayerComponent _audioPlayerComponent;
 
   // List of commands to be processed in current update.
   final _commandList = List<Command>.empty(growable: true);
@@ -116,7 +116,7 @@ class SpacescapeGame extends FlameGame
       _player = Player(
         joystick: joystick,
         spaceshipType: spaceshipType,
-        sprite: spriteSheet.getSpriteById(spaceship.spriteId),
+        sprite: spriteSheet.getSpriteById(spaceship.spriteId!),
         size: Vector2(64, 64),
         position: size / 2,
       );
@@ -206,9 +206,9 @@ class SpacescapeGame extends FlameGame
   void onAttach() {
     if (buildContext != null) {
       // Get the PlayerData from current build context without registering a listener.
-      final playerData = Provider.of<PlayerData>(buildContext, listen: false);
+      final playerData = Provider.of<PlayerData>(buildContext!, listen: false);
       // Update the current spaceship type of player.
-      _player.setSpaceshipType(playerData.spaceshipType);
+      _player.setSpaceshipType(playerData.spaceshipType!);
     }
     _audioPlayerComponent.playBgm('9. Space Invaders.wav');
     super.onAttach();
@@ -298,6 +298,8 @@ class SpacescapeGame extends FlameGame
           overlays.add(PauseMenu.id);
         }
         break;
+      case AppLifecycleState.hidden:
+        // TODO: Handle this case.
     }
 
     super.lifecycleStateChange(state);
