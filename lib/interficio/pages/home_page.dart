@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage>
   // var currentLocation = LocationData;
   // var location = Location();
   var accuracy;
-  SharedPreferences _sharedPrefs;
+  late SharedPreferences _sharedPrefs;
   bool _finalAnswerGiven = false;
   bool _isUp =
       true; //to maintain state of the animation of leaderboard, instruction sheet
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage>
   var mainQues;
   var finalAns;
 
-  List<dynamic> leaderboard; //stores the current leaderboard
+  late List<dynamic> leaderboard; //stores the current leaderboard
 
   final _answerFieldController =
       TextEditingController(); //to retrieve textfield value
@@ -302,6 +302,7 @@ class _HomePageState extends State<HomePage>
       }
       getLevelData();
       getUnclockedClues();
+      throw ();
     });
 
     print(json.decode(response.body));
@@ -324,8 +325,8 @@ class _HomePageState extends State<HomePage>
         "Content-Type": "application/json"
       },
       body: json.encode({
-        "lat": lat.value,
-        "long": long.value,
+        "lat": lat!.value,
+        "long": long!.value,
         "level_no": levelData["level_no"],
       }),
     );
@@ -388,19 +389,20 @@ class _HomePageState extends State<HomePage>
           color: Colors.white.withOpacity(0.7),
         ),
       ),
-      validator: (String value) {
-        if (value.trim().isEmpty) {
+      validator: (String? value) {
+        if (value!.trim().isEmpty) {
           return "Please enter a valid answer";
         }
+        return null;
       },
-      onSaved: (String value) {},
+      onSaved: (String? value) {},
     );
   }
 
   @override
   void dispose() {
     _answerFieldController.dispose();
-    _animationController.dispose();
+    _animationController?.dispose();
     super.dispose();
   }
 
@@ -454,7 +456,7 @@ class _HomePageState extends State<HomePage>
       LabeledGlobalKey<InnerDrawerState>("label");
 
   void _toggle() {
-    _innerDrawerKey.currentState.toggle(
+    _innerDrawerKey.currentState?.toggle(
         // direction is optional
         // if not set, the last direction will be used
         //InnerDrawerDirection.start OR InnerDrawerDirection.end
@@ -602,7 +604,6 @@ class _HomePageState extends State<HomePage>
                                                                   ),
                                                                   ButtonBar(
                                                                     children: <Widget>[
-                                                                      // ignore: deprecated_member_use
                                                                       TextButton(
                                                                         style:
                                                                             ButtonStyle(
@@ -751,7 +752,7 @@ class _HomePageState extends State<HomePage>
                                                                     value: loadingProgress.expectedTotalBytes !=
                                                                             null
                                                                         ? loadingProgress.cumulativeBytesLoaded /
-                                                                            loadingProgress.expectedTotalBytes
+                                                                            loadingProgress.expectedTotalBytes!
                                                                         : null,
                                                                   ),
                                                                 );
@@ -885,7 +886,7 @@ class _HomePageState extends State<HomePage>
                                                 loadingBuilder:
                                                     (BuildContext context,
                                                         Widget child,
-                                                        ImageChunkEvent
+                                                        ImageChunkEvent?
                                                             loadingProgress) {
                                                   if (loadingProgress == null) {
                                                     return child;
@@ -900,7 +901,7 @@ class _HomePageState extends State<HomePage>
                                                           ? loadingProgress
                                                                   .cumulativeBytesLoaded /
                                                               loadingProgress
-                                                                  .expectedTotalBytes
+                                                                  .expectedTotalBytes!
                                                           : null,
                                                     ),
                                                   );
@@ -937,8 +938,8 @@ class _HomePageState extends State<HomePage>
         } else {
           Position currentPosition = await Geolocator.getCurrentPosition(
               desiredAccuracy: LocationAccuracy.high);
-          lat.value = currentPosition.latitude;
-          long.value = currentPosition.longitude;
+          lat?.value = currentPosition.latitude;
+          long?.value = currentPosition.longitude;
           for (int i = 0; i < _markers.length; i++) {
             if (_markers[i].markerId == MarkerId("start")) {
               _markers.removeAt(i);
@@ -953,11 +954,11 @@ class _HomePageState extends State<HomePage>
                   markerId: MarkerId(
                     "start",
                   ),
-                  position: LatLng(lat.value, long.value),
+                  position: LatLng(lat!.value, long!.value),
                   consumeTapEvents: true,
                   infoWindow: InfoWindow(
                       title:
-                          "${LatLng(lat.value, long.value).latitude}°N,  ${LatLng(lat.value, long.value).longitude}°E"),
+                          "${LatLng(lat!.value, long!.value).latitude}°N,  ${LatLng(lat!.value, long!.value).longitude}°E"),
                   icon: pin),
             );
           });
@@ -968,7 +969,7 @@ class _HomePageState extends State<HomePage>
     }
 
     getCurrentLocation();
-    print(lat.value.toString() + "sjjssgds");
+    print(lat!.value.toString() + "sjjssgds");
     var deviceSize = MediaQuery.of(context).size;
 
 //animation using animatedpositioned. mean position toggle values
@@ -1044,7 +1045,7 @@ class _HomePageState extends State<HomePage>
                           // ),
                           ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: const Color(0xFFFF9e02),
+                                backgroundColor: const Color(0xFFFF9e02),
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 10.0),
                               ),
@@ -1076,6 +1077,7 @@ class _HomePageState extends State<HomePage>
                   statusBarIconBrightness: Brightness.light,
                   systemNavigationBarIconBrightness: Brightness.dark));
               Navigator.pop(context);
+              throw ();
             },
             child: SafeArea(
               child: InnerDrawer(
@@ -1114,9 +1116,9 @@ class _HomePageState extends State<HomePage>
                   print(direction == InnerDrawerDirection.start);
                 },
                 innerDrawerCallback: (a) {
-                  _animationController.value == 0
-                      ? _animationController.forward()
-                      : _animationController.reverse();
+                  _animationController!.value == 0
+                      ? _animationController!.forward()
+                      : _animationController!.reverse();
                 },
                 leftChild: Container(
                   color: Colors.white.withOpacity(0),
@@ -1140,13 +1142,13 @@ class _HomePageState extends State<HomePage>
                           iconSize: 35,
                           onPressed: () {
                             _toggle();
-                            _animationController.value == 1
-                                ? _animationController.forward()
-                                : _animationController.reverse();
+                            _animationController!.value == 1
+                                ? _animationController!.forward()
+                                : _animationController!.reverse();
                           },
                           icon: AnimatedIcon(
                               color: Color(0xFF420000),
-                              progress: _animationController,
+                              progress: _animationController!.view,
                               icon: AnimatedIcons.menu_close),
                         ),
                       ), //google map as main background of the app
@@ -1473,6 +1475,9 @@ class _HomePageState extends State<HomePage>
                                                       ),
                                                       style: OutlinedButton
                                                           .styleFrom(
+                                                        foregroundColor:
+                                                            const Color(
+                                                                0xFF0059B3),
                                                         side: const BorderSide(
                                                           color: Color(
                                                               0xFFa94064), //Color of the border
@@ -1481,8 +1486,6 @@ class _HomePageState extends State<HomePage>
                                                           width:
                                                               1, //width of the border
                                                         ),
-                                                        primary: const Color(
-                                                            0xFF0059B3),
                                                       ),
                                                     )
                                             ],
@@ -1565,7 +1568,7 @@ class _HomePageState extends State<HomePage>
                                                                 ),
                                                               ),
                                                               Text(
-                                                                "${lat.value == 0.0 ? 'Loading..' : lat.value.toStringAsFixed(5) + ' °N'}",
+                                                                "${lat!.value == 0.0 ? 'Loading..' : lat!.value.toStringAsFixed(5) + ' °N'}",
                                                                 style:
                                                                     TextStyle(
                                                                   fontFamily:
@@ -1600,7 +1603,7 @@ class _HomePageState extends State<HomePage>
                                                                 ),
                                                               ),
                                                               Text(
-                                                                "${long.value == 0.0 ? 'Loading..' : long.value.toStringAsFixed(5) + ' °E'}",
+                                                                "${long!.value == 0.0 ? 'Loading..' : long!.value.toStringAsFixed(5) + ' °E'}",
                                                                 style:
                                                                     TextStyle(
                                                                   fontFamily:
@@ -1949,14 +1952,15 @@ class GameMap extends StatefulWidget {
   bool isUp;
   List<LatLng> correctLocations;
 
-  GameMap({Key key, this.isUp, this.correctLocations}) : super(key: key);
+  GameMap({Key? key, required this.isUp, required this.correctLocations})
+      : super(key: key);
 
   @override
   _GameMapState createState() => _GameMapState();
 }
 
 class _GameMapState extends State<GameMap> {
-  BitmapDescriptor pinLocationIcon;
+  late BitmapDescriptor pinLocationIcon;
   Completer<GoogleMapController> mapController = Completer();
   final LatLng initialPosition = const LatLng(28.8283, 87.5795);
 
@@ -2030,7 +2034,7 @@ class _GameMapState extends State<GameMap> {
             child: Center(
               child: FittedBox(
                 child: Text(
-                  "${lat.value.toStringAsFixed(3)}°N,  ${long.value.toStringAsFixed(3)}°E",
+                  "${lat!.value.toStringAsFixed(3)}°N,  ${long!.value.toStringAsFixed(3)}°E",
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
@@ -2052,7 +2056,7 @@ class _GameMapState extends State<GameMap> {
               (await mapController.future).animateCamera(
                 CameraUpdate.newCameraPosition(
                   CameraPosition(
-                      target: LatLng(lat.value, long.value), zoom: mapZoom),
+                      target: LatLng(lat!.value, long!.value), zoom: mapZoom),
                 ),
               );
             },
