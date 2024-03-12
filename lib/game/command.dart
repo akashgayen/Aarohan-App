@@ -7,7 +7,7 @@ class Command<T extends Component> {
   // components of type T.
   void Function(T target) action;
 
-  Command({ this.action});
+  Command({required this.action});
 
   // Runs the callback on given component
   // if it is of type T.

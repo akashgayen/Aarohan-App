@@ -17,18 +17,18 @@ import '../models/player_data.dart';
 class EnemyManager extends Component
     with KnowsGameSize, HasGameRef<SpacescapeGame> {
   // The timer which runs the enemy spawner code at regular interval of time.
-   Timer _timer;
+  late Timer _timer;
 
   // Controls for how long EnemyManager should stop spawning new enemies.
-   Timer _freezeTimer;
+  late Timer _freezeTimer;
 
   // A reference to spriteSheet contains enemy sprites.
-  SpriteSheet spriteSheet;
+  late SpriteSheet spriteSheet;
 
   // Holds an object of Random class to generate random numbers.
   Random random = Random();
 
-  EnemyManager({ this.spriteSheet}) : super() {
+  EnemyManager({required this.spriteSheet}) : super() {
     // Sets the timer to call _spawnEnemy() after every 1 second, until timer is explicitly stops.
     _timer = Timer(1, onTick: _spawnEnemy, repeat: true);
 
@@ -57,7 +57,7 @@ class EnemyManager extends Component
       // Get current score and figure out the max level of enemy that
       // can be spawned for this score.
       int currentScore =
-          Provider.of<PlayerData>(gameRef.buildContext, listen: false)
+          Provider.of<PlayerData>(gameRef.buildContext!, listen: false)
               .currentScore;
       int maxLevel = mapScoreToMaxEnemyLevel(currentScore);
 
@@ -65,7 +65,7 @@ class EnemyManager extends Component
       final enemyData = _enemyDataList.elementAt(random.nextInt(maxLevel * 4));
 
       Enemy enemy = Enemy(
-        sprite: spriteSheet.getSpriteById(enemyData.spriteId),
+        sprite: spriteSheet.getSpriteById(enemyData.spriteId!),
         size: initialSize,
         position: position,
         enemyData: enemyData,
@@ -135,7 +135,7 @@ class EnemyManager extends Component
   }
 
   /// A private list of all [EnemyData]s.
-  static  List<EnemyData> _enemyDataList = [
+  static List<EnemyData> _enemyDataList = [
     EnemyData(
       killPoint: 1,
       speed: 200,

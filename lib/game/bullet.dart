@@ -16,10 +16,10 @@ class Bullet extends SpriteComponent with CollisionCallbacks {
   final int level;
 
   Bullet({
-     Sprite sprite,
-     Vector2 position,
-     Vector2 size,
-     this.level,
+     required Sprite sprite,
+     required Vector2 position,
+     required Vector2 size,
+     required this.level,
   }) : super(sprite: sprite, position: position, size: size);
 
   @override

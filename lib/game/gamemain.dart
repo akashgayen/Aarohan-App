@@ -9,7 +9,7 @@ import '../models/player_data.dart';
 import '../models/spaceship_details.dart';
 
 class gamerunner extends StatefulWidget {
-  const gamerunner({Key key}) : super(key: key);
+  const gamerunner({Key? key}) : super(key: key);
 
   @override
   State<gamerunner> createState() => _gamerunnerState();
@@ -34,11 +34,11 @@ class _gamerunnerState extends State<gamerunner> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        FutureProvider<PlayerData>(
+        FutureProvider<PlayerData?>(
           create: (BuildContext context) => getPlayerData(),
           initialData: PlayerData.fromMap(PlayerData.defaultData),
         ),
-        FutureProvider<Settings>(
+        FutureProvider<Settings?>(
           create: (BuildContext context) => getSettings(),
           initialData: Settings(soundEffects: false, backgroundMusic: false),
         ),
@@ -144,7 +144,7 @@ Future<void> initHive() async {
 }
 
 /// This function reads the stored [PlayerData] from disk.
-Future<PlayerData> getPlayerData() async {
+Future<PlayerData?> getPlayerData() async {
   // Open the player data box and read player data from it.
   final box = await Hive.openBox<PlayerData>(PlayerData.playerDataBox);
   final playerData = box.get(PlayerData.playerDataKey);
@@ -163,7 +163,7 @@ Future<PlayerData> getPlayerData() async {
 }
 
 /// This function reads the stored [Settings] from disk.
-Future<Settings> getSettings() async {
+Future<Settings?> getSettings() async {
   // Open the settings box and read settings from it.
   final box = await Hive.openBox<Settings>(Settings.settingsBox);
   final settings = box.get(Settings.settingsKey);

@@ -7,7 +7,7 @@ class HealthBar extends PositionComponent {
   final Player player;
 
   HealthBar({
-     this.player,
+    required this.player,
     position,
     size,
     scale,
