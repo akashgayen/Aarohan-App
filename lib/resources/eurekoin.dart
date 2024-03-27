@@ -1,4 +1,3 @@
-import 'package:aarohan_app/interficio/pages/home_page.dart';
 import 'package:http/http.dart' as http;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:convert';
@@ -103,6 +102,8 @@ class Eurekoin {
       http.Response response = await http.get(Uri.parse(apiUrl));
       print(response.body);
       return json.decode(response.body)['users'];
+    } else {
+      return null;
     }
   }
 

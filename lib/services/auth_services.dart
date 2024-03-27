@@ -1,11 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:aarohan_app/models/user.dart';
 import 'package:aarohan_app/resources/eurekoin.dart';
-import 'dart:convert';
 
 class AuthService {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -63,7 +61,7 @@ class AuthService {
       // assert(!user.isAnonymous);
       // assert(await user.getIdToken() != null);
       Users.us = Users.fromJson(user_data);
-      final User currentUser = _auth.currentUser!;
+      // final User currentUser = _auth.currentUser!;
       DocumentSnapshot doc =
           await _firestore.collection("Users").doc(user.uid).get();
       if (!doc.exists) {
@@ -85,10 +83,10 @@ class AuthService {
       // assert(user.email != null);
       // assert(user.displayName != null);
       // assert(user.photoURL != null);
-
     } on FirebaseAuthException catch (e) {
       print(e.message);
     }
+    return null;
   }
 
   Future gSignOut() async {

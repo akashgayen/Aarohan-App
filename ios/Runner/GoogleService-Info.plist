@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>550997604028-682susoa035683vr4d3h14m49s4fc8fo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.550997604028-682susoa035683vr4d3h14m49s4fc8fo</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>550997604028-297d0dbi2sd81hrpfo3tl6bsld58es24.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCeB2kUD8VetP1PiWHhZ8ggNMXPyKsbzd4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>550997604028</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.app.aarohan.aarohanapp</string>
+	<key>PROJECT_ID</key>
+	<string>aarohan-76222</string>
+	<key>STORAGE_BUCKET</key>
+	<string>aarohan-76222.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:550997604028:ios:b31e93364bf3957e59c2b9</string>
+	<key>DATABASE_URL</key>
+	<string>https://aarohan-76222.firebaseio.com</string>
+</dict>
+</plist>

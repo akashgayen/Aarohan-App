@@ -51,9 +51,13 @@ class _BottomMenuState extends State<BottomMenu> {
   @override
   void initState() {
     super.initState();
-    _firestore.collection("Events").doc("Journo Detective").get().then((value) {
+    _firestore.collection('Events').doc('Journo Detective').get().then((value) {
       setState(() {
-        JDTitle = value["title"];
+        if (value.exists) {
+          JDTitle = value.data()?["title"];
+        } else {
+          print(0);
+        }
       });
     });
   }
@@ -62,7 +66,7 @@ class _BottomMenuState extends State<BottomMenu> {
   Widget build(BuildContext context) {
     // String EventName = db
     getuser();
-    List<ComingItem> comingItems = Provider.of<List<ComingItem>>(context);
+    // List<ComingItem> comingItems = Provider.of<List<ComingItem>>(context);
     Users? users;
     if (Users.us != null) {
       setState(() {
@@ -148,7 +152,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                     ?.photoURL !=
                                                                 null)
                                                             ? Image.network(
-                                                                users!.photoURL!,
+                                                                users!
+                                                                    .photoURL!,
                                                               )
                                                             : Image.asset(
                                                                 'assets/profile1.png'),
@@ -162,7 +167,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                 .start,
                                                         children: [
                                                           Text(
-                                                            (users?.name != null)
+                                                            (users?.name !=
+                                                                    null)
                                                                 ? "${users?.name}"
                                                                 : "",
                                                             style: TextStyle(
@@ -622,8 +628,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                               leadingImage:
                                                                   'assets/journo.png',
                                                               itemName:
-                                                                  // 'Journo Detective',
-                                                                  JDTitle!,
+                                                                  'Journo Detective',
+                                                              // JDTitle,
                                                               routeName:
                                                                   '/journo',
                                                             ),

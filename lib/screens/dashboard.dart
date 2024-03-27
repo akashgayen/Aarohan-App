@@ -1,25 +1,14 @@
-import 'package:aarohan_app/screens/loader_screen.dart';
-import 'package:aarohan_app/services/auth_services.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:aarohan_app/models/event.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:aarohan_app/widgets/custom_gesture_detector.dart';
-import 'package:from_css_color/from_css_color.dart';
-import 'package:aarohan_app/models/user.dart';
-import 'dart:ui';
-import 'package:aarohan_app/widgets/loader.dart';
-import 'package:aarohan_app/screens/loader_screen.dart';
 
 import '../widgets/bottomMenu.dart';
 
 class Dashboard extends StatefulWidget {
-  bool isIntroDone = false;
+  final bool isIntroDone = false;
 
   @override
   _DashboardState createState() => _DashboardState();
@@ -46,7 +35,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   CarouselController buttonCarouselController = CarouselController();
 
   List<EventItem> arr = [];
-  List<EventItem> _foundUsers = [];
+  List<EventItem>? _foundUsers = [];
   String day = "";
   // GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
   bool showBottomMenu = false;
@@ -78,12 +67,12 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   void initState() {
     // at the beginning, all users are shown
 
-    _foundUsers = eventItems!;
+    _foundUsers = eventItems;
     super.initState();
   }
 
   Widget build(BuildContext context) {
-    TextEditingController editingController = TextEditingController();
+    // TextEditingController editingController = TextEditingController();
 
     eventItems = Provider.of<List<EventItem>>(context);
 
@@ -93,9 +82,9 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         x++;
       }
     });
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-    double threshold = 100;
+    // double height = MediaQuery.of(context).size.height;
+    // double width = MediaQuery.of(context).size.width;
+    // double threshold = 100;
     // print();
 
     return Sizer(builder: (context, orientation, deviceType) {
@@ -584,9 +573,9 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     visible: search,
                     child: Container(
                       height: 73.h,
-                      child: (_foundUsers != null && _foundUsers.isNotEmpty)
+                      child: (_foundUsers != null && _foundUsers!.isNotEmpty)
                           ? ListView.builder(
-                              itemCount: _foundUsers.length,
+                              itemCount: _foundUsers!.length,
                               itemBuilder: (context, index) => Container(
                                 height: 10.h,
                                 padding:
@@ -597,7 +586,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                         .unfocus();
                                     Navigator.pushNamed(context, '/eventpage',
                                         arguments: {
-                                          'eventItem': _foundUsers[index]
+                                          'eventItem': _foundUsers![index]
                                         });
                                   },
                                   child: Container(
@@ -625,7 +614,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                                     Radius.circular(10.sp)),
                                             child: CachedNetworkImage(
                                               imageUrl:
-                                                  _foundUsers[index].imageUrl!,
+                                                  _foundUsers![index].imageUrl!,
                                               width: 23.w,
                                               fit: BoxFit.cover,
                                               height: 23.w,
@@ -668,7 +657,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                           child: Container(
                                             child: Center(
                                               child: Text(
-                                                _foundUsers[index]
+                                                _foundUsers![index]
                                                     .title
                                                     .toString(),
                                                 overflow: TextOverflow.clip,

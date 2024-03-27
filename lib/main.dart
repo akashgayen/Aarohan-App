@@ -1,11 +1,10 @@
+import 'package:aarohan_app/firebase_options.dart';
 import 'package:aarohan_app/game/gamemain.dart';
 import 'package:aarohan_app/interficio/interficio.dart';
 import 'package:aarohan_app/models/event.dart';
 import 'package:aarohan_app/resources/firestore_provider.dart';
 import 'package:aarohan_app/screens/dashboard.dart';
 import 'package:aarohan_app/screens/login.dart';
-import 'package:aarohan_app/screens/main_menu.dart';
-import 'package:aarohan_app/services/auth_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flame/flame.dart';
@@ -13,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
-import 'screens/home_page.dart';
 import 'package:flutter_config/flutter_config.dart';
 import 'package:aarohan_app/screens/event_screen.dart';
 import 'package:aarohan_app/models/schedule.dart';
@@ -32,7 +30,6 @@ import 'package:aarohan_app/screens/coming_soon.dart';
 import 'package:aarohan_app/models/coming_soon.dart';
 import 'package:aarohan_app/screens/prelims.dart';
 import 'package:aarohan_app/models/prelim.dart';
-import 'package:aarohan_app/screens/ar.dart';
 import 'package:flutter/services.dart';
 
 // Plugin and Initialization Variables
@@ -58,7 +55,9 @@ Future main() async {
   // // Initialize hive.
   await initHive();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   FirebaseMessaging.onBackgroundMessage(
       _firebaseMessagingBackgroundHandler); // For Handling Background Messages
