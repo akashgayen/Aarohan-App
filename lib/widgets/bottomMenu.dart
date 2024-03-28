@@ -88,8 +88,8 @@ class _BottomMenuState extends State<BottomMenu> {
                 height: 6.5.h,
                 width: 90.w,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.grey.shade800),
+                    color: Color.fromRGBO(25, 102, 154, 0.5),
+                    border: Border.all(color: Color.fromRGBO(101, 171, 254, 0.32)),
                     borderRadius: BorderRadius.circular(15.0)),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -123,9 +123,16 @@ class _BottomMenuState extends State<BottomMenu> {
                                       Container(
                                           margin: EdgeInsets.only(bottom: 10.h),
                                           decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              border:
-                                                  Border.all(color: Colors.red),
+                                              color: Color.fromRGBO(
+                                                  25, 102, 154, 0.5),
+                                              border: Border.all(
+                                                  color: Color.fromRGBO(
+                                                    25,
+                                                    102,
+                                                    154,
+                                                    0.5,
+                                                  ),
+                                                  width: 0.75.w),
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           width: 90.w,
@@ -331,9 +338,13 @@ class _BottomMenuState extends State<BottomMenu> {
                                             margin:
                                                 EdgeInsets.only(bottom: 10.h),
                                             decoration: BoxDecoration(
-                                                color: Colors.white,
+                                                color: Color.fromRGBO(
+                                                    25, 102, 154, 0.5),
                                                 border: Border.all(
-                                                    color: Colors.red),
+                                                    color: Color.fromRGBO(
+                                                        25, 102, 154, 0.5,
+                                                        ),
+                                                        width: 0.75.w),
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
                                             width: 90.w,
@@ -520,9 +531,16 @@ class _BottomMenuState extends State<BottomMenu> {
                                             margin:
                                                 EdgeInsets.only(bottom: 10.h),
                                             decoration: BoxDecoration(
-                                                color: Colors.white,
+                                                color: Color.fromRGBO(
+                                                    25, 102, 154, 0.5),
                                                 border: Border.all(
-                                                    color: Colors.red),
+                                                    color: Color.fromRGBO(
+                                                      25,
+                                                      102,
+                                                      154,
+                                                      0.5,
+                                                    ),
+                                                    width: 0.75.w),
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
                                             width: 90.w,
