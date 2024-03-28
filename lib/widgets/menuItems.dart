@@ -88,6 +88,7 @@ class _MenuItemsState extends State<MenuItems> {
               height: 6.h,
               child: Text(
                 widget.itemName!,
+                // 'Games',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 3.h,

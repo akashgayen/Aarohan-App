@@ -90,7 +90,7 @@ flutter:
     - assets/audio/
     - assets/fonts/
     - assets/images/
-    - .env
+    # - .env
 
 
 
