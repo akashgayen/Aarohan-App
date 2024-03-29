@@ -786,7 +786,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               selectedcategory = "";
                               arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date!).day == 3))
+                                      (DateTime.parse(element.date!).day == 8))
                                   .toList();
                             });
                           },
@@ -824,7 +824,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               selectedcategory = "";
                               arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date!).day == 4))
+                                      (DateTime.parse(element.date!).day == 9))
                                   .toList();
                             });
                           },
@@ -862,7 +862,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               selectedcategory = "";
                               arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date!).day == 5))
+                                      (DateTime.parse(element.date!).day == 10))
                                   .toList();
                             });
                           },
