@@ -32,10 +32,10 @@ class _ContributorsState extends State<Contributors> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/Aarohan_bg.png"),
+                  image: AssetImage("assets/images/newbackground.jpeg"),
                   colorFilter: new ColorFilter.mode(
-                      Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
-                  fit: BoxFit.fill),
+                      Color.fromARGB(0, 48, 17, 6), BlendMode.srcOver),
+                  fit: BoxFit.cover),
             ),
             child: Scaffold(
               backgroundColor: Colors.transparent,
