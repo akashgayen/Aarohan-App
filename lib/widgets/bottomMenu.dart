@@ -182,6 +182,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                 fontFamily:
                                                                     'Staat',
                                                                 fontSize: 3.h,
+                                                                color: Colors.white,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -199,6 +200,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                             style: TextStyle(
                                                                 letterSpacing:
                                                                     1.2,
+                                                                    color: Colors.white,
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 8.sp,
@@ -278,6 +280,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                               MaterialButton(
                                                 child: Icon(
                                                   Icons.expand_more,
+                                                  color: Colors.white,
                                                   size: 25.sp,
                                                 ),
                                                 onPressed: () {
@@ -394,6 +397,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                               style: TextStyle(
                                                                   fontFamily:
                                                                       'Staat',
+                                                                      color: Colors.white,
                                                                   fontSize: 3.h,
                                                                   fontWeight:
                                                                       FontWeight
@@ -412,6 +416,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                               style: TextStyle(
                                                                   letterSpacing:
                                                                       1.2,
+                                                                  color: Colors.white,
                                                                   fontFamily:
                                                                       'Poppins',
                                                                   fontSize:
@@ -470,6 +475,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                 MaterialButton(
                                                   child: Icon(
                                                     Icons.expand_more,
+                                                    color: Colors.white,
                                                     size: 25.sp,
                                                   ),
                                                   onPressed: () {
@@ -591,6 +597,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                   fontFamily:
                                                                       'Staat',
                                                                   fontSize: 3.h,
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -608,6 +616,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                               style: TextStyle(
                                                                   letterSpacing:
                                                                       1.2,
+                                                                      color: Colors.white,
                                                                   fontFamily:
                                                                       'Poppins',
                                                                   fontSize: 12,
@@ -673,6 +682,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                 MaterialButton(
                                                   child: Icon(
                                                     Icons.expand_more,
+                                                    color: Colors.white,
                                                     size: 25.sp,
                                                   ),
                                                   onPressed: () {

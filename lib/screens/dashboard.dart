@@ -110,7 +110,11 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                       margin:
                           EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Color.fromRGBO(25, 102, 154, 0.5),
+                        border: Border.all(
+                          color: Color.fromRGBO(101, 171, 254, 0.32),
+                          width: 0.5.w,
+                        ),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Padding(
@@ -127,7 +131,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   width: 70.w,
                                   decoration: BoxDecoration(
                                       border: Border.all(
-                                          color: Colors.black, width: 0.5.sp),
+                                          color: Color.fromRGBO(
+                                              101, 171, 254, 0.32), width: 0.5.w),
                                       borderRadius:
                                           BorderRadius.circular(10.sp)),
                                   child: Padding(
@@ -153,8 +158,13 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                           contentPadding: EdgeInsets.all(10.sp),
                                           border: InputBorder.none,
                                           hintText: 'Search',
+                                          hintStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontFamily: 'Mons',
+                                              fontSize: 15.sp,
+                                              fontWeight: FontWeight.w500),
                                           labelStyle: TextStyle(
-                                              color: Colors.black,
+                                              color: Colors.white,
                                               fontFamily: 'Mons',
                                               fontSize: 15.sp,
                                               fontWeight: FontWeight.w500)),
@@ -175,7 +185,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                         Icon(
                                           Icons.cancel,
                                           size: 25.sp,
-                                          color: Colors.black,
+                                          color: Color.fromRGBO(142, 210, 255, 1),
                                         ),
                                       ],
                                     ),
@@ -194,6 +204,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 itemCount: tags.length,
                                 itemBuilder: (context, index) {
                                   return InkWell(
+                                    radius: 7.sp,
+                                    borderRadius: BorderRadius.circular(7.sp),
                                     onTap: () {
                                       setState(() {
                                         selectedIndex = index;
@@ -206,8 +218,9 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                     child: Container(
                                       decoration: BoxDecoration(
                                           color: (selectedIndex == index)
-                                              ? Color.fromARGB(255, 157, 11, 3)
-                                              : Color.fromRGBO(232, 94, 86, 1),
+                                              ? Color.fromRGBO(25, 102, 154, 0.5)
+                                    : const Color.fromARGB(0, 0, 0, 0),
+                                    border: (selectedIndex == index)? Border.all( color: Color.fromRGBO(101, 171, 254, 0.32), width: 0.5.w):Border.all( color: Color.fromRGBO(101, 171, 254, 0), width: 0.5.w),
                                           borderRadius:
                                               BorderRadius.circular(7.sp)),
                                       alignment: Alignment.center,
@@ -218,7 +231,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                       child: Text(
                                         '${tags[index]}',
                                         style: TextStyle(
-                                            color: Colors.white,
+                                            color: Color.fromRGBO(255, 255, 255, 1),
                                             fontFamily: 'Poppins',
                                             fontWeight: FontWeight.w500),
                                       ),
@@ -649,11 +662,11 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: Colors.white, width: 0.2.w),
+                                        border: Border.all(color: Color.fromRGBO(
+                                                142, 210, 255, 1),width: 0.2.w),
                                         borderRadius:
                                             BorderRadius.circular(10.sp),
-                                        color: Colors.white),
+                                        color: Color.fromRGBO(25, 102, 154, 0.5)),
                                     child: Row(
                                       children: [
                                         Container(
@@ -720,7 +733,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                                     .toString(),
                                                 overflow: TextOverflow.clip,
                                                 style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: const Color.fromARGB(255, 255, 255, 255),
                                                     fontFamily: 'Mons',
                                                     letterSpacing: 1.1,
                                                     fontSize: 13.sp,
