@@ -77,8 +77,10 @@ class _MenuItemsState extends State<MenuItems> {
                   : Container(
                       margin: EdgeInsets.symmetric(vertical: 4.sp),
                       child: Icon(
+                        
                         widget.leadingImage,
                         size: 30.sp,
+                        color: Colors.white,
                       ),
                     ),
             ),
@@ -93,6 +95,7 @@ class _MenuItemsState extends State<MenuItems> {
                 style: TextStyle(
                     fontSize: 3.h,
                     fontWeight: FontWeight.w500,
+                    color: Colors.white,
                     fontFamily: 'Bebas'),
               ),
             )
