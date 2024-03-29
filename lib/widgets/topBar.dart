@@ -26,7 +26,9 @@ class _topBarState extends State<topBar> {
       height: 8.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
-        color: Colors.white,
+        color: Color.fromRGBO(25, 102, 154, 0.5),
+        border:
+            Border.all(color: Color.fromRGBO(142, 210, 255, 1), width: 0.2.w),
       ),
       child: Stack(
         children: [
@@ -43,6 +45,7 @@ class _topBarState extends State<topBar> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontFamily: 'Mons',
+                        color: Colors.white,
                         fontSize: 4.h,
                         fontWeight: FontWeight.w500),
                   ),
@@ -59,7 +62,7 @@ class _topBarState extends State<topBar> {
               },
               child: Container(
                 child: CircleAvatar(
-                  backgroundColor: Color.fromRGBO(232, 94, 86, 1),
+                  backgroundColor: Color.fromRGBO(142, 210, 255, 1),
                   radius: 13.sp,
                   // backgroundImage: AssetImage('assets/back.png'),
                   child: Icon(

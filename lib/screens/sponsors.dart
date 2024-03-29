@@ -29,10 +29,10 @@ class _SponsorsState extends State<Sponsors> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/Aarohan_bg.png"),
+                  image: AssetImage("assets/images/newbackground.jpeg"),
                   colorFilter: new ColorFilter.mode(
-                      Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
-                  fit: BoxFit.fill),
+                      Color.fromARGB(0, 48, 17, 6), BlendMode.srcOver),
+                  fit: BoxFit.cover),
             ),
             child: Scaffold(
               backgroundColor: Colors.transparent,
@@ -78,8 +78,7 @@ class _SponsorsState extends State<Sponsors> {
                                     padding: EdgeInsets.all(5.sp),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: fromCssColor('#E2F5FF')
-                                            .withOpacity(0.4),
+                                        color: Colors.white,
                                         border: Border.all(
                                             color: Colors.white, width: 1),
                                         borderRadius:
