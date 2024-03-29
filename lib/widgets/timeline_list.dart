@@ -21,9 +21,9 @@ class Timeline_List extends StatelessWidget {
           itemBuilder: (context, index) {
             return Row(
               children: [
-                SizedBox(
-                  width: 1.w,
-                ),
+                // SizedBox(
+                //   width: 1.w,
+                // ),
                 Container(
                   child: Image.asset('assets/line.png'),
                   height: 10.h,
@@ -34,17 +34,39 @@ class Timeline_List extends StatelessWidget {
                 ),
                 ClipRRect(
                   borderRadius: (index == data.length - 1)
-                      ? BorderRadius.only(bottomLeft: Radius.circular(15.sp))
+                      ? BorderRadius.only(
+                          bottomLeft: Radius.circular(
+                            15.sp,
+                          ),
+                          bottomRight: Radius.circular(
+                            10.sp,
+                          ),
+                          topRight: Radius.circular(
+                            10.sp,
+                          ),
+                        )
                       : BorderRadius.circular(0),
                   child: Container(
                     width: width * 0.85,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Color.fromARGB(
+                        255,
+                        120,
+                        146,
+                        166,
+                      ), // rgba(120,146,166,255)
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(15),
+                        bottomLeft: Radius.circular(15),
+                        bottomRight: Radius.circular(15),
+                      ),
                       border: Border(
-                          top: BorderSide(
-                              color: Colors.white,
-                              width: 1,
-                              style: BorderStyle.solid)),
+                        top: BorderSide(
+                          color: Colors.black,
+                          width: 1,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
                     ),
                     height: 10.h,
                     child: Column(
@@ -65,9 +87,10 @@ class Timeline_List extends StatelessWidget {
                           child: Text(
                             "Online",
                             style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 11.sp,
-                                fontWeight: FontWeight.w500),
+                              fontFamily: 'Poppins',
+                              fontSize: 11.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ],

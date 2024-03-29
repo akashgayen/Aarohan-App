@@ -45,10 +45,10 @@ class _Event_DetailState extends State<Event_Detail> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/Aarohan_bg.png"),
-                  colorFilter: new ColorFilter.mode(
-                      Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
-                  fit: BoxFit.fill),
+                  image: AssetImage("assets/images/newbackground.jpeg"),
+                  // colorFilter: new ColorFilter.mode(
+                  //     Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
+                  fit: BoxFit.cover),
             ),
             child: Scaffold(
               backgroundColor: Colors.transparent,
@@ -58,7 +58,8 @@ class _Event_DetailState extends State<Event_Detail> {
                     children: [
                       Expanded(
                         child: Container(
-                          height: 86.h,
+                          // color: Colors.amber,
+                          // height: 100.h,
                           child: CustomScrollView(
                             slivers: [
                               SliverAppBar(
@@ -72,7 +73,7 @@ class _Event_DetailState extends State<Event_Detail> {
                                       // margin: EdgeInsets.only(top: 5.h),
                                       child: CircleAvatar(
                                         backgroundColor:
-                                            Color.fromRGBO(232, 94, 86, 1),
+                                            Color.fromRGBO(142, 210, 255, 1),
                                         radius: 20,
                                         // backgroundImage: AssetImage('assets/back.png'),
                                         child: Icon(
@@ -85,47 +86,59 @@ class _Event_DetailState extends State<Event_Detail> {
                                 ),
                                 flexibleSpace: Container(
                                   decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(15)),
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    color: Color.fromRGBO(25, 102, 154, 1),
+                                    border: Border.all(
+                                      color:
+                                          Color.fromRGBO(101, 171, 254, 0.32),
+                                      width: 0.5.w,
+                                    ),
+                                  ),
                                   child: FlexibleSpaceBar(
                                     collapseMode: CollapseMode.pin,
                                     title: SABT(
-                                        child: Container(
-                                      width: 70.w,
-                                      // margin: EdgeInsets.only(
-                                      //   bottom: 2.h,
-                                      // ),
-                                      child: Text(
-                                        "${eventItem.title}",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            letterSpacing: 1.1,
-                                            fontFamily: 'Mons',
-                                            fontSize: 19.sp,
-                                            fontWeight: FontWeight.w500),
+                                      child: Container(
+                                        width: 70.w,
+                                        // margin: EdgeInsets.only(
+                                        //   bottom: 2.h,
+                                        // ),
+                                        child: Text(
+                                          "${eventItem.title}",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            letterSpacing: 1,
+                                            fontFamily: 'Orbitron',
+                                            fontSize: 15.sp,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
                                       ),
-                                    )),
+                                    ),
                                     background: Container(
-                                        child: CachedNetworkImage(
-                                      imageUrl: eventItem.imageUrl!,
-                                      width: 100.w,
-                                      fit: BoxFit.cover,
-                                      height: 60.h,
-                                      errorWidget: (context, url, error) {
-                                        print("Could not load content");
-                                        return Image.asset(
+                                      child: CachedNetworkImage(
+                                        imageUrl: eventItem.imageUrl!,
+                                        width: 80.w,
+                                        fit: BoxFit.cover,
+                                        height: 60.h,
+                                        errorWidget: (context, url, error) {
+                                          print("Could not load content");
+                                          return Image.asset(
                                             "assets/placeholder.jpg",
                                             height: 60.h,
-                                            width: 100.w,
-                                            fit: BoxFit.cover);
-                                      },
-                                      placeholder: (context, url) =>
-                                          Image.asset("assets/placeholder.jpg",
-                                              height: 60.h,
-                                              width: 100.w,
-                                              fit: BoxFit.cover),
-                                    )),
+                                            width: 80.w,
+                                            fit: BoxFit.cover,
+                                          );
+                                        },
+                                        placeholder: (context, url) =>
+                                            Image.asset(
+                                          "assets/placeholder.jpg",
+                                          height: 60.h,
+                                          width: 80.w,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 pinned: true,

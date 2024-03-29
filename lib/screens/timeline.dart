@@ -40,10 +40,13 @@ class _TimelineState extends State<Timeline> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/Aarohan_bg.png"),
-                  colorFilter: new ColorFilter.mode(
-                      Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
-                  fit: BoxFit.fill),
+                image: AssetImage("assets/images/newbackground.jpeg"),
+                fit: BoxFit.cover,
+                colorFilter: new ColorFilter.mode(
+                  Color.fromARGB(38, 9, 75, 87),
+                  BlendMode.srcOver,
+                ),
+              ),
             ),
             child: Scaffold(
               backgroundColor: Colors.transparent,
@@ -60,245 +63,275 @@ class _TimelineState extends State<Timeline> {
                     showBottomMenu = false;
                   });
                 },
-                onTap: (){},
-                child: Stack(
+                onTap: () {},
+                child: Column(
                   children: [
-                    Column(
-                      children: [
-                        topBar(
-                          pageName: "Timeline",
+                    topBar(
+                      pageName: "Timeline",
+                    ),
+                    Container(
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
+                      height: 7.h,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(25, 102, 154, 0.5),
+                        border: Border.all(
+                          color: Color.fromRGBO(101, 171, 254, 0.32),
+                          width: 0.5.w,
                         ),
-                        Container(
-                          height: 6.h,
-                          margin: EdgeInsets.symmetric(
-                              horizontal: 2.w, vertical: 1.h),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20.0)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    day = "9th";
-                                    M = {};
-                                    M = sort.func(dayItems[4].events);
-                                    print(M);
-                                  });
-                                },
-                                child: Container(
-                                  height: 8.h,
-                                  width: 24.w,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "9",
-                                        style: TextStyle(
-                                            color: (day == "9th")
-                                                ? Color.fromRGBO(232, 94, 86, 1)
-                                                : Colors.black,
-                                            fontFamily: 'Staat',
-                                            fontSize: 4.5.w,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(height: 3.5),
-                                      Visibility(
-                                        visible: (day == "9th"),
-                                        child: Container(
-                                          height: 5,
-                                          width: 5,
-                                          decoration: BoxDecoration(
-                                              color: Color.fromRGBO(
-                                                  232, 94, 86, 1),
-                                              shape: BoxShape.circle),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
+                        borderRadius: BorderRadius.circular(
+                          20.0,
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                day = "9th";
+                                M = {};
+                                M = sort.func(dayItems[4].events);
+                                print(M);
+                              });
+                            },
+                            child: Container(
+                              height: 8.h,
+                              width: 23.w,
+                              decoration: BoxDecoration(
+                                color: (day == "9th")
+                                    ? Color.fromRGBO(25, 102, 154, 0.5)
+                                    : const Color.fromARGB(0, 0, 0, 0),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    day = "10th";
-                                    M = {};
-                                    M = sort.func(dayItems[1].events);
-                                    print(M);
-                                  });
-                                },
-                                child: Container(
-                                  height: 8.h,
-                                  width: 24.w,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "10",
-                                        style: TextStyle(
-                                            color: (day == "10th")
-                                                ? Color.fromRGBO(232, 94, 86, 1)
-                                                : Colors.black,
-                                            fontFamily: 'Staat',
-                                            fontSize: 4.5.w,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(height: 3.5),
-                                      Visibility(
-                                        visible: (day == "10th"),
-                                        child: Container(
-                                          height: 5,
-                                          width: 5,
-                                          decoration: BoxDecoration(
-                                              color: Color.fromRGBO(
-                                                  232, 94, 86, 1),
-                                              shape: BoxShape.circle),
-                                        ),
-                                      )
-                                    ],
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "9",
+                                    style: TextStyle(
+                                      color: (day == "9th")
+                                          ? Color.fromRGBO(142, 210, 255, 1)
+                                          : Colors.white,
+                                      fontFamily: 'Staat',
+                                      fontSize: 4.w,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    day = "11th";
-                                    M = {};
-                                    M = sort.func(dayItems[2].events);
-                                    print(M);
-                                  });
-                                },
-                                child: Container(
-                                  height: 8.h,
-                                  width: 24.w,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "11",
-                                        style: TextStyle(
-                                            color: (day == "11th")
-                                                ? Color.fromRGBO(232, 94, 86, 1)
-                                                : Colors.black,
-                                            fontFamily: 'Staat',
-                                            fontSize: 4.5.w,
-                                            fontWeight: FontWeight.w500),
+                                  SizedBox(height: 3.5),
+                                  Visibility(
+                                    visible: (day == "9th"),
+                                    child: Container(
+                                      height: 5,
+                                      width: 5,
+                                      decoration: BoxDecoration(
+                                        color: Color.fromRGBO(142, 210, 255, 1),
+                                        shape: BoxShape.circle,
                                       ),
-                                      SizedBox(height: 3.5),
-                                      Visibility(
-                                        visible: (day == "11th"),
-                                        child: Container(
-                                          height: 5,
-                                          width: 5,
-                                          decoration: BoxDecoration(
-                                              color: Color.fromRGBO(
-                                                  232, 94, 86, 1),
-                                              shape: BoxShape.circle),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
+                                    ),
+                                  )
+                                ],
                               ),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    day = "12th";
-                                    M = {};
-                                    M = sort.func(dayItems[3].events);
-                                    print(M);
-                                  });
-                                },
-                                child: Container(
-                                  height: 8.h,
-                                  width: 24.w,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "12",
-                                        style: TextStyle(
-                                            color: (day == "12th")
-                                                ? Color.fromRGBO(232, 94, 86, 1)
-                                                : Colors.black,
-                                            fontFamily: 'Staat',
-                                            fontSize: 4.5.w,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(height: 3.5),
-                                      Visibility(
-                                        visible: (day == "12th"),
-                                        child: Container(
-                                          height: 5,
-                                          width: 5,
-                                          decoration: BoxDecoration(
-                                              color: Color.fromRGBO(
-                                                  232, 94, 86, 1),
-                                              shape: BoxShape.circle),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.only(top: 3.h),
-                            height: 59.h,
-                            // color: Colors.red,
-                            child: (M.length != 0)
-                                ? ListView.builder(
-                                    itemCount: M.length,
-                                    itemBuilder: (context, index) {
-                                      return Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(8.w, 0, 0, 2.h),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                day = "10th";
+                                M = {};
+                                M = sort.func(dayItems[1].events);
+                                print(M);
+                              });
+                            },
+                            child: Container(
+                              height: 8.h,
+                              width: 23.w,
+                              decoration: BoxDecoration(
+                                color: (day == "10th")
+                                    ? Color.fromRGBO(25, 102, 154, 0.5)
+                                    : const Color.fromARGB(0, 0, 0, 0),
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "10",
+                                    style: TextStyle(
+                                      color: (day == "10th")
+                                          ? Color.fromRGBO(142, 210, 255, 1)
+                                          : Colors.white,
+                                      fontFamily: 'Staat',
+                                      fontSize: 4.w,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  SizedBox(height: 3.5),
+                                  Visibility(
+                                    visible: (day == "10th"),
+                                    child: Container(
+                                      height: 5,
+                                      width: 5,
+                                      decoration: BoxDecoration(
+                                          color:
+                                              Color.fromRGBO(142, 210, 255, 1),
+                                          shape: BoxShape.circle),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                day = "11th";
+                                M = {};
+                                M = sort.func(dayItems[2].events);
+                                print(M);
+                              });
+                            },
+                            child: Container(
+                              height: 8.h,
+                              width: 23.w,
+                              decoration: BoxDecoration(
+                                color: (day == "11th")
+                                    ? Color.fromRGBO(25, 102, 154, 0.5)
+                                    : const Color.fromARGB(0, 0, 0, 0),
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "11",
+                                    style: TextStyle(
+                                      color: (day == "11th")
+                                          ? Color.fromRGBO(142, 210, 255, 1)
+                                          : Colors.white,
+                                      fontFamily: 'Staat',
+                                      fontSize: 4.w,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  SizedBox(height: 3.5),
+                                  Visibility(
+                                    visible: (day == "11th"),
+                                    child: Container(
+                                      height: 5,
+                                      width: 5,
+                                      decoration: BoxDecoration(
+                                          color:
+                                              Color.fromRGBO(142, 210, 255, 1),
+                                          shape: BoxShape.circle),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                day = "12th";
+                                M = {};
+                                M = sort.func(dayItems[3].events);
+                                print(M);
+                              });
+                            },
+                            child: Container(
+                              height: 8.h,
+                              width: 23.w,
+                              decoration: BoxDecoration(
+                                color: (day == "12th")
+                                    ? Color.fromRGBO(25, 102, 154, 0.5)
+                                    : const Color.fromARGB(0, 0, 0, 0),
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "12",
+                                    style: TextStyle(
+                                      color: (day == "12th")
+                                          ? Color.fromRGBO(142, 210, 255, 1)
+                                          : Colors.white,
+                                      fontFamily: 'Staat',
+                                      fontSize: 4.w,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  SizedBox(height: 3.5),
+                                  Visibility(
+                                    visible: (day == "12th"),
+                                    child: Container(
+                                      height: 5,
+                                      width: 5,
+                                      decoration: BoxDecoration(
+                                          color:
+                                              Color.fromRGBO(142, 210, 255, 1),
+                                          shape: BoxShape.circle),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.only(top: 3.h),
+                        height: 59.h,
+                        // color: Colors.red,
+                        child: (M.length != 0)
+                            ? ListView.builder(
+                                itemCount: M.length,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding:
+                                        EdgeInsets.fromLTRB(8.w, 0, 0, 2.h),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
                                           children: [
-                                            Row(
-                                              children: [
-                                                Icon(
-                                                  Icons.circle_outlined,
-                                                  color: Colors.white,
-                                                  size: 10.sp,
-                                                ),
-                                                SizedBox(
-                                                  width: 2.5.w,
-                                                ),
-                                                Text(
-                                                  "${M.keys.elementAt(index)}",
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontFamily: 'Gugi',
-                                                      fontSize: 15.sp,
-                                                      fontWeight:
-                                                          FontWeight.w500),
-                                                ),
-                                              ],
+                                            Icon(
+                                              Icons.circle_outlined,
+                                              color: Colors.white,
+                                              size: 10.sp,
                                             ),
                                             SizedBox(
-                                              height: 1.h,
+                                              width: 2.5.w,
                                             ),
-                                            Timeline_List(
-                                                M[M.keys.elementAt(index)]!)
+                                            Text(
+                                              "${M.keys.elementAt(index)}",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontFamily: 'Gugi',
+                                                  fontSize: 15.sp,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
                                           ],
                                         ),
-                                      );
-                                    },
-                                  )
-                                : Center(
-                                    child: CircularProgressIndicator(),
-                                  ),
-                          ),
-                        )
-                      ],
-                    ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Timeline_List(
+                                            M[M.keys.elementAt(index)]!)
+                                      ],
+                                    ),
+                                  );
+                                },
+                              )
+                            : Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                      ),
+                    )
                   ],
                 ),
               ),
