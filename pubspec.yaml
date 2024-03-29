@@ -146,6 +146,11 @@ flutter:
     - family: Audiowide
       fonts:
         - asset: fonts/Audiowide.ttf
+    - family: Orbitron
+      fonts:
+        - asset: fonts/Orbitron-VariableFont_wght.ttf
+        - asset: fonts/Orbitron-Bold.ttf
+          weight: 500
 
 
   #   - family: Trajan Pro

@@ -87,7 +87,7 @@ class _AuthPageState extends State<AuthPage> {
         body: json.encode(_loginFormData));
     print("sgrgeg${response.body}");
     var res = response.body;
-    var data = json.decode(response.body);
+    var data = json.decode(res);
     print(response.body);
     print(data);
     if (data.length == 1) {
