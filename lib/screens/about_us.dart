@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:aarohan_app/widgets/bottomMenu.dart';
 import 'package:aarohan_app/widgets/custom_gesture_detector.dart';
 import 'package:aarohan_app/widgets/topBar.dart';
@@ -25,10 +27,11 @@ class _AboutState extends State<About> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/Aarohan_bg.png"),
-                  colorFilter: new ColorFilter.mode(
-                      Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
-                  fit: BoxFit.fill),
+                image: AssetImage("assets/images/newbackground.jpeg"),
+                // colorFilter: new ColorFilter.mode(
+                //     Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
+                fit: BoxFit.cover,
+              ),
             ),
             child: Scaffold(
               backgroundColor: Colors.transparent,
@@ -45,20 +48,20 @@ class _AboutState extends State<About> {
                       Padding(
                         padding: EdgeInsets.fromLTRB(5.w, 0, 4.w, 0),
                         child: Container(
-                          height: 69.h,
-                          // color: Colors.red,
-                          child: ListView(
-                            children: [
-                              Text(
-                                "The National Institute of Technology, Durgapur has been a premier educational institute nurturing students who have achieved par excellence in the field ofacademics and extra-curricular activities.\nAarohan is the Annual Techno-management fest of NIT Durgapur, the 2nd Largest of its kind in the whole of eastern India. Organised by Team Aavishkar,comprising the five biggest technical clubs of NIT Durgapur, this festival hasnever failed to uphold the banner of talent, innovation and a sense of responsibility.\nWith more than 50 events on varied domains, Aarohan is the biggest platform of our college that inculcates a sense of knowledge, science and technology- the building blocks for the future pillars of our nation.",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    letterSpacing: 1.1,
-                                    fontFamily: 'Poppins',
-                                    fontSize: 13.sp,
-                                    fontWeight: FontWeight.w400),
+                          height: 70.h,
+                          // color: Color.fromARGB(47, 0, 0, 0),
+                          child: SingleChildScrollView(
+                            physics: ClampingScrollPhysics(),
+                            child: Text(
+                              "The National Institute of Technology, Durgapur has been a premier educational institute nurturing students who have achieved par excellence in the field ofacademics and extra-curricular activities.\nAarohan is the Annual Techno-management fest of NIT Durgapur, the 2nd Largest of its kind in the whole of eastern India. Organised by Team Aavishkar,comprising the five biggest technical clubs of NIT Durgapur, this festival hasnever failed to uphold the banner of talent, innovation and a sense of responsibility.\nWith more than 50 events on varied domains, Aarohan is the biggest platform of our college that inculcates a sense of knowledge, science and technology- the building blocks for the future pillars of our nation.",
+                              style: TextStyle(
+                                color: Colors.white,
+                                letterSpacing: 1.1,
+                                fontFamily: 'Poppins',
+                                fontSize: 13.5.sp,
+                                fontWeight: FontWeight.w400,
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       )
