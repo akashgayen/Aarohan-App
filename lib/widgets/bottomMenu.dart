@@ -89,7 +89,8 @@ class _BottomMenuState extends State<BottomMenu> {
                 width: 90.w,
                 decoration: BoxDecoration(
                     color: Color.fromRGBO(25, 102, 154, 0.5),
-                    border: Border.all(color: Color.fromRGBO(101, 171, 254, 0.32)),
+                    border:
+                        Border.all(color: Color.fromRGBO(101, 171, 254, 0.32)),
                     borderRadius: BorderRadius.circular(15.0)),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -155,15 +156,16 @@ class _BottomMenuState extends State<BottomMenu> {
                                                               BorderRadius
                                                                   .circular(15),
                                                         ),
-                                                        child: (users
-                                                                    ?.photoURL !=
-                                                                null)
-                                                            ? Image.network(
-                                                                users!
-                                                                    .photoURL!,
-                                                              )
-                                                            : Image.asset(
-                                                                'assets/profile1.png'),
+                                                        child:
+                                                            (users?.photoURL !=
+                                                                    null)
+                                                                ? Image.network(
+                                                                    users!
+                                                                        .photoURL!,
+                                                                  )
+                                                                : Image.asset(
+                                                                    'assets/profile1.png',
+                                                                  ),
                                                       ),
                                                       SizedBox(
                                                         width: 2.w,
@@ -182,7 +184,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                 fontFamily:
                                                                     'Staat',
                                                                 fontSize: 3.h,
-                                                                color: Colors.white,
+                                                                color: Colors
+                                                                    .white,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -200,7 +203,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                             style: TextStyle(
                                                                 letterSpacing:
                                                                     1.2,
-                                                                    color: Colors.white,
+                                                                color: Colors
+                                                                    .white,
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 8.sp,
@@ -345,9 +349,12 @@ class _BottomMenuState extends State<BottomMenu> {
                                                     25, 102, 154, 0.5),
                                                 border: Border.all(
                                                     color: Color.fromRGBO(
-                                                        25, 102, 154, 0.5,
-                                                        ),
-                                                        width: 0.75.w),
+                                                      25,
+                                                      102,
+                                                      154,
+                                                      0.5,
+                                                    ),
+                                                    width: 0.75.w),
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
                                             width: 90.w,
@@ -397,7 +404,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                               style: TextStyle(
                                                                   fontFamily:
                                                                       'Staat',
-                                                                      color: Colors.white,
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontSize: 3.h,
                                                                   fontWeight:
                                                                       FontWeight
@@ -416,7 +424,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                               style: TextStyle(
                                                                   letterSpacing:
                                                                       1.2,
-                                                                  color: Colors.white,
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontFamily:
                                                                       'Poppins',
                                                                   fontSize:
@@ -616,7 +625,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                               style: TextStyle(
                                                                   letterSpacing:
                                                                       1.2,
-                                                                      color: Colors.white,
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontFamily:
                                                                       'Poppins',
                                                                   fontSize: 12,

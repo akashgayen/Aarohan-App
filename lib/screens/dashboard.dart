@@ -132,7 +132,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   decoration: BoxDecoration(
                                       border: Border.all(
                                           color: Color.fromRGBO(
-                                              101, 171, 254, 0.32), width: 0.5.w),
+                                              101, 171, 254, 0.32),
+                                          width: 0.5.w),
                                       borderRadius:
                                           BorderRadius.circular(10.sp)),
                                   child: Padding(
@@ -185,7 +186,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                         Icon(
                                           Icons.cancel,
                                           size: 25.sp,
-                                          color: Color.fromRGBO(142, 210, 255, 1),
+                                          color:
+                                              Color.fromRGBO(142, 210, 255, 1),
                                         ),
                                       ],
                                     ),
@@ -218,9 +220,19 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                     child: Container(
                                       decoration: BoxDecoration(
                                           color: (selectedIndex == index)
-                                              ? Color.fromRGBO(25, 102, 154, 0.5)
-                                    : const Color.fromARGB(0, 0, 0, 0),
-                                    border: (selectedIndex == index)? Border.all( color: Color.fromRGBO(101, 171, 254, 0.32), width: 0.5.w):Border.all( color: Color.fromRGBO(101, 171, 254, 0), width: 0.5.w),
+                                              ? Color.fromRGBO(
+                                                  25, 102, 154, 0.5)
+                                              : const Color.fromARGB(
+                                                  0, 0, 0, 0),
+                                          border: (selectedIndex == index)
+                                              ? Border.all(
+                                                  color: Color.fromRGBO(
+                                                      101, 171, 254, 0.32),
+                                                  width: 0.5.w)
+                                              : Border.all(
+                                                  color: Color.fromRGBO(
+                                                      101, 171, 254, 0),
+                                                  width: 0.5.w),
                                           borderRadius:
                                               BorderRadius.circular(7.sp)),
                                       alignment: Alignment.center,
@@ -231,7 +243,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                       child: Text(
                                         '${tags[index]}',
                                         style: TextStyle(
-                                            color: Color.fromRGBO(255, 255, 255, 1),
+                                            color: Color.fromRGBO(
+                                                255, 255, 255, 1),
                                             fontFamily: 'Poppins',
                                             fontWeight: FontWeight.w500),
                                       ),
@@ -317,12 +330,15 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
                       height: 7.h,
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(25, 102, 154, 0.5),
-                          border: Border.all(
-                            color: Color.fromRGBO(101, 171, 254, 0.32),
-                            width: 0.5.w,
-                          ),
-                          borderRadius: BorderRadius.circular(20.0)),
+                        color: Color.fromRGBO(25, 102, 154, 0.5),
+                        border: Border.all(
+                          color: Color.fromRGBO(101, 171, 254, 0.32),
+                          width: 0.5.w,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          20.0,
+                        ),
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -662,11 +678,14 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
-                                        border: Border.all(color: Color.fromRGBO(
-                                                142, 210, 255, 1),width: 0.2.w),
+                                        border: Border.all(
+                                            color: Color.fromRGBO(
+                                                142, 210, 255, 1),
+                                            width: 0.2.w),
                                         borderRadius:
                                             BorderRadius.circular(10.sp),
-                                        color: Color.fromRGBO(25, 102, 154, 0.5)),
+                                        color:
+                                            Color.fromRGBO(25, 102, 154, 0.5)),
                                     child: Row(
                                       children: [
                                         Container(
@@ -733,7 +752,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                                     .toString(),
                                                 overflow: TextOverflow.clip,
                                                 style: TextStyle(
-                                                    color: const Color.fromARGB(255, 255, 255, 255),
+                                                    color: const Color.fromARGB(
+                                                        255, 255, 255, 255),
                                                     fontFamily: 'Mons',
                                                     letterSpacing: 1.1,
                                                     fontSize: 13.sp,
