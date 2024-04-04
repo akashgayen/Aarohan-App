@@ -92,7 +92,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/newbackground.jpeg"),
+              image: AssetImage("assets/images/aarohan-bg-new.jpg"),
               fit: BoxFit.cover,
               colorFilter: new ColorFilter.mode(
                   Color.fromARGB(38, 9, 75, 87), BlendMode.srcOver),
