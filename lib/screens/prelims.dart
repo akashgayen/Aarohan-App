@@ -2,6 +2,7 @@ import 'package:aarohan_app/widgets/topBar.dart';
 import 'package:flutter/material.dart';
 import 'package:aarohan_app/widgets/custom_gesture_detector.dart';
 import 'package:from_css_color/from_css_color.dart';
+import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:sizer/sizer.dart';
 import 'package:aarohan_app/models/prelim.dart';
 import 'package:provider/provider.dart';
@@ -29,10 +30,11 @@ class _PrelimsState extends State<Prelims> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/Aarohan_bg.png"),
-                  colorFilter: new ColorFilter.mode(
-                      Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
-                  fit: BoxFit.fill),
+                image: AssetImage("assets/images/aarohan-bg-new.jpg"),
+                // colorFilter: new ColorFilter.mode(
+                //     Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
+                fit: BoxFit.cover,
+              ),
             ),
             child: Scaffold(
               resizeToAvoidBottomInset: false,
@@ -97,21 +99,38 @@ class _PrelimsState extends State<Prelims> {
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(15.sp),
-                                          color: Colors.white),
-                                      child: Container(
-                                        child: Center(
-                                          child: Text(
-                                            prelimItems[index].title.toString(),
-                                            style: TextStyle(
-                                                fontFamily: 'Mons',
+                                        borderRadius:
+                                            BorderRadius.circular(15.sp),
+                                        color:
+                                            Color.fromARGB(176, 41, 132, 162),
+                                      ),
+                                      child: OutlineGradientButton(
+                                        radius: Radius.circular(15.sp),
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromARGB(255, 251, 71, 10),
+                                            Color.fromARGB(124, 59, 58, 58),
+                                            Color.fromARGB(255, 251, 71, 10),
+                                          ],
+                                        ),
+                                        strokeWidth: 1,
+                                        child: Container(
+                                          child: Center(
+                                            child: Text(
+                                              prelimItems[index]
+                                                  .title
+                                                  .toString(),
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
                                                 letterSpacing: 1.1,
                                                 fontSize: 15.sp,
-                                                fontWeight: FontWeight.w500),
+                                                // fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
                                           ),
+                                          height: 8.h,
                                         ),
-                                        height: 8.h,
                                       ),
                                     ),
                                   ),
