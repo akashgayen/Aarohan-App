@@ -88,9 +88,16 @@ class _BottomMenuState extends State<BottomMenu> {
                 height: 6.5.h,
                 width: 90.w,
                 decoration: BoxDecoration(
-                    color: Color.fromRGBO(25, 102, 154, 0.5),
+                    gradient: LinearGradient(
+                      colors: [
+                        Color.fromRGBO(17, 70, 105, 0.798),
+                        Color.fromRGBO(30, 72, 85, 0.778),
+                        Color.fromRGBO(30, 71, 83, 0.778),
+                        Color.fromRGBO(13, 55, 85, 1)
+                      ],
+                    ),
                     border:
-                        Border.all(color: Color.fromRGBO(101, 171, 254, 0.32)),
+                        Border.all(color: Color.fromRGBO(31, 49, 71, 0.318)),
                     borderRadius: BorderRadius.circular(15.0)),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -104,7 +111,6 @@ class _BottomMenuState extends State<BottomMenu> {
                             personIcon = menuBarIconsUnSelected[1];
                             consoleIcon = menuBarIconsUnSelected[2];
                           });
-
                           showBottomSheet(
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
