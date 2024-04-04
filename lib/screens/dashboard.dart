@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:aarohan_app/models/event.dart';
@@ -267,58 +268,78 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                       height: 9.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
-                        color: Color.fromRGBO(25, 102, 154, 0.5),
-                        border: Border.all(
-                          color: Color.fromRGBO(101, 171, 254, 0.32),
-                          width: 0.5.w,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 5.w, vertical: 0.8.h),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CircleAvatar(
-                              radius: 25,
-                              backgroundImage:
-                                  AssetImage('assets/aarohan-logo.png'),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(bottom: 1.h),
-                              child: Text(
-                                "Aarohan",
-                                style: TextStyle(
-                                    fontFamily: 'Mons',
-                                    fontSize: 5.h,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  _foundUsers = eventItems!;
-                                });
-                                setState(() {
-                                  search = !search;
-                                });
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: const Color.fromARGB(0, 97, 97, 97),
-                                    border: Border.all(
-                                        color: Colors.white70, width: 0.1.w),
-                                    borderRadius: BorderRadius.circular(2.w)),
-                                child: Padding(
-                                  padding: EdgeInsets.only(top: 0.5.h),
-                                  child: Image.asset('assets/search.png'),
-                                ),
-                                height: 40,
-                                width: 40,
-                              ),
-                            ),
+                        // color: Color.fromRGBO(25, 102, 154, 0.5),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(160, 47, 117, 138),
+                            Color.fromARGB(143, 4, 29, 37),
                           ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        // border: Border.all(
+                        //   color: Color.fromRGBO(101, 171, 254, 0.32),
+                        //   width: 0.5.w,
+                        // ),
+                      ),
+                      child: OutlineGradientButton(
+                        strokeWidth: 2,
+                        radius: Radius.circular(15),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(132, 251, 70, 10),
+                            Colors.transparent,
+                            Color.fromARGB(132, 251, 70, 10),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 5.w, vertical: 0.2.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              CircleAvatar(
+                                radius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/aarohan-logo.png'),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 1.h),
+                                child: Text(
+                                  "Aarohan",
+                                  style: TextStyle(
+                                      fontFamily: 'Mons',
+                                      fontSize: 5.h,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    _foundUsers = eventItems!;
+                                  });
+                                  setState(() {
+                                    search = !search;
+                                  });
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color:
+                                          const Color.fromARGB(0, 97, 97, 97),
+                                      border: Border.all(
+                                          color: Colors.white70, width: 0.1.w),
+                                      borderRadius: BorderRadius.circular(2.w)),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(top: 0.5.h),
+                                    child: Image.asset('assets/search.png'),
+                                  ),
+                                  height: 40,
+                                  width: 40,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -328,235 +349,260 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     child: Container(
                       margin:
                           EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
-                      height: 7.h,
+                      height: 8.h,
                       decoration: BoxDecoration(
-                        color: Color.fromRGBO(25, 102, 154, 0.5),
-                        border: Border.all(
-                          color: Color.fromRGBO(101, 171, 254, 0.32),
-                          width: 0.5.w,
+                        // color: Color.fromRGBO(25, 102, 154, 0.5),
+                        // border: Border.all(
+                        //   color: Color.fromRGBO(101, 171, 254, 0.32),
+                        //   width: 0.5.w,
+                        // ),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(160, 47, 117, 138),
+                            Color.fromARGB(143, 4, 29, 37),
+                            Color.fromARGB(160, 47, 117, 138),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
                         ),
                         borderRadius: BorderRadius.circular(
                           20.0,
                         ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 3.w, vertical: 0.5.h),
-                            decoration: BoxDecoration(
-                                color: (selectedcategory == "All")
-                                    ? Color.fromRGBO(25, 102, 154, 0.5)
-                                    : const Color.fromARGB(0, 0, 0, 0),
-                                borderRadius: BorderRadius.circular(20.0)),
-                            child: InkWell(
-                              radius: 20,
-                              borderRadius: BorderRadius.circular(20.0),
-                              onTap: () {
-                                setState(() {
-                                  arr = eventItems!;
-                                  selectedcategory = "All";
-                                  day = "0";
-                                });
-                              },
-                              child: Container(
-                                height: 7.h,
-                                width: 18.w,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "ALL",
-                                      style: TextStyle(
-                                          color: (selectedcategory == "All")
-                                              ? Color.fromRGBO(142, 210, 255, 1)
-                                              : Colors.white,
-                                          fontFamily: 'Staat',
-                                          fontSize: 4.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(height: 3),
-                                    Visibility(
-                                      visible: (selectedcategory == "All"),
-                                      child: Container(
-                                        height: 5,
-                                        width: 5,
-                                        decoration: BoxDecoration(
-                                            color: Color.fromRGBO(
-                                                142, 210, 255, 1),
-                                            shape: BoxShape.circle),
+                      child: OutlineGradientButton(
+                        strokeWidth: 2,
+                        radius: Radius.circular(15),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(132, 251, 70, 10),
+                            Colors.transparent,
+                            Color.fromARGB(132, 251, 70, 10),
+                          ],
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 2.w, vertical: 0.1.h),
+                              decoration: BoxDecoration(
+                                  color: (selectedcategory == "All")
+                                      ? Color.fromRGBO(25, 102, 154, 0.5)
+                                      : const Color.fromARGB(0, 0, 0, 0),
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              child: InkWell(
+                                radius: 20,
+                                borderRadius: BorderRadius.circular(20.0),
+                                onTap: () {
+                                  setState(() {
+                                    arr = eventItems!;
+                                    selectedcategory = "All";
+                                    day = "0";
+                                  });
+                                },
+                                child: Container(
+                                  height: 8.h,
+                                  width: 18.w,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "ALL",
+                                        style: TextStyle(
+                                            color: (selectedcategory == "All")
+                                                ? Color.fromRGBO(
+                                                    142, 210, 255, 1)
+                                                : Colors.white,
+                                            fontFamily: 'Staat',
+                                            fontSize: 4.w,
+                                            fontWeight: FontWeight.w500),
                                       ),
-                                    )
-                                  ],
+                                      SizedBox(height: 3),
+                                      Visibility(
+                                        visible: (selectedcategory == "All"),
+                                        child: Container(
+                                          height: 5,
+                                          width: 5,
+                                          decoration: BoxDecoration(
+                                              color: Color.fromRGBO(
+                                                  142, 210, 255, 1),
+                                              shape: BoxShape.circle),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 2.w, vertical: 0.5.h),
-                            decoration: BoxDecoration(
-                                color: (selectedcategory == "Workshop")
-                                    ? Color.fromRGBO(25, 102, 154, 0.5)
-                                    : const Color.fromARGB(0, 0, 0, 0),
-                                borderRadius: BorderRadius.circular(20.0)),
-                            child: InkWell(
-                              radius: 20,
-                              borderRadius: BorderRadius.circular(20.0),
-                              onTap: () {
-                                setState(() {
-                                  arr = eventItems!
-                                      .where((element) =>
-                                          element.category == "Workshop")
-                                      .toList();
-                                  selectedcategory = "Workshop";
-                                  day = "0";
-                                });
-                              },
-                              child: Container(
-                                height: 7.h,
-                                width: 20.w,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "WORKSHOPS",
-                                      style: TextStyle(
-                                          color: (selectedcategory ==
-                                                  "Workshop")
-                                              ? Color.fromRGBO(142, 210, 255, 1)
-                                              : Colors.white,
-                                          fontFamily: 'Staat',
-                                          fontSize: 4.5.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(height: 3.5),
-                                    Visibility(
-                                      visible: (selectedcategory == "Workshop"),
-                                      child: Container(
-                                        height: 5,
-                                        width: 5,
-                                        decoration: BoxDecoration(
-                                            color: Color.fromRGBO(
-                                                142, 210, 255, 1),
-                                            shape: BoxShape.circle),
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 2.w, vertical: 0.1.h),
+                              decoration: BoxDecoration(
+                                  color: (selectedcategory == "Workshop")
+                                      ? Color.fromRGBO(25, 102, 154, 0.5)
+                                      : const Color.fromARGB(0, 0, 0, 0),
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              child: InkWell(
+                                radius: 20,
+                                borderRadius: BorderRadius.circular(20.0),
+                                onTap: () {
+                                  setState(() {
+                                    arr = eventItems!
+                                        .where((element) =>
+                                            element.category == "Workshop")
+                                        .toList();
+                                    selectedcategory = "Workshop";
+                                    day = "0";
+                                  });
+                                },
+                                child: Container(
+                                  height: 8.h,
+                                  width: 20.w,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "WORKSHOPS",
+                                        style: TextStyle(
+                                            color:
+                                                (selectedcategory == "Workshop")
+                                                    ? Color.fromRGBO(
+                                                        142, 210, 255, 1)
+                                                    : Colors.white,
+                                            fontFamily: 'Staat',
+                                            fontSize: 4.5.w,
+                                            fontWeight: FontWeight.w500),
                                       ),
-                                    )
-                                  ],
+                                      SizedBox(height: 3.5),
+                                      Visibility(
+                                        visible:
+                                            (selectedcategory == "Workshop"),
+                                        child: Container(
+                                          height: 8,
+                                          width: 5,
+                                          decoration: BoxDecoration(
+                                              color: Color.fromRGBO(
+                                                  142, 210, 255, 1),
+                                              shape: BoxShape.circle),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 2.w, vertical: 0.5.h),
-                            decoration: BoxDecoration(
-                                color: (selectedcategory == "Event")
-                                    ? Color.fromRGBO(25, 102, 154, 0.5)
-                                    : const Color.fromARGB(0, 0, 0, 0),
-                                borderRadius: BorderRadius.circular(20.0)),
-                            child: InkWell(
-                              radius: 20,
-                              borderRadius: BorderRadius.circular(20.0),
-                              onTap: () {
-                                setState(() {
-                                  arr = eventItems!
-                                      .where((element) =>
-                                          element.category == "Event")
-                                      .toList();
-                                  selectedcategory = "Event";
-                                  day = "0";
-                                });
-                              },
-                              child: Container(
-                                height: 7.h,
-                                width: 18.w,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "EVENTS",
-                                      style: TextStyle(
-                                          color: (selectedcategory == "Event")
-                                              ? Color.fromRGBO(142, 210, 255, 1)
-                                              : Colors.white,
-                                          fontFamily: 'Staat',
-                                          fontSize: 4.5.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(height: 3.5),
-                                    Visibility(
-                                      visible: (selectedcategory == "Event"),
-                                      child: Container(
-                                        height: 5,
-                                        width: 5,
-                                        decoration: BoxDecoration(
-                                            color: Color.fromRGBO(
-                                                142, 210, 255, 1),
-                                            shape: BoxShape.circle),
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 2.w, vertical: 0.5.h),
+                              decoration: BoxDecoration(
+                                  color: (selectedcategory == "Event")
+                                      ? Color.fromRGBO(25, 102, 154, 0.5)
+                                      : const Color.fromARGB(0, 0, 0, 0),
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              child: InkWell(
+                                radius: 20,
+                                borderRadius: BorderRadius.circular(20.0),
+                                onTap: () {
+                                  setState(() {
+                                    arr = eventItems!
+                                        .where((element) =>
+                                            element.category == "Event")
+                                        .toList();
+                                    selectedcategory = "Event";
+                                    day = "0";
+                                  });
+                                },
+                                child: Container(
+                                  height: 8.h,
+                                  width: 18.w,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "EVENTS",
+                                        style: TextStyle(
+                                            color: (selectedcategory == "Event")
+                                                ? Color.fromRGBO(
+                                                    142, 210, 255, 1)
+                                                : Colors.white,
+                                            fontFamily: 'Staat',
+                                            fontSize: 4.5.w,
+                                            fontWeight: FontWeight.w500),
                                       ),
-                                    )
-                                  ],
+                                      SizedBox(height: 3.5),
+                                      Visibility(
+                                        visible: (selectedcategory == "Event"),
+                                        child: Container(
+                                          height: 5,
+                                          width: 5,
+                                          decoration: BoxDecoration(
+                                              color: Color.fromRGBO(
+                                                  142, 210, 255, 1),
+                                              shape: BoxShape.circle),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 2.w, vertical: 0.5.h),
-                            decoration: BoxDecoration(
-                                color: (selectedcategory == "Talk")
-                                    ? Color.fromRGBO(25, 102, 154, 0.5)
-                                    : const Color.fromARGB(0, 0, 0, 0),
-                                borderRadius: BorderRadius.circular(20.0)),
-                            child: InkWell(
-                              radius: 20,
-                              borderRadius: BorderRadius.circular(20.0),
-                              onTap: () {
-                                setState(() {
-                                  arr = eventItems!
-                                      .where((element) =>
-                                          element.category == "Talk")
-                                      .toList();
-                                  selectedcategory = "Talk";
-                                  day = "0";
-                                });
-                              },
-                              child: Container(
-                                height: 7.h,
-                                width: 18.w,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "TALKS",
-                                      style: TextStyle(
-                                          color: (selectedcategory == "Talk")
-                                              ? Color.fromRGBO(142, 210, 255, 1)
-                                              : Colors.white,
-                                          fontFamily: 'Staat',
-                                          fontSize: 4.5.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(height: 3.5),
-                                    Visibility(
-                                      visible: (selectedcategory == "Talk"),
-                                      child: Container(
-                                        height: 5,
-                                        width: 5,
-                                        decoration: BoxDecoration(
-                                            color: Color.fromRGBO(
-                                                142, 210, 255, 1),
-                                            shape: BoxShape.circle),
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 2.w, vertical: 0.5.h),
+                              decoration: BoxDecoration(
+                                  color: (selectedcategory == "Talk")
+                                      ? Color.fromRGBO(25, 102, 154, 0.5)
+                                      : const Color.fromARGB(0, 0, 0, 0),
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              child: InkWell(
+                                radius: 20,
+                                borderRadius: BorderRadius.circular(20.0),
+                                onTap: () {
+                                  setState(() {
+                                    arr = eventItems!
+                                        .where((element) =>
+                                            element.category == "Talk")
+                                        .toList();
+                                    selectedcategory = "Talk";
+                                    day = "0";
+                                  });
+                                },
+                                child: Container(
+                                  height: 8.h,
+                                  width: 18.w,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "TALKS",
+                                        style: TextStyle(
+                                            color: (selectedcategory == "Talk")
+                                                ? Color.fromRGBO(
+                                                    142, 210, 255, 1)
+                                                : Colors.white,
+                                            fontFamily: 'Staat',
+                                            fontSize: 4.5.w,
+                                            fontWeight: FontWeight.w500),
                                       ),
-                                    )
-                                  ],
+                                      SizedBox(height: 3.5),
+                                      Visibility(
+                                        visible: (selectedcategory == "Talk"),
+                                        child: Container(
+                                          height: 5,
+                                          width: 5,
+                                          decoration: BoxDecoration(
+                                              color: Color.fromRGBO(
+                                                  142, 210, 255, 1),
+                                              shape: BoxShape.circle),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -597,7 +643,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                                 });
                                           },
                                           child: Container(
-                                            height: 40.h,
+                                            height: 39.h,
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(10.sp),
@@ -647,7 +693,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                               fontFamily: 'Mons',
                                               color: Colors.white,
                                               fontWeight: FontWeight.w400,
-                                              fontSize: 15.sp,
+                                              fontSize: 14.sp,
                                               letterSpacing: 1.2),
                                         )
                                       ],

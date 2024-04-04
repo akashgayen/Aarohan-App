@@ -179,17 +179,6 @@ class _LoginState extends State<Login> {
                         width: 75.w,
                         height: 7.h,
                         decoration: BoxDecoration(
-                          // border: Border.all(
-                          //   color: Color.fromARGB(255, 101, 170,
-                          //       254), // rgba(101, 171, 254, 0.32),
-                          //   width: 1,
-                          // ),
-                          // color: Color.fromRGBO(
-                          //   101,
-                          //   171,
-                          //   254,
-                          //   0.32,
-                          // ),
                           gradient: LinearGradient(
                             colors: [
                               Color.fromARGB(255, 47, 117, 138),
