@@ -1,6 +1,7 @@
 import 'package:aarohan_app/widgets/bottomMenu.dart';
 import 'package:aarohan_app/widgets/topBar.dart';
 import 'package:flutter/material.dart';
+import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:provider/provider.dart';
 import 'package:aarohan_app/models/schedule.dart';
 import 'package:aarohan_app/services/sort_timeline.dart';
@@ -40,12 +41,8 @@ class _TimelineState extends State<Timeline> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/newbackground.jpeg"),
+                image: AssetImage("assets/images/aarohan-bg-new.jpg"),
                 fit: BoxFit.cover,
-                colorFilter: new ColorFilter.mode(
-                  Color.fromARGB(38, 9, 75, 87),
-                  BlendMode.srcOver,
-                ),
               ),
             ),
             child: Scaffold(
@@ -70,19 +67,10 @@ class _TimelineState extends State<Timeline> {
                       pageName: "Timeline",
                     ),
                     Container(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
+                      // margin:
+                      //     EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
                       height: 7.h,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(25, 102, 154, 0.5),
-                        border: Border.all(
-                          color: Color.fromRGBO(101, 171, 254, 0.32),
-                          width: 0.5.w,
-                        ),
-                        borderRadius: BorderRadius.circular(
-                          20.0,
-                        ),
-                      ),
+                      width: 95.w,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -100,8 +88,8 @@ class _TimelineState extends State<Timeline> {
                               width: 23.w,
                               decoration: BoxDecoration(
                                 color: (day == "9th")
-                                    ? Color.fromRGBO(25, 102, 154, 0.5)
-                                    : const Color.fromARGB(0, 0, 0, 0),
+                                    ? Color.fromRGBO(252, 252, 252, 0.281)
+                                    : Colors.transparent,
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Column(
@@ -110,11 +98,9 @@ class _TimelineState extends State<Timeline> {
                                   Text(
                                     "9",
                                     style: TextStyle(
-                                      color: (day == "9th")
-                                          ? Color.fromRGBO(142, 210, 255, 1)
-                                          : Colors.white,
+                                      color: Colors.white,
                                       fontFamily: 'Staat',
-                                      fontSize: 4.w,
+                                      fontSize: 18.sp,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -125,7 +111,7 @@ class _TimelineState extends State<Timeline> {
                                       height: 5,
                                       width: 5,
                                       decoration: BoxDecoration(
-                                        color: Color.fromRGBO(142, 210, 255, 1),
+                                        color: Colors.white,
                                         shape: BoxShape.circle,
                                       ),
                                     ),
@@ -148,8 +134,8 @@ class _TimelineState extends State<Timeline> {
                               width: 23.w,
                               decoration: BoxDecoration(
                                 color: (day == "10th")
-                                    ? Color.fromRGBO(25, 102, 154, 0.5)
-                                    : const Color.fromARGB(0, 0, 0, 0),
+                                    ? Color.fromRGBO(252, 252, 252, 0.281)
+                                    : Colors.transparent,
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Column(
@@ -158,11 +144,9 @@ class _TimelineState extends State<Timeline> {
                                   Text(
                                     "10",
                                     style: TextStyle(
-                                      color: (day == "10th")
-                                          ? Color.fromRGBO(142, 210, 255, 1)
-                                          : Colors.white,
+                                      color: Colors.white,
                                       fontFamily: 'Staat',
-                                      fontSize: 4.w,
+                                      fontSize: 18.sp,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -173,8 +157,7 @@ class _TimelineState extends State<Timeline> {
                                       height: 5,
                                       width: 5,
                                       decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(142, 210, 255, 1),
+                                          color: Colors.white,
                                           shape: BoxShape.circle),
                                     ),
                                   )
@@ -196,8 +179,8 @@ class _TimelineState extends State<Timeline> {
                               width: 23.w,
                               decoration: BoxDecoration(
                                 color: (day == "11th")
-                                    ? Color.fromRGBO(25, 102, 154, 0.5)
-                                    : const Color.fromARGB(0, 0, 0, 0),
+                                    ? Color.fromRGBO(252, 252, 252, 0.281)
+                                    : Colors.transparent,
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Column(
@@ -206,11 +189,9 @@ class _TimelineState extends State<Timeline> {
                                   Text(
                                     "11",
                                     style: TextStyle(
-                                      color: (day == "11th")
-                                          ? Color.fromRGBO(142, 210, 255, 1)
-                                          : Colors.white,
+                                      color: Colors.white,
                                       fontFamily: 'Staat',
-                                      fontSize: 4.w,
+                                      fontSize: 18.sp,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -221,8 +202,7 @@ class _TimelineState extends State<Timeline> {
                                       height: 5,
                                       width: 5,
                                       decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(142, 210, 255, 1),
+                                          color: Colors.white,
                                           shape: BoxShape.circle),
                                     ),
                                   )
@@ -244,8 +224,8 @@ class _TimelineState extends State<Timeline> {
                               width: 23.w,
                               decoration: BoxDecoration(
                                 color: (day == "12th")
-                                    ? Color.fromRGBO(25, 102, 154, 0.5)
-                                    : const Color.fromARGB(0, 0, 0, 0),
+                                    ? Color.fromRGBO(252, 252, 252, 0.281)
+                                    : Colors.transparent,
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Column(
@@ -254,11 +234,9 @@ class _TimelineState extends State<Timeline> {
                                   Text(
                                     "12",
                                     style: TextStyle(
-                                      color: (day == "12th")
-                                          ? Color.fromRGBO(142, 210, 255, 1)
-                                          : Colors.white,
+                                      color: Colors.white,
                                       fontFamily: 'Staat',
-                                      fontSize: 4.w,
+                                      fontSize: 18.sp,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -269,9 +247,9 @@ class _TimelineState extends State<Timeline> {
                                       height: 5,
                                       width: 5,
                                       decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(142, 210, 255, 1),
-                                          shape: BoxShape.circle),
+                                        color: Colors.white,
+                                        shape: BoxShape.circle,
+                                      ),
                                     ),
                                   )
                                 ],
@@ -281,8 +259,22 @@ class _TimelineState extends State<Timeline> {
                         ],
                       ),
                     ),
+                    Container(
+                      height: 3,
+                      width: 95.w,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.transparent,
+                            Colors.white,
+                            Colors.transparent,
+                          ],
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: Container(
+                        // color: Colors.amber,
                         padding: EdgeInsets.only(top: 3.h),
                         height: 59.h,
                         // color: Colors.red,
