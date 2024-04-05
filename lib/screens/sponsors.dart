@@ -29,7 +29,7 @@ class _SponsorsState extends State<Sponsors> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/newbackground.jpeg"),
+                  image: AssetImage("assets/images/newbackground.jpg"),
                   colorFilter: new ColorFilter.mode(
                       Color.fromARGB(0, 48, 17, 6), BlendMode.srcOver),
                   fit: BoxFit.cover),

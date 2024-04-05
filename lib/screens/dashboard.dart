@@ -107,15 +107,16 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                       margin:
                           EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
                       decoration: BoxDecoration(
-                        color: Color.fromRGBO(25, 102, 154, 0.5),
-                        border: Border.all(
-                          color: Color.fromRGBO(101, 171, 254, 0.32),
-                          width: 0.5.w,
-                        ),
+                        // color: Color.fromRGBO(25, 102, 154, 0.5),
+                        gradient: LinearGradient(colors: [
+                          Color.fromRGBO(2, 84, 114, 0.88),
+                          Color.fromRGBO(29, 95, 117, 0.865),
+                        ]),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(3.w, 1.5.h, 3.w, 1.5.h),
+                        padding:
+                            EdgeInsets.fromLTRB(1.5.w, 1.5.h, 1.5.w, 1.5.h),
                         child: Column(
                           children: [
                             Row(
@@ -129,7 +130,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   decoration: BoxDecoration(
                                       border: Border.all(
                                           color: Color.fromRGBO(
-                                              101, 171, 254, 0.32),
+                                              255, 255, 255, 0.318),
                                           width: 0.5.w),
                                       borderRadius:
                                           BorderRadius.circular(10.sp)),
@@ -183,8 +184,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                         Icon(
                                           Icons.cancel,
                                           size: 25.sp,
-                                          color:
-                                              Color.fromRGBO(142, 210, 255, 1),
+                                          color: Color.fromRGBO(232, 94, 86, 1),
                                         ),
                                       ],
                                     ),
@@ -218,23 +218,14 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                       decoration: BoxDecoration(
                                           color: (selectedIndex == index)
                                               ? Color.fromRGBO(
-                                                  25, 102, 154, 0.5)
+                                                  51, 130, 154, 0.75)
                                               : const Color.fromARGB(
                                                   0, 0, 0, 0),
-                                          border: (selectedIndex == index)
-                                              ? Border.all(
-                                                  color: Color.fromRGBO(
-                                                      101, 171, 254, 0.32),
-                                                  width: 0.5.w)
-                                              : Border.all(
-                                                  color: Color.fromRGBO(
-                                                      101, 171, 254, 0),
-                                                  width: 0.5.w),
                                           borderRadius:
                                               BorderRadius.circular(7.sp)),
                                       alignment: Alignment.center,
-                                      margin: EdgeInsets.symmetric(
-                                          horizontal: 1.5.w),
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 1.w),
                                       padding:
                                           EdgeInsets.symmetric(horizontal: 2.w),
                                       child: Text(
@@ -753,7 +744,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               itemBuilder: (context, index) => Container(
                                 height: 10.h,
                                 padding:
-                                    EdgeInsets.fromLTRB(4.w, 1.h, 4.w, 1.h),
+                                    EdgeInsets.fromLTRB(3.w, 1.h, 3.w, 1.h),
                                 child: InkWell(
                                   onTap: () {
                                     FocusManager.instance.primaryFocus!
@@ -765,92 +756,114 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: Color.fromRGBO(
-                                                142, 210, 255, 1),
-                                            width: 0.2.w),
-                                        borderRadius:
-                                            BorderRadius.circular(10.sp),
-                                        color:
-                                            Color.fromRGBO(25, 102, 154, 0.5)),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(10.sp),
-                                                topLeft:
-                                                    Radius.circular(10.sp)),
-                                          ),
-                                          child: ClipRRect(
-                                            borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(10.sp),
-                                                topLeft:
-                                                    Radius.circular(10.sp)),
-                                            child: CachedNetworkImage(
-                                              imageUrl:
-                                                  _foundUsers![index].imageUrl!,
-                                              width: 23.w,
-                                              fit: BoxFit.cover,
-                                              height: 23.w,
-                                              errorWidget:
-                                                  (context, url, error) {
-                                                print("Could not load content");
-                                                return ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.circular(10.sp),
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromRGBO(2, 84, 114, 0.48),
+                                        Color.fromRGBO(29, 95, 117, 0.465),
+                                      ]),
+                                    ),
+                                    child: OutlineGradientButton(
+                                      padding: EdgeInsets.all(0),
+                                      strokeWidth: 2,
+                                      radius: Radius.circular(10),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.bottomLeft,
+                                        end: Alignment.topRight,
+                                        colors: [
+                                          Colors.transparent,
+                                          Colors.grey.shade600,
+                                          Colors.grey.shade600,
+                                          Color.fromARGB(122, 251, 70, 10),
+                                        ],
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(10.sp),
+                                                  topLeft:
+                                                      Radius.circular(10.sp)),
+                                            ),
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(10.sp),
+                                                  topLeft:
+                                                      Radius.circular(10.sp)),
+                                              child: CachedNetworkImage(
+                                                imageUrl: _foundUsers![index]
+                                                    .imageUrl!,
+                                                width: 23.w,
+                                                fit: BoxFit.cover,
+                                                height: 23.w,
+                                                errorWidget:
+                                                    (context, url, error) {
+                                                  print(
+                                                      "Could not load content");
+                                                  return ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    10.sp),
+                                                            topLeft: Radius
+                                                                .circular(
+                                                                    10.sp)),
+                                                    child: Image.asset(
+                                                        "assets/placeholder.jpg",
+                                                        height: 23.w,
+                                                        width: 23.w,
+                                                        fit: BoxFit.cover),
+                                                  );
+                                                },
+                                                placeholder: (context, url) =>
+                                                    ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
-                                                                  10.sp),
+                                                                  15.sp),
                                                           topLeft:
                                                               Radius.circular(
-                                                                  10.sp)),
+                                                                  15.sp)),
                                                   child: Image.asset(
                                                       "assets/placeholder.jpg",
                                                       height: 23.w,
                                                       width: 23.w,
                                                       fit: BoxFit.cover),
-                                                );
-                                              },
-                                              placeholder: (context, url) =>
-                                                  ClipRRect(
-                                                borderRadius: BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(15.sp),
-                                                    topLeft:
-                                                        Radius.circular(15.sp)),
-                                                child: Image.asset(
-                                                    "assets/placeholder.jpg",
-                                                    height: 23.w,
-                                                    width: 23.w,
-                                                    fit: BoxFit.cover),
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        Expanded(
-                                          child: Container(
-                                            child: Center(
-                                              child: Text(
-                                                _foundUsers![index]
-                                                    .title
-                                                    .toString(),
-                                                overflow: TextOverflow.clip,
-                                                style: TextStyle(
-                                                    color: const Color.fromARGB(
-                                                        255, 255, 255, 255),
-                                                    fontFamily: 'Mons',
-                                                    letterSpacing: 1.1,
-                                                    fontSize: 13.sp,
-                                                    fontWeight:
-                                                        FontWeight.w400),
+                                          Expanded(
+                                            child: Container(
+                                              child: Center(
+                                                child: Text(
+                                                  _foundUsers![index]
+                                                      .title
+                                                      .toString(),
+                                                  overflow: TextOverflow.clip,
+                                                  style: TextStyle(
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              255,
+                                                              255,
+                                                              255),
+                                                      fontFamily: 'Mons',
+                                                      letterSpacing: 1.1,
+                                                      fontSize: 13.sp,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),

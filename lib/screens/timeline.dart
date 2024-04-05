@@ -75,6 +75,7 @@ class _TimelineState extends State<Timeline> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           InkWell(
+                            radius: 20.0,
                             onTap: () {
                               setState(() {
                                 day = "9th";
@@ -121,6 +122,7 @@ class _TimelineState extends State<Timeline> {
                             ),
                           ),
                           InkWell(
+                            radius: 20.0,
                             onTap: () {
                               setState(() {
                                 day = "10th";
@@ -166,6 +168,7 @@ class _TimelineState extends State<Timeline> {
                             ),
                           ),
                           InkWell(
+                            radius: 20.0,
                             onTap: () {
                               setState(() {
                                 day = "11th";
@@ -211,6 +214,7 @@ class _TimelineState extends State<Timeline> {
                             ),
                           ),
                           InkWell(
+                            radius: 20.0,
                             onTap: () {
                               setState(() {
                                 day = "12th";

@@ -32,7 +32,7 @@ class _ContributorsState extends State<Contributors> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/newbackground.jpeg"),
+                  image: AssetImage("assets/images/newbackground.jpg"),
                   colorFilter: new ColorFilter.mode(
                       Color.fromARGB(0, 48, 17, 6), BlendMode.srcOver),
                   fit: BoxFit.cover),
@@ -51,7 +51,6 @@ class _ContributorsState extends State<Contributors> {
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(3.w, 2.h, 3.w, 0),
                           child: Container(
-                            // height: MediaQuery.of(context).size.height,
                             child: GridView.builder(
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
@@ -69,7 +68,6 @@ class _ContributorsState extends State<Contributors> {
                                   child: Column(
                                     children: [
                                       Container(
-                                        // height: 13.h,
                                         width: 45.w,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.only(
@@ -119,12 +117,55 @@ class _ContributorsState extends State<Contributors> {
                                       ),
                                       Container(
                                         // height: 8.2.h,
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
+                                        decoration: ShapeDecoration(
+                                          gradient: LinearGradient(
+                                            begin: Alignment(0.00, -1.00),
+                                            end: Alignment(0, 1),
+                                            colors: [
+                                              Color(0xFF015174),
+                                              Colors.black
+                                            ],
+                                          ),
+                                          shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(8),
-                                                bottomRight:
-                                                    Radius.circular(8))),
+                                                  bottomLeft:
+                                                      Radius.circular(8),
+                                                  bottomRight:
+                                                      Radius.circular(8))
+                                          ),
+                                          shadows: [
+                                            BoxShadow(
+                                              color: Color(0x6D000000),
+                                              blurRadius: 7,
+                                              offset: Offset(2, 2),
+                                              spreadRadius: 0,
+                                            ),
+                                            BoxShadow(
+                                              color: Color(0x5E000000),
+                                              blurRadius: 13,
+                                              offset: Offset(9, 10),
+                                              spreadRadius: 0,
+                                            ),
+                                            BoxShadow(
+                                              color: Color(0x38000000),
+                                              blurRadius: 17,
+                                              offset: Offset(19, 22),
+                                              spreadRadius: 0,
+                                            ),
+                                            BoxShadow(
+                                              color: Color(0x0F000000),
+                                              blurRadius: 21,
+                                              offset: Offset(34, 39),
+                                              spreadRadius: 0,
+                                            ),
+                                            BoxShadow(
+                                              color: Color(0x02000000),
+                                              blurRadius: 22,
+                                              offset: Offset(53, 60),
+                                              spreadRadius: 0,
+                                            )
+                                          ],
+                                        ),
                                         child: Column(
                                           children: [
                                             SizedBox(
@@ -144,10 +185,14 @@ class _ContributorsState extends State<Contributors> {
                                                   style: TextStyle(
                                                       fontSize: 11.sp,
                                                       fontFamily: 'Poppins',
+                                                      color: Colors.white,
                                                       fontWeight:
                                                           FontWeight.w600),
                                                 ))
                                               ],
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
                                             ),
                                             Row(
                                               mainAxisAlignment:
@@ -161,7 +206,7 @@ class _ContributorsState extends State<Contributors> {
                                                     child: Container(
                                                         child: Icon(
                                                       Icons.phone,
-                                                      color: Colors.black,
+                                                      color: const Color.fromARGB(255, 255, 255, 255),
                                                       size: 2.5.h,
                                                     ))),
                                                 // SizedBox(width: 1.5.w,),
@@ -174,7 +219,7 @@ class _ContributorsState extends State<Contributors> {
                                                     child: Image(
                                                       image: AssetImage(
                                                           'assets/linkedin.png'),
-                                                      height: 5.h,
+                                                      height: 2.5.h,
                                                     ),
                                                   ),
                                                 ),

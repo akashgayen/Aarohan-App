@@ -30,7 +30,7 @@ class _ContactState extends State<Contact> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/newbackground.jpeg"),
+                  image: AssetImage("assets/images/newbackground.jpg"),
                   colorFilter: new ColorFilter.mode(
                       Color.fromARGB(0, 48, 17, 6), BlendMode.srcOver),
                   fit: BoxFit.cover),
@@ -115,11 +115,52 @@ class _ContactState extends State<Contact> {
                                       padding:
                                           EdgeInsets.symmetric(vertical: 5.sp),
                                       // height: 9.h,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(8),
-                                            bottomRight: Radius.circular(8)),
+                                      decoration: ShapeDecoration(
+                                        gradient: LinearGradient(
+                                          begin: Alignment(0.00, -1.00),
+                                          end: Alignment(0, 1),
+                                          colors: [
+                                            Color(0xFF015174),
+                                            Colors.black
+                                          ],
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(8),
+                                                bottomRight:
+                                                    Radius.circular(8))),
+                                        shadows: [
+                                          BoxShadow(
+                                            color: Color(0x6D000000),
+                                            blurRadius: 7,
+                                            offset: Offset(2, 2),
+                                            spreadRadius: 0,
+                                          ),
+                                          BoxShadow(
+                                            color: Color(0x5E000000),
+                                            blurRadius: 13,
+                                            offset: Offset(9, 10),
+                                            spreadRadius: 0,
+                                          ),
+                                          BoxShadow(
+                                            color: Color(0x38000000),
+                                            blurRadius: 17,
+                                            offset: Offset(19, 22),
+                                            spreadRadius: 0,
+                                          ),
+                                          BoxShadow(
+                                            color: Color(0x0F000000),
+                                            blurRadius: 21,
+                                            offset: Offset(34, 39),
+                                            spreadRadius: 0,
+                                          ),
+                                          BoxShadow(
+                                            color: Color(0x02000000),
+                                            blurRadius: 22,
+                                            offset: Offset(53, 60),
+                                            spreadRadius: 0,
+                                          )
+                                        ],
                                       ),
                                       child: Column(
                                         children: [
@@ -135,6 +176,7 @@ class _ContactState extends State<Contact> {
                                             // overflow: TextOverflow.clip,
                                             style: TextStyle(
                                               fontSize: 13.sp,
+                                              color: Colors.white,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -150,12 +192,13 @@ class _ContactState extends State<Contact> {
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                               fontSize: 11.sp,
+                                              color: Colors.white,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w400,
                                             ),
                                           ),
                                           SizedBox(
-                                            height: 0.5.h,
+                                            height: 1.h,
                                           ),
                                           Row(
                                             mainAxisAlignment:
@@ -169,7 +212,7 @@ class _ContactState extends State<Contact> {
                                                   child: Container(
                                                       child: Icon(
                                                     Icons.phone,
-                                                    color: Colors.black,
+                                                    color: const Color.fromARGB(255, 255, 255, 255),
                                                   ))),
                                               // SizedBox(width: 1.5.w,),
 
