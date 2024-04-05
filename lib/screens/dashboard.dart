@@ -34,7 +34,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   ];
 
   int x = 0;
-  int? selectedIndex;
+  int selectedIndex = -1;
   CarouselController buttonCarouselController = CarouselController();
 
   List<EventItem> arr = [];
@@ -47,17 +47,39 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
   bool visibleBottomMenu = false;
 
-  void _runFilter(String enteredKeyword, List<EventItem> M) {
+  void _runFilter(String enteredKeyword, List<EventItem> M, int index) {
     List<EventItem> results = [];
+    List<EventItem> result = [];
     if (enteredKeyword.isEmpty) {
       // if the search field is empty or only contains white-space, we'll display all users
-      results = M;
+      if (index != -1) {
+        results = eventItems!
+            .where((element) => (element.tag!.contains(tags[index])))
+            .toList();
+        
+      } else {
+        results = M;
+
+        // we use the toLowerCase() method to make it case-insensitive
+      }
     } else {
-      results = M
-          .where((user) =>
-              user.title!.toLowerCase().contains(enteredKeyword.toLowerCase()))
-          .toList();
-      // we use the toLowerCase() method to make it case-insensitive
+      if (index != -1) {
+        result = eventItems!
+            .where((element) => (element.tag!.contains(tags[index])))
+            .toList();
+        results = result
+            .where((user) => user.title!
+                .toLowerCase()
+                .contains(enteredKeyword.toLowerCase()))
+            .toList();
+      } else {
+        results = M
+            .where((user) => user.title!
+                .toLowerCase()
+                .contains(enteredKeyword.toLowerCase()))
+            .toList();
+        // we use the toLowerCase() method to make it case-insensitive
+      }
     }
 
     // Refresh the UI
@@ -128,6 +150,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 Container(
                                   width: 70.w,
                                   decoration: BoxDecoration(
+                                      // color: Colors.red,
                                       border: Border.all(
                                           color: Color.fromRGBO(
                                               255, 255, 255, 0.318),
@@ -139,19 +162,22 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                     child: TextField(
                                       onTap: () {
                                         setState(() {
-                                          selectedIndex = -1;
+                                          // selectedIndex = -1;
                                           print(selectedIndex);
                                         });
                                       },
                                       style: TextStyle(
-                                          fontFamily: 'Mons',
-                                          fontSize: 13.sp,
-                                          letterSpacing: 1),
+                                        fontFamily: 'Mons',
+                                        fontSize: 13.sp,
+                                        color: Colors.white,
+                                        letterSpacing: 1,
+                                      ),
                                       onChanged: (value) {
-                                        setState(() {
-                                          selectedIndex = -1;
-                                        });
-                                        _runFilter(value, eventItems!);
+                                        // setState(() {
+                                        //   selectedIndex = -1;
+                                        // });
+                                        _runFilter(
+                                            value, eventItems!, selectedIndex);
                                       },
                                       decoration: InputDecoration(
                                           contentPadding: EdgeInsets.all(10.sp),
@@ -206,13 +232,29 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                     radius: 7.sp,
                                     borderRadius: BorderRadius.circular(7.sp),
                                     onTap: () {
-                                      setState(() {
-                                        selectedIndex = index;
-                                        _foundUsers = eventItems!
-                                            .where((element) => (element.tag!
-                                                .contains(tags[index])))
-                                            .toList();
-                                      });
+                                      // setState(
+                                      //   () {
+                                      //     selectedIndex = index;
+                                      //     _foundUsers = eventItems!
+                                      //         .where((element) => (element.tag!
+                                      //             .contains(tags[index])))
+                                      //         .toList();
+                                      //   },
+                                      // );
+                                      if (selectedIndex == index) {
+                                        setState(() {
+                                          selectedIndex = -1;
+                                          _foundUsers = eventItems;
+                                        });
+                                      } else {
+                                        setState(() {
+                                          selectedIndex = index;
+                                          _foundUsers = eventItems!
+                                              .where((element) => (element.tag!
+                                                  .contains(tags[index])))
+                                              .toList();
+                                        });
+                                      }
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(
@@ -250,56 +292,11 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     visible: !search,
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                          vertical: 3.h, horizontal: 2.5.w),
-                      alignment: Alignment.bottomCenter,
-                      height: 9.h,
-                      decoration: ShapeDecoration(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        gradient: LinearGradient(
-                          colors: [
-                            Color.fromRGBO(78, 177, 208, 0.48),
-                            Color.fromRGBO(16, 59, 73, 0.47),
-                          ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        shadows: [
-                          BoxShadow(
-                            color: Color(0x6D000000),
-                            blurRadius: 15,
-                            offset: Offset(6, 4),
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color(0x5E000000),
-                            blurRadius: 27,
-                            offset: Offset(23, 14),
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color(0x38000000),
-                            blurRadius: 37,
-                            offset: Offset(52, 32),
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color(0x0F000000),
-                            blurRadius: 44,
-                            offset: Offset(93, 57),
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color(0x02000000),
-                            blurRadius: 48,
-                            offset: Offset(145, 89),
-                            spreadRadius: 0,
-                          )
-                        ],
+                        vertical: 3.h,
+                        horizontal: 2.5.w,
                       ),
                       child: OutlineGradientButton(
-                        strokeWidth: 2,
+                        strokeWidth: 3,
                         radius: Radius.circular(15),
                         gradient: LinearGradient(
                           begin: Alignment.bottomLeft,
@@ -311,52 +308,77 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             const Color.fromARGB(111, 33, 33, 33),
                           ],
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 5.w, vertical: 0.2.h),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CircleAvatar(
-                                radius: 25,
-                                backgroundImage:
-                                    AssetImage('assets/aarohan-logo.png'),
-                              ),
-                              Text(
-                                "Aarohan",
-                                style: TextStyle(
-                                    fontFamily: 'UrbanJungle',
-                                    fontSize: 5.h,
-                                    color: Color.fromRGBO(155, 204, 239, 1),
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    _foundUsers = eventItems!;
-                                  });
-                                  setState(() {
-                                    search = !search;
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color:
-                                          const Color.fromARGB(0, 97, 97, 97),
-                                      border: Border.all(
-                                          color:
-                                              Color.fromRGBO(155, 204, 239, 1),
-                                          width: 0.1.w),
-                                      borderRadius: BorderRadius.circular(2.w)),
-                                  child: Padding(
-                                    padding: EdgeInsets.only(top: 0.5.h),
-                                    child: Image.asset('assets/search.png'),
-                                  ),
-                                  height: 40,
-                                  width: 40,
+                        padding: EdgeInsets.all(0),
+                        child: Container(
+                          // margin: EdgeInsets.symmetric(
+                          //   vertical: 3.h,
+                          //   horizontal: 2.5.w,
+                          // ),
+                          // alignment: Alignment.bottomCenter,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromRGBO(16, 59, 73, 0.47),
+                                Color.fromRGBO(78, 177, 208, 0.38),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                          ),
+                          height: 9.h,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 4.w),
+                            child: Row(
+                              // crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CircleAvatar(
+                                  radius: 23,
+                                  backgroundImage:
+                                      AssetImage('assets/aarohan-logo.png'),
                                 ),
-                              ),
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: 1.25.h),
+                                  child: Text(
+                                    "Aarohan",
+                                    style: TextStyle(
+                                      fontFamily: 'UrbanJungle',
+                                      fontSize: 33.sp,
+                                      color: Color.fromRGBO(155, 204, 239, 1),
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      _foundUsers = eventItems!;
+                                    });
+                                    setState(() {
+                                      search = !search;
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color:
+                                            const Color.fromARGB(0, 97, 97, 97),
+                                        border: Border.all(
+                                            color: Color.fromRGBO(
+                                                155, 204, 239, 1),
+                                            width: 0.1.w),
+                                        borderRadius:
+                                            BorderRadius.circular(2.w)),
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top: 0.5.h),
+                                      child: Image.asset('assets/search.png'),
+                                    ),
+                                    height: 5.h,
+                                    width: 11.w,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -431,10 +453,11 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               margin: EdgeInsets.symmetric(
                                   horizontal: 2.w, vertical: 0.1.h),
                               decoration: BoxDecoration(
-                                  color: (selectedcategory == "All")
-                                      ? Color.fromRGBO(51, 130, 154, 0.75)
-                                      : const Color.fromARGB(0, 0, 0, 0),
-                                  borderRadius: BorderRadius.circular(20.0)),
+                                color: (selectedcategory == "All")
+                                    ? Color.fromRGBO(51, 130, 154, 0.75)
+                                    : Colors.transparent,
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
                               child: InkWell(
                                 radius: 20,
                                 borderRadius: BorderRadius.circular(20.0),
@@ -447,7 +470,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   height: 8.h,
-                                  width: 18.w,
+                                  width: 13.w,
+                                  // margin: EdgeInsets.symmetric(horizontal: 1),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -466,9 +490,10 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                           height: 5,
                                           width: 5,
                                           decoration: BoxDecoration(
-                                              color: Color.fromRGBO(
-                                                  142, 210, 255, 1),
-                                              shape: BoxShape.circle),
+                                            color: Color.fromRGBO(
+                                                142, 210, 255, 1),
+                                            shape: BoxShape.circle,
+                                          ),
                                         ),
                                       )
                                     ],
@@ -499,7 +524,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   height: 8.h,
-                                  width: 21.w,
+                                  width: 25.w,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -604,7 +629,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   height: 8.h,
-                                  width: 18.w,
+                                  width: 15.w,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -737,7 +762,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                   Visibility(
                     visible: search,
                     child: Container(
-                      height: 73.h,
+                      height: 77.h,
                       child: (_foundUsers != null && _foundUsers!.isNotEmpty)
                           ? ListView.builder(
                               itemCount: _foundUsers!.length,
