@@ -128,6 +128,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 Container(
                                   width: 70.w,
                                   decoration: BoxDecoration(
+                                      // color: Colors.red,
                                       border: Border.all(
                                           color: Color.fromRGBO(
                                               255, 255, 255, 0.318),
@@ -146,6 +147,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                       style: TextStyle(
                                           fontFamily: 'Mons',
                                           fontSize: 13.sp,
+                                          color: Colors.white,
                                           letterSpacing: 1),
                                       onChanged: (value) {
                                         setState(() {
@@ -250,56 +252,11 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     visible: !search,
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                          vertical: 3.h, horizontal: 2.5.w),
-                      alignment: Alignment.bottomCenter,
-                      height: 9.h,
-                      decoration: ShapeDecoration(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        gradient: LinearGradient(
-                          colors: [
-                            Color.fromRGBO(78, 177, 208, 0.48),
-                            Color.fromRGBO(16, 59, 73, 0.47),
-                          ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        shadows: [
-                          BoxShadow(
-                            color: Color(0x6D000000),
-                            blurRadius: 15,
-                            offset: Offset(6, 4),
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color(0x5E000000),
-                            blurRadius: 27,
-                            offset: Offset(23, 14),
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color(0x38000000),
-                            blurRadius: 37,
-                            offset: Offset(52, 32),
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color(0x0F000000),
-                            blurRadius: 44,
-                            offset: Offset(93, 57),
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color(0x02000000),
-                            blurRadius: 48,
-                            offset: Offset(145, 89),
-                            spreadRadius: 0,
-                          )
-                        ],
+                        vertical: 3.h,
+                        horizontal: 2.5.w,
                       ),
                       child: OutlineGradientButton(
-                        strokeWidth: 2,
+                        strokeWidth: 3,
                         radius: Radius.circular(15),
                         gradient: LinearGradient(
                           begin: Alignment.bottomLeft,
@@ -311,52 +268,77 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             const Color.fromARGB(111, 33, 33, 33),
                           ],
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 5.w, vertical: 0.2.h),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CircleAvatar(
-                                radius: 25,
-                                backgroundImage:
-                                    AssetImage('assets/aarohan-logo.png'),
-                              ),
-                              Text(
-                                "Aarohan",
-                                style: TextStyle(
-                                    fontFamily: 'UrbanJungle',
-                                    fontSize: 5.h,
-                                    color: Color.fromRGBO(155, 204, 239, 1),
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    _foundUsers = eventItems!;
-                                  });
-                                  setState(() {
-                                    search = !search;
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color:
-                                          const Color.fromARGB(0, 97, 97, 97),
-                                      border: Border.all(
-                                          color:
-                                              Color.fromRGBO(155, 204, 239, 1),
-                                          width: 0.1.w),
-                                      borderRadius: BorderRadius.circular(2.w)),
-                                  child: Padding(
-                                    padding: EdgeInsets.only(top: 0.5.h),
-                                    child: Image.asset('assets/search.png'),
-                                  ),
-                                  height: 40,
-                                  width: 40,
+                        padding: EdgeInsets.all(0),
+                        child: Container(
+                          // margin: EdgeInsets.symmetric(
+                          //   vertical: 3.h,
+                          //   horizontal: 2.5.w,
+                          // ),
+                          // alignment: Alignment.bottomCenter,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromRGBO(16, 59, 73, 0.47),
+                                Color.fromRGBO(78, 177, 208, 0.38),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                          ),
+                          height: 9.h,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 4.w),
+                            child: Row(
+                              // crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CircleAvatar(
+                                  radius: 23,
+                                  backgroundImage:
+                                      AssetImage('assets/aarohan-logo.png'),
                                 ),
-                              ),
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: 1.25.h),
+                                  child: Text(
+                                    "Aarohan",
+                                    style: TextStyle(
+                                      fontFamily: 'UrbanJungle',
+                                      fontSize: 33.sp,
+                                      color: Color.fromRGBO(155, 204, 239, 1),
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      _foundUsers = eventItems!;
+                                    });
+                                    setState(() {
+                                      search = !search;
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color:
+                                            const Color.fromARGB(0, 97, 97, 97),
+                                        border: Border.all(
+                                            color: Color.fromRGBO(
+                                                155, 204, 239, 1),
+                                            width: 0.1.w),
+                                        borderRadius:
+                                            BorderRadius.circular(2.w)),
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top: 0.5.h),
+                                      child: Image.asset('assets/search.png'),
+                                    ),
+                                    height: 5.h,
+                                    width: 11.w,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

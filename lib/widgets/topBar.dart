@@ -24,44 +24,38 @@ class _topBarState extends State<topBar> {
         vertical: 3.h,
         horizontal: 2.5.w,
       ),
-      child: Container(
-        // padding: EdgeInsets.symmetric(
-        //   vertical: 1.h,
-        //   horizontal: 2.w,
-        // ),
-        // margin: EdgeInsets.symmetric(
-        //   vertical: 3.h,
-        //   horizontal: 2.5.w,
-        // ),
-        alignment: Alignment.bottomCenter,
-        height: 8.h,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.0),
-          // color: Color.fromRGBO(25, 102, 154, 0.5),
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(223, 47, 117, 138),
-              Color.fromARGB(255, 4, 29, 37),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+      child: OutlineGradientButton(
+        padding: EdgeInsets.all(1.5),
+        corners: Corners(
+          bottomLeft: Radius.circular(15),
+          bottomRight: Radius.circular(15),
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
         ),
-        child: OutlineGradientButton(
-          corners: Corners(
-            bottomLeft: Radius.circular(15),
-            bottomRight: Radius.circular(15),
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 251, 71, 10),
+            Color.fromARGB(124, 59, 58, 58),
+          ],
+        ),
+        strokeWidth: 2,
+        child: Container(
+          alignment: Alignment.bottomCenter,
+          height: 8.h,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.0),
+            // color: Color.fromRGBO(25, 102, 154, 0.5),
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(223, 47, 117, 138),
+                Color.fromARGB(255, 4, 29, 37),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
           ),
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 251, 71, 10),
-              Color.fromARGB(124, 59, 58, 58),
-            ],
-          ),
-          strokeWidth: 2,
           child: Container(
+            height: 8.h,
             child: Stack(
               alignment: Alignment.centerLeft,
               children: [
