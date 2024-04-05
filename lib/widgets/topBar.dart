@@ -63,9 +63,10 @@ class _topBarState extends State<topBar> {
                   children: [
                     Expanded(
                       child: Container(
-                        padding: EdgeInsets.only(
-                          bottom: 1.h,
-                        ),
+                        // color: Colors.red,
+                        // padding: EdgeInsets.only(
+                        //   bottom: 1.h,
+                        // ),
                         child: Text(
                           widget.pageName!,
                           textAlign: TextAlign.center,

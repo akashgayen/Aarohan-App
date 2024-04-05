@@ -34,7 +34,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   ];
 
   int x = 0;
-  int? selectedIndex;
+  int selectedIndex = -1;
   CarouselController buttonCarouselController = CarouselController();
 
   List<EventItem> arr = [];
@@ -47,17 +47,39 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
   bool visibleBottomMenu = false;
 
-  void _runFilter(String enteredKeyword, List<EventItem> M) {
+  void _runFilter(String enteredKeyword, List<EventItem> M, int index) {
     List<EventItem> results = [];
+    List<EventItem> result = [];
     if (enteredKeyword.isEmpty) {
       // if the search field is empty or only contains white-space, we'll display all users
-      results = M;
+      if (index != -1) {
+        results = eventItems!
+            .where((element) => (element.tag!.contains(tags[index])))
+            .toList();
+        
+      } else {
+        results = M;
+
+        // we use the toLowerCase() method to make it case-insensitive
+      }
     } else {
-      results = M
-          .where((user) =>
-              user.title!.toLowerCase().contains(enteredKeyword.toLowerCase()))
-          .toList();
-      // we use the toLowerCase() method to make it case-insensitive
+      if (index != -1) {
+        result = eventItems!
+            .where((element) => (element.tag!.contains(tags[index])))
+            .toList();
+        results = result
+            .where((user) => user.title!
+                .toLowerCase()
+                .contains(enteredKeyword.toLowerCase()))
+            .toList();
+      } else {
+        results = M
+            .where((user) => user.title!
+                .toLowerCase()
+                .contains(enteredKeyword.toLowerCase()))
+            .toList();
+        // we use the toLowerCase() method to make it case-insensitive
+      }
     }
 
     // Refresh the UI
@@ -140,20 +162,22 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                     child: TextField(
                                       onTap: () {
                                         setState(() {
-                                          selectedIndex = -1;
+                                          // selectedIndex = -1;
                                           print(selectedIndex);
                                         });
                                       },
                                       style: TextStyle(
-                                          fontFamily: 'Mons',
-                                          fontSize: 13.sp,
-                                          color: Colors.white,
-                                          letterSpacing: 1),
+                                        fontFamily: 'Mons',
+                                        fontSize: 13.sp,
+                                        color: Colors.white,
+                                        letterSpacing: 1,
+                                      ),
                                       onChanged: (value) {
-                                        setState(() {
-                                          selectedIndex = -1;
-                                        });
-                                        _runFilter(value, eventItems!);
+                                        // setState(() {
+                                        //   selectedIndex = -1;
+                                        // });
+                                        _runFilter(
+                                            value, eventItems!, selectedIndex);
                                       },
                                       decoration: InputDecoration(
                                           contentPadding: EdgeInsets.all(10.sp),
@@ -208,13 +232,29 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                     radius: 7.sp,
                                     borderRadius: BorderRadius.circular(7.sp),
                                     onTap: () {
-                                      setState(() {
-                                        selectedIndex = index;
-                                        _foundUsers = eventItems!
-                                            .where((element) => (element.tag!
-                                                .contains(tags[index])))
-                                            .toList();
-                                      });
+                                      // setState(
+                                      //   () {
+                                      //     selectedIndex = index;
+                                      //     _foundUsers = eventItems!
+                                      //         .where((element) => (element.tag!
+                                      //             .contains(tags[index])))
+                                      //         .toList();
+                                      //   },
+                                      // );
+                                      if (selectedIndex == index) {
+                                        setState(() {
+                                          selectedIndex = -1;
+                                          _foundUsers = eventItems;
+                                        });
+                                      } else {
+                                        setState(() {
+                                          selectedIndex = index;
+                                          _foundUsers = eventItems!
+                                              .where((element) => (element.tag!
+                                                  .contains(tags[index])))
+                                              .toList();
+                                        });
+                                      }
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(
@@ -413,10 +453,11 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               margin: EdgeInsets.symmetric(
                                   horizontal: 2.w, vertical: 0.1.h),
                               decoration: BoxDecoration(
-                                  color: (selectedcategory == "All")
-                                      ? Color.fromRGBO(51, 130, 154, 0.75)
-                                      : const Color.fromARGB(0, 0, 0, 0),
-                                  borderRadius: BorderRadius.circular(20.0)),
+                                color: (selectedcategory == "All")
+                                    ? Color.fromRGBO(51, 130, 154, 0.75)
+                                    : Colors.transparent,
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
                               child: InkWell(
                                 radius: 20,
                                 borderRadius: BorderRadius.circular(20.0),
@@ -429,7 +470,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   height: 8.h,
-                                  width: 18.w,
+                                  width: 13.w,
+                                  // margin: EdgeInsets.symmetric(horizontal: 1),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -448,9 +490,10 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                           height: 5,
                                           width: 5,
                                           decoration: BoxDecoration(
-                                              color: Color.fromRGBO(
-                                                  142, 210, 255, 1),
-                                              shape: BoxShape.circle),
+                                            color: Color.fromRGBO(
+                                                142, 210, 255, 1),
+                                            shape: BoxShape.circle,
+                                          ),
                                         ),
                                       )
                                     ],
@@ -481,7 +524,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   height: 8.h,
-                                  width: 21.w,
+                                  width: 25.w,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -586,7 +629,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   height: 8.h,
-                                  width: 18.w,
+                                  width: 15.w,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -719,7 +762,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                   Visibility(
                     visible: search,
                     child: Container(
-                      height: 73.h,
+                      height: 77.h,
                       child: (_foundUsers != null && _foundUsers!.isNotEmpty)
                           ? ListView.builder(
                               itemCount: _foundUsers!.length,
