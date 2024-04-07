@@ -978,13 +978,13 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   Text("8",
                                       style: TextStyle(
                                           fontFamily: 'Mons',
-                                          fontSize: 2.5.h,
+                                          fontSize: 15.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
                                   Text("Mon",
                                       style: TextStyle(
                                           fontFamily: 'Mons',
-                                          fontSize: 2.h,
+                                          fontSize: 12.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
                                 ],
@@ -1034,13 +1034,13 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   Text("9",
                                       style: TextStyle(
                                           fontFamily: 'Mons',
-                                          fontSize: 2.5.h,
+                                          fontSize: 15.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
                                   Text("Tue",
                                       style: TextStyle(
                                           fontFamily: 'Mons',
-                                          fontSize: 2.h,
+                                          fontSize: 12.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
                                 ],
@@ -1090,15 +1090,17 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   Text("10",
                                       style: TextStyle(
                                           fontFamily: 'Mons',
-                                          fontSize: 2.5.h,
+                                          fontSize: 15.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
-                                  Text("Wed",
-                                      style: TextStyle(
-                                          fontFamily: 'Mons',
-                                          fontSize: 2.h,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w500)),
+                                  Text(
+                                    "Wed",
+                                    style: TextStyle(
+                                        fontFamily: 'Mons',
+                                        fontSize: 12.sp,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500),
+                                  ),
                                 ],
                               ),
                             ),
