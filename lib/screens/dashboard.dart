@@ -56,7 +56,6 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         results = eventItems!
             .where((element) => (element.tag!.contains(tags[index])))
             .toList();
-        
       } else {
         results = M;
 
@@ -336,7 +335,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 CircleAvatar(
                                   radius: 23,
                                   backgroundImage:
-                                      AssetImage('assets/aarohan-logo.png'),
+                                      AssetImage('assets/aarohan-logo-new.png'),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.25.h),
@@ -524,7 +523,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   height: 8.h,
-                                  width: 25.w,
+                                  width: 28.w,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [

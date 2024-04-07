@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:aarohan_app/resources/eurekoin.dart';
 import 'package:aarohan_app/widgets/menuItems.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
 import '../models/coming_soon.dart';
@@ -45,6 +47,7 @@ class _BottomMenuState extends State<BottomMenu> {
   String settingIcon = 'assets/menuBarSettings0.png';
   String personIcon = 'assets/menuBarPerson0.png';
   String consoleIcon = 'assets/menuBarConsole0.png';
+  late String eurekoinRoute;
 
   final _firestore = FirebaseFirestore.instance;
   String? JDTitle;
@@ -729,7 +732,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                                 leadingImage:
                                                                     'assets/journo.png',
                                                                 itemName:
-                                                                    'Journo Detective',
+                                                                    'Interfecio',
                                                                 // JDTitle,
                                                                 routeName:
                                                                     '/journo',
