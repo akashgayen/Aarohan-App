@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sizer/sizer.dart';
 
 enum AuthMode { register, login }
 
@@ -372,7 +373,7 @@ class _AuthPageState extends State<AuthPage> {
                         "Interfecio",
                         style: TextStyle(
                           fontFamily: 'UrbanJungle',
-                          fontSize: 53,
+                          fontSize: 40.sp,
                           letterSpacing: 8,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
