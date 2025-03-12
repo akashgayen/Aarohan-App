@@ -73,8 +73,10 @@ class _PrelimsState extends State<Prelims> {
                                                       body: InAppWebView(
                                                         initialUrlRequest:
                                                             URLRequest(
-                                                                url: Uri.parse(
-                                                                    "${prelimItems[index].url}")),
+                                                                url: WebUri(
+                                                                    prelimItems[
+                                                                            index]
+                                                                        .url!)),
                                                         androidOnPermissionRequest:
                                                             (controller, origin,
                                                                 resources) async {

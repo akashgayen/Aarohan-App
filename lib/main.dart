@@ -6,13 +6,13 @@ import 'package:aarohan_app/resources/firestore_provider.dart';
 import 'package:aarohan_app/screens/dashboard.dart';
 import 'package:aarohan_app/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_config/flutter_config.dart';
 import 'package:aarohan_app/screens/event_screen.dart';
 import 'package:aarohan_app/models/schedule.dart';
 import 'package:aarohan_app/screens/timeline.dart';
@@ -49,7 +49,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await FlutterConfig.loadEnvVariables();
+  //await dotenv.load(fileName: ".env");
   await Flame.device.fullScreen();
 
   // // Initialize hive.

@@ -35,7 +35,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
   int x = 0;
   int selectedIndex = -1;
-  CarouselController buttonCarouselController = CarouselController();
+  CarouselSliderController buttonCarouselController =
+      CarouselSliderController();
 
   List<EventItem> arr = [];
   List<EventItem>? _foundUsers = [];

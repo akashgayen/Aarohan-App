@@ -1,0 +1,1 @@
+/home/archish/Desktop/app_dev/Aarohan-App/build/app/intermediates/cxx/RelWithDebInfo/615rc1m5/obj/x86

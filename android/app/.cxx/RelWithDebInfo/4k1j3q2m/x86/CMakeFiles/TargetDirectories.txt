@@ -1,0 +1,2 @@
+/home/archish/Desktop/app_dev/Aarohan-App/android/app/.cxx/RelWithDebInfo/4k1j3q2m/x86/CMakeFiles/edit_cache.dir
+/home/archish/Desktop/app_dev/Aarohan-App/android/app/.cxx/RelWithDebInfo/4k1j3q2m/x86/CMakeFiles/rebuild_cache.dir
