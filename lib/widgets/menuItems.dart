@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:geolocator/geolocator.dart';
+// import 'package:geolocator/geolocator.dart';
 
 import 'package:sizer/sizer.dart';
 
@@ -21,19 +21,19 @@ class MenuItems extends StatefulWidget {
 }
 
 class _MenuItemsState extends State<MenuItems> {
-  void getLocation() async {
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied ||
-        permission == LocationPermission.deniedForever) {
-      print("Location Permision Denied");
-      LocationPermission askPermission = await Geolocator.requestPermission();
-    } else {
-      Position currentPosition = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.best);
-      print("Longi" + currentPosition.longitude.toString());
-      print("Latit" + currentPosition.latitude.toString());
-    }
-  }
+  // void getLocation() async {
+  //   LocationPermission permission = await Geolocator.checkPermission();
+  //   if (permission == LocationPermission.denied ||
+  //       permission == LocationPermission.deniedForever) {
+  //     print("Location Permision Denied");
+  //     LocationPermission askPermission = await Geolocator.requestPermission();
+  //   } else {
+  //     Position currentPosition = await Geolocator.getCurrentPosition(
+  //         desiredAccuracy: LocationAccuracy.best);
+  //     print("Longi" + currentPosition.longitude.toString());
+  //     print("Latit" + currentPosition.latitude.toString());
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class _MenuItemsState extends State<MenuItems> {
               authService.gSignOut();
               Navigator.pushReplacementNamed(context, '/login');
             } else if (widget.routeName == '/journo') {
-              getLocation();
+              // getLocation();
               Navigator.pushNamed(context, widget.routeName!);
             } else if (widget.routeName == '/eurekoin') {
               Eurekoin.isEurekoinUserRegistered().then((value) {

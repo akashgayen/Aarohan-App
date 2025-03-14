@@ -6,7 +6,7 @@ import 'package:aarohan_app/resources/firestore_provider.dart';
 import 'package:aarohan_app/screens/dashboard.dart';
 import 'package:aarohan_app/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+// import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
@@ -148,7 +148,7 @@ class _MyAppState extends State<MyApp> {
           '/eurekoin': (context) => Eurekoin_Home(),
           '/contact': (context) => Contact(),
           '/coming': (context) => Coming(),
-          '/journo': (context) => Interfecio(),
+          // '/journo': (context) => Interfecio(),
           '/transaction': (context) => Transaction(),
           '/prelims': (context) => Prelims(),
         },

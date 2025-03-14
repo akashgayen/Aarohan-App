@@ -34,7 +34,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
 
-    namespace "com.app.aarohan.aarohanapp"
+    namespace "com.app.aarohan"
     compileSdkVersion 35    
     ndkVersion flutter.ndkVersion
 
@@ -53,10 +53,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.app.aarohan.aarohanapp"
+        applicationId "com.app.aarohan"
         minSdkVersion 23
         multiDexEnabled true
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

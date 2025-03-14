@@ -6,7 +6,7 @@ description: Annual techno-management fest of NIT Durgapur.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 
-version: 4.5.0+15
+version: 4.7.0+35
 
 environment:
   sdk: ">=3.0.0 <=4.3.0"
@@ -30,13 +30,11 @@ dependencies:
   carousel_slider: ^5.0.0
   from_css_color: ^2.0.0
   photo_view: ^0.14.0
-  google_maps_flutter: ^2.2.3 
   shared_preferences: ^2.5.2
   permission_handler: ^11.4.0
   http: ^0.13.5
   firebase_messaging: ^15.2.4
   flutter_local_notifications: ^18.0.1
-  geolocator: ^13.0.2
   flame: ^1.6.0
   flame_audio: ^2.10.7
   hive: ^2.2.3
