@@ -72,11 +72,11 @@ class AuthService {
 
         // EUREKOIN BULLSHIT
         /////////////////////////////
-        await Eurekoin.registerEurekoinUser(" ");
+        // await Eurekoin.registerEurekoinUser(" ");
       }
 
       print('Google Sign In succeeded');
-      print(user);
+      //print(user);
       return user;
       // assert(user.uid == currentUser.uid);
       //

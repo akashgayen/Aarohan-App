@@ -6,6 +6,7 @@ import 'package:aarohan_app/models/user.dart';
 import 'package:aarohan_app/models/event.dart';
 import 'package:aarohan_app/sliver_components/SABT.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Event_Detail extends StatefulWidget {
   @override
@@ -113,60 +114,69 @@ class _Event_DetailState extends State<Event_Detail> {
                                       //   width: 0.5.w,
                                       // ),
                                     ),
-                                    child: Container(
-                                      child: FlexibleSpaceBar(
-                                        collapseMode: CollapseMode.pin,
-                                        title: SABT(
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Container(
-                                                padding: EdgeInsets.fromLTRB(
-                                                    0, 2.h, 0, 0),
-                                                width: 70.w,
-                                                // margin: EdgeInsets.only(
-                                                //   bottom: 2.h,
-                                                // ),
-                                                child: Center(
-                                                  child: Text(
-                                                    eventItem.title!,
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                      letterSpacing: 1,
-                                                      fontFamily: 'Orbitron',
-                                                      fontSize: 13.sp,
-                                                      fontWeight:
-                                                          FontWeight.w700,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: Container(
+                                        child: FlexibleSpaceBar(
+                                          collapseMode: CollapseMode.pin,
+                                          title: SABT(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      0, 2.h, 0, 0),
+                                                  width: 70.w,
+                                                  // margin: EdgeInsets.only(
+                                                  //   bottom: 2.h,
+                                                  // ),
+                                                  child: Center(
+                                                    child: Text(
+                                                      eventItem.title!,
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        letterSpacing: 1,
+                                                        fontFamily: 'Orbitron',
+                                                        fontSize: 13.sp,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        background: Container(
-                                          child: CachedNetworkImage(
-                                            imageUrl: eventItem.imageUrl!,
-                                            width: 80.w,
-                                            fit: BoxFit.cover,
-                                            height: 60.h,
-                                            errorWidget: (context, url, error) {
-                                              print("Could not load content");
-                                              return Image.asset(
-                                                "assets/placeholder.jpg",
-                                                height: 60.h,
+                                          background: Container(
+                                            child: Transform.scale(
+                                              scale: 1.015,
+                                              child: CachedNetworkImage(
+                                                imageUrl: eventItem.imageUrl!,
                                                 width: 80.w,
                                                 fit: BoxFit.cover,
-                                              );
-                                            },
-                                            placeholder: (context, url) =>
-                                                Image.asset(
-                                              "assets/placeholder.jpg",
-                                              height: 60.h,
-                                              width: 80.w,
-                                              fit: BoxFit.cover,
+                                                height: 60.h,
+                                                errorWidget:
+                                                    (context, url, error) {
+                                                  print(
+                                                      "Could not load content");
+                                                  return Image.asset(
+                                                    "assets/placeholder.jpg",
+                                                    height: 60.h,
+                                                    width: 80.w,
+                                                    fit: BoxFit.cover,
+                                                  );
+                                                },
+                                                placeholder: (context, url) =>
+                                                    Image.asset(
+                                                  "assets/placeholder.jpg",
+                                                  height: 60.h,
+                                                  width: 80.w,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -350,9 +360,19 @@ class _Event_DetailState extends State<Event_Detail> {
                                             MainAxisAlignment.spaceAround,
                                         children: [
                                           InkWell(
-                                            onTap: () {
-                                              UrlLauncher.launch(
-                                                  "tel://${textsplit[0]}");
+                                            onTap: () async {
+                                              final Uri phoneUri = Uri.parse(
+                                                  "tel:${textsplit[0]}");
+
+                                              try {
+                                                await UrlLauncher.launchUrl(
+                                                    phoneUri,
+                                                    mode: LaunchMode
+                                                        .externalApplication);
+                                              } catch (e) {
+                                                print(
+                                                    "Error launching dialer: $e");
+                                              }
                                             },
                                             child: Padding(
                                               padding: EdgeInsets.fromLTRB(

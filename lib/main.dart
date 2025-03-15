@@ -1,10 +1,10 @@
 import 'package:aarohan_app/firebase_options.dart';
-// import '../game/gamemain.dart';
-import 'package:aarohan_app/interficio/interficio.dart';
 import 'package:aarohan_app/models/event.dart';
 import 'package:aarohan_app/resources/firestore_provider.dart';
 import 'package:aarohan_app/screens/dashboard.dart';
 import 'package:aarohan_app/screens/login.dart';
+import 'package:aarohan_app/screens/splash.dart';
+import 'package:aarohan_app/services/firebase_api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -70,6 +70,7 @@ Future main() async {
 
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
       alert: true, badge: true, sound: true);
+  //await FirebaseApi().initNotifications();
 
   runApp(MyApp());
 }
@@ -96,7 +97,7 @@ class _MyAppState extends State<MyApp> {
             NotificationDetails(
                 android: AndroidNotificationDetails(
                     notificationChannel.id, notificationChannel.name,
-                    icon: 'aarohan_logo',
+                    icon: 'aarhn_logo2k25',
                     color: Colors.blue,
                     playSound: true)));
       }
@@ -134,7 +135,7 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: FirebaseAuth.instance.currentUser == null ? Login() : Dashboard(),
+        home: FirebaseAuth.instance.currentUser == null ? Login() : Splash(),
         routes: {
           '/eventpage': (context) => Event_Detail(),
           '/login': (context) => Login(),

@@ -336,7 +336,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 CircleAvatar(
                                   radius: 23,
                                   backgroundImage:
-                                      AssetImage('assets/aarohan-logo-new.png'),
+                                      AssetImage('assets/aarhn_logo2k25.png'),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.25.h),
@@ -708,15 +708,28 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(10.sp),
-                                              child: CachedNetworkImage(
-                                                // height: 100,
-                                                // width: 120,
-                                                fit: BoxFit.cover,
-                                                errorWidget:
-                                                    (context, url, error) {
-                                                  print(
-                                                      "Could not load content");
-                                                  return ClipRRect(
+                                              child: Transform.scale(
+                                                scale: 1.015,
+                                                child: CachedNetworkImage(
+                                                  // height: 100,
+                                                  // width: 120,
+                                                  fit: BoxFit.cover,
+                                                  errorWidget:
+                                                      (context, url, error) {
+                                                    print(
+                                                        "Could not load content");
+                                                    return ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.sp),
+                                                      child: Image.asset(
+                                                          "assets/placeholder.jpg",
+                                                          height: 40.h,
+                                                          fit: BoxFit.cover),
+                                                    );
+                                                  },
+                                                  placeholder: (context, url) =>
+                                                      ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.sp),
@@ -724,19 +737,10 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                                         "assets/placeholder.jpg",
                                                         height: 40.h,
                                                         fit: BoxFit.cover),
-                                                  );
-                                                },
-                                                placeholder: (context, url) =>
-                                                    ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.sp),
-                                                  child: Image.asset(
-                                                      "assets/placeholder.jpg",
-                                                      height: 40.h,
-                                                      fit: BoxFit.cover),
+                                                  ),
+                                                  imageUrl:
+                                                      arr[index].imageUrl!,
                                                 ),
-                                                imageUrl: arr[index].imageUrl!,
                                               ),
                                             ),
                                           ),
@@ -812,53 +816,55 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                                   topLeft:
                                                       Radius.circular(10.sp)),
                                             ),
-                                            child: ClipRRect(
-                                              borderRadius: BorderRadius.only(
+                                            child: SizedBox(
+                                              width: 23.w,
+                                              height: 23.w,
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(10.sp),
                                                   topLeft:
-                                                      Radius.circular(10.sp)),
-                                              child: CachedNetworkImage(
-                                                imageUrl: _foundUsers![index]
-                                                    .imageUrl!,
-                                                width: 23.w,
-                                                fit: BoxFit.cover,
-                                                height: 23.w,
-                                                errorWidget:
-                                                    (context, url, error) {
-                                                  print(
-                                                      "Could not load content");
-                                                  return ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    10.sp),
-                                                            topLeft: Radius
-                                                                .circular(
-                                                                    10.sp)),
-                                                    child: Image.asset(
-                                                        "assets/placeholder.jpg",
-                                                        height: 23.w,
-                                                        width: 23.w,
-                                                        fit: BoxFit.cover),
-                                                  );
-                                                },
-                                                placeholder: (context, url) =>
-                                                    ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  15.sp),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  15.sp)),
-                                                  child: Image.asset(
-                                                      "assets/placeholder.jpg",
-                                                      height: 23.w,
-                                                      width: 23.w,
-                                                      fit: BoxFit.cover),
+                                                      Radius.circular(10.sp),
+                                                ),
+                                                child: FittedBox(
+                                                  fit: BoxFit
+                                                      .cover, // Ensures image covers the entire box
+                                                  child: SizedBox(
+                                                    width: 23.w,
+                                                    height: 23.w,
+                                                    child: Transform.scale(
+                                                      scale:
+                                                          1.01, // Increase this value to zoom more
+                                                      child: CachedNetworkImage(
+                                                        imageUrl:
+                                                            _foundUsers![index]
+                                                                .imageUrl!,
+                                                        fit: BoxFit
+                                                            .cover, // Crops & fills the entire box
+                                                        errorWidget: (context,
+                                                            url, error) {
+                                                          print(
+                                                              "Could not load content");
+                                                          return Image.asset(
+                                                            "assets/placeholder.jpg",
+                                                            width: 23.w,
+                                                            height: 23.w,
+                                                            fit: BoxFit
+                                                                .cover, // Ensures the placeholder is also zoomed
+                                                          );
+                                                        },
+                                                        placeholder:
+                                                            (context, url) =>
+                                                                Image.asset(
+                                                          "assets/placeholder.jpg",
+                                                          width: 23.w,
+                                                          height: 23.w,
+                                                          fit: BoxFit
+                                                              .cover, // Ensures consistency
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -866,23 +872,25 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                           Expanded(
                                             child: Container(
                                               child: Center(
-                                                child: Text(
-                                                  _foundUsers![index]
-                                                      .title
-                                                      .toString(),
-                                                  overflow: TextOverflow.clip,
-                                                  style: TextStyle(
-                                                      color:
-                                                          const Color.fromARGB(
-                                                              255,
-                                                              255,
-                                                              255,
-                                                              255),
-                                                      fontFamily: 'Mons',
-                                                      letterSpacing: 1.1,
-                                                      fontSize: 13.sp,
-                                                      fontWeight:
-                                                          FontWeight.w400),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(2.0),
+                                                  child: Text(
+                                                    _foundUsers![index]
+                                                        .title
+                                                        .toString(),
+                                                    overflow: TextOverflow.clip,
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        color: const Color
+                                                            .fromARGB(
+                                                            255, 255, 255, 255),
+                                                        fontFamily: 'Mons',
+                                                        letterSpacing: 1.1,
+                                                        fontSize: 13.sp,
+                                                        fontWeight:
+                                                            FontWeight.w400),
+                                                  ),
                                                 ),
                                               ),
                                             ),
