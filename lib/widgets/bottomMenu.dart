@@ -768,20 +768,20 @@ class _BottomMenuState extends State<BottomMenu> {
                                                             SingleChildScrollView(
                                                           child: Column(
                                                             children: [
-                                                              (isInterficioAvailable
-                                                                      .value)
-                                                                  ? MenuItems(
-                                                                      leadingImage:
-                                                                          'assets/journo.png',
-                                                                      itemName:
-                                                                          'Interfecio',
-                                                                      // JDTitle,
-                                                                      routeName: (!interfecio
-                                                                              .value)
-                                                                          ? '/journo'
-                                                                          : '/coming',
-                                                                    )
-                                                                  : SizedBox(),
+                                                              // (isInterficioAvailable
+                                                              //         .value)
+                                                              //     ? MenuItems(
+                                                              //         leadingImage:
+                                                              //             'assets/journo.png',
+                                                              //         itemName:
+                                                              //             'Interfecio',
+                                                              //         // JDTitle,
+                                                              //         routeName: (!interfecio
+                                                              //                 .value)
+                                                              //             ? '/journo'
+                                                              //             : '/coming',
+                                                              //       )
+                                                              //     : SizedBox(),
                                                               // MenuItems(
                                                               //   leadingImage:
                                                               //       'assets/game.png',

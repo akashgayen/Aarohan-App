@@ -70,7 +70,7 @@ Future main() async {
 
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
       alert: true, badge: true, sound: true);
-  //await FirebaseApi().initNotifications();
+  await FirebaseApi().initNotifications();
 
   runApp(MyApp());
 }

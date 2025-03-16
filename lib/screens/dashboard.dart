@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -760,7 +761,10 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                       ],
                                     ))
                             : Center(
-                                child: CircularProgressIndicator(),
+                                child: LoadingAnimationWidget.threeArchedCircle(
+                                  color: Colors.deepOrangeAccent,
+                                  size: 40, // Adjust the size
+                                ),
                               )),
                   ),
                   Visibility(

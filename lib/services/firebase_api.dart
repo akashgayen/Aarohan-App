@@ -29,7 +29,7 @@ class FirebaseApi {
   /// Initialize Local Notifications for Foreground Messages
   void _initLocalNotifications() {
     const AndroidInitializationSettings androidSettings =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
+        AndroidInitializationSettings('@drawable/arrhn_logo2k25');
 
     final InitializationSettings initSettings = InitializationSettings(
       android: androidSettings,
@@ -39,26 +39,26 @@ class FirebaseApi {
   }
 
   /// Create Notification Channel (Required for Android 8+)
-  Future<void> _createNotificationChannel() async {
-    const AndroidNotificationChannel channel = AndroidNotificationChannel(
-      'high_importance_channel', // Must match Firebase payload
-      'Important Notifications',
-      description: 'This channel is used for important notifications.',
-      importance: Importance.high,
-    );
+  // Future<void> _createNotificationChannel() async {
+  //   const AndroidNotificationChannel channel = AndroidNotificationChannel(
+  //     'high_importance_channel', // Must match Firebase payload
+  //     'Important Notifications',
+  //     description: 'This channel is used for important notifications.',
+  //     importance: Importance.high,
+  //   );
 
-    await _localNotificationsPlugin
-        .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>()
-        ?.createNotificationChannel(channel);
-  }
+  //   await _localNotificationsPlugin
+  //       .resolvePlatformSpecificImplementation<
+  //           AndroidFlutterLocalNotificationsPlugin>()
+  //       ?.createNotificationChannel(channel);
+  // }
 
   /// Listen to FCM Messages
   void _setupFCMHandlers() {
     // Foreground Notifications
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       print('Foreground Message: ${message.notification?.title}');
-      //_showLocalNotification(message);
+      // _showLocalNotification(message);
     });
 
     // Background Notifications (User taps notification)
@@ -74,7 +74,7 @@ class FirebaseApi {
     });
   }
 
-  /// Show Local Notification
+  //Show Local Notification
   // Future<void> _showLocalNotification(RemoteMessage message) async {
   //   const AndroidNotificationDetails androidDetails =
   //       AndroidNotificationDetails(
@@ -82,7 +82,7 @@ class FirebaseApi {
   //     'Important Notifications',
   //     importance: Importance.high,
   //     priority: Priority.high,
-  //     icon: '@mipmap/ic_launcher',
+  //     icon: '@drawable/arrhn_logo2k25',
   //   );
 
   //   const NotificationDetails details = NotificationDetails(

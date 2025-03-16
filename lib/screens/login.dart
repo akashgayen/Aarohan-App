@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:sizer/sizer.dart';
 import 'package:aarohan_app/services/auth_services.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -10,6 +11,30 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  void showLoadingDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false, // Prevent user from dismissing the loader
+      builder: (context) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Center(
+                child: LoadingAnimationWidget.threeArchedCircle(
+                  color:
+                      Colors.deepOrangeAccent, // Change color as per your theme
+                  size: 40, // Adjust the size
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Sizer(
@@ -193,9 +218,11 @@ class _LoginState extends State<Login> {
                         ),
                         child: OutlineGradientButton(
                           onTap: () async {
+                            showLoadingDialog(context);
                             AuthService authService = AuthService();
                             authService.gSignIn().then(
                               (value) {
+                                Navigator.pop(context);
                                 if (value != null) {
                                   Navigator.pushReplacementNamed(
                                       context, '/home');

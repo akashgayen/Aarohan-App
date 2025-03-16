@@ -18,6 +18,7 @@ dependencies:
   firebase_core: ^3.12.1
   google_sign_in: ^6.3.0
   provider: ^6.0.2
+  loading_animation_widget: ^1.3.0
   flutter_signin_button: ^2.0.0
   sizer: ^2.0.15
   cached_network_image: ^3.2.3
@@ -43,20 +44,36 @@ dependencies:
   
   flutter:
     sdk: flutter
-
-
-
+    
   cupertino_icons: ^1.0.2
   hive_flutter: ^1.1.0
   outline_gradient_button: ^2.0.1+1
   flame_noise: ^0.3.0+1
+  flutter_launcher_icons: ^0.14.3
 
-dev_dependencies:
-  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/aarhn_logo2k25.png"
+  min_sdk_android: 21 
+  web:
+    generate: true
+    image_path: "assets/aarhn_logo2k25.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/aarhn_logo2k25.png"
+    icon_size: 48 
+  macos:
+    generate: true
+    image_path: "assets/aarhn_logo2k25.png"
+
 
 flutter_icons:
     android: "launcher_icon"
-    image_path: "assets/aarohan-logo-new.png"
+    image_path: "assets/aarhn_logo2k25.png"
 flutter_test:
     sdk: flutter
 
