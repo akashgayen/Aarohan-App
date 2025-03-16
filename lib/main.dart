@@ -8,7 +8,7 @@ import 'package:aarohan_app/services/firebase_api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flame/flame.dart';
+// import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -44,13 +44,13 @@ const AndroidNotificationChannel notificationChannel =
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
-  print("A bg message recieved ${message.messageId}");
+  // print("A bg message recieved ${message.messageId}");
 }
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //await dotenv.load(fileName: ".env");
-  await Flame.device.fullScreen();
+  // await Flame.device.fullScreen();
 
   // // Initialize hive.
   // await initHive();
@@ -91,15 +91,19 @@ class _MyAppState extends State<MyApp> {
       AndroidNotification? androidNotification = message.notification!.android;
       if (remoteNotification != null && androidNotification != null) {
         _localNotificationsPlugin.show(
-            remoteNotification.hashCode,
-            remoteNotification.title,
-            remoteNotification.body,
-            NotificationDetails(
-                android: AndroidNotificationDetails(
-                    notificationChannel.id, notificationChannel.name,
-                    icon: 'aarhn_logo2k25',
-                    color: Colors.blue,
-                    playSound: true)));
+          remoteNotification.hashCode,
+          remoteNotification.title,
+          remoteNotification.body,
+          NotificationDetails(
+            android: AndroidNotificationDetails(
+              notificationChannel.id,
+              notificationChannel.name,
+              icon: 'aarhn_logo2k25',
+              color: Colors.blue,
+              playSound: true,
+            ),
+          ),
+        );
       }
     });
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
@@ -115,23 +119,33 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         StreamProvider<List<EventItem>>(
-            create: (_) => FirebaseService().eventListStream(),
-            initialData: []),
+          create: (_) => FirebaseService().eventListStream(),
+          initialData: [],
+        ),
         StreamProvider<List<DayItem>>(
-            create: (_) => FirebaseService().scheduleListStream(),
-            initialData: []),
+          create: (_) => FirebaseService().scheduleListStream(),
+          initialData: [],
+        ),
         StreamProvider<List<ContributorItem>>(
-            create: (_) => FirebaseService().contributorStream(),
-            initialData: []),
+          create: (_) => FirebaseService().contributorStream(),
+          initialData: [],
+        ),
         StreamProvider<List<SponsorItem>>(
-            create: (_) => FirebaseService().sponsorStream(), initialData: []),
+          create: (_) => FirebaseService().sponsorStream(),
+          initialData: [],
+        ),
         StreamProvider<List<ContactItem>>(
-            create: (_) => FirebaseService().contactStream(), initialData: []),
+          create: (_) => FirebaseService().contactStream(),
+          initialData: [],
+        ),
         StreamProvider<List<ComingItem>>(
-            create: (_) => FirebaseService().comingListStream(),
-            initialData: []),
+          create: (_) => FirebaseService().comingListStream(),
+          initialData: [],
+        ),
         StreamProvider<List<PrelimItem>>(
-            create: (_) => FirebaseService().prelimStream(), initialData: []),
+          create: (_) => FirebaseService().prelimStream(),
+          initialData: [],
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

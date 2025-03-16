@@ -3,10 +3,9 @@ description: Annual techno-management fest of NIT Durgapur.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-
-version: 4.7.0+35
+version: 4.8.0+45
 
 environment:
   sdk: ">=3.0.0 <=4.3.0"
@@ -36,27 +35,23 @@ dependencies:
   http: ^0.13.5
   firebase_messaging: ^15.2.4
   flutter_local_notifications: ^18.0.1
-  flame: ^1.6.0
-  flame_audio: ^2.10.7
   hive: ^2.2.3
   hive_generator: ^2.0.1
   path_provider: ^2.0.11
-  
+
   flutter:
     sdk: flutter
-    
+
   cupertino_icons: ^1.0.2
   hive_flutter: ^1.1.0
   outline_gradient_button: ^2.0.1+1
-  flame_noise: ^0.3.0+1
   flutter_launcher_icons: ^0.14.3
-
 
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/aarhn_logo2k25.png"
-  min_sdk_android: 21 
+  min_sdk_android: 21
   web:
     generate: true
     image_path: "assets/aarhn_logo2k25.png"
@@ -65,23 +60,18 @@ flutter_launcher_icons:
   windows:
     generate: true
     image_path: "assets/aarhn_logo2k25.png"
-    icon_size: 48 
+    icon_size: 48
   macos:
     generate: true
     image_path: "assets/aarhn_logo2k25.png"
 
-
 flutter_icons:
-    android: "launcher_icon"
-    image_path: "assets/aarhn_logo2k25.png"
+  android: "launcher_icon"
+  image_path: "assets/aarhn_logo2k25.png"
 flutter_test:
-    sdk: flutter
-
-
+  sdk: flutter
 
 flutter:
-
-
   uses-material-design: true
 
   assets:
@@ -90,34 +80,31 @@ flutter:
     - assets/fonts/
     - assets/images/
 
-
-
-
   fonts:
     - family: Bayon
       fonts:
-         - asset: fonts/Bayon-Regular.ttf
+        - asset: fonts/Bayon-Regular.ttf
     - family: AllertaStencil
       fonts:
-         - asset: fonts/AllertaStencil-Regular.ttf
+        - asset: fonts/AllertaStencil-Regular.ttf
     - family: UrbanJungle
       fonts:
-         - asset: fonts/UrbanJungleDEMO.otf
+        - asset: fonts/UrbanJungleDEMO.otf
     - family: Mons
       fonts:
-         - asset: fonts/Mons Olympia.otf
+        - asset: fonts/Mons Olympia.otf
     - family: Staat
       fonts:
-         - asset: fonts/Staatliches-Regular.ttf
+        - asset: fonts/Staatliches-Regular.ttf
     - family: Gugi
       fonts:
-         - asset: fonts/Gugi-Regular.ttf
+        - asset: fonts/Gugi-Regular.ttf
     - family: Poppins
       fonts:
-         - asset: fonts/Poppins-Regular.ttf
+        - asset: fonts/Poppins-Regular.ttf
     - family: Bebas
       fonts:
-         - asset: fonts/BebasNeue-Regular.ttf
+        - asset: fonts/BebasNeue-Regular.ttf
     - family: Gotham
       fonts:
         - asset: fonts/Gotham-Black.otf
@@ -130,12 +117,12 @@ flutter:
 
     - family: Montserrat
       fonts:
-         - asset: fonts/Montserrat-Regular.ttf
-         - asset: fonts/Montserrat-Bold.ttf
-           weight: 900
+        - asset: fonts/Montserrat-Regular.ttf
+        - asset: fonts/Montserrat-Bold.ttf
+          weight: 900
     - family: LemonMilk
       fonts:
-       - asset: fonts/LEMONMILK-Bold.otf
+        - asset: fonts/LEMONMILK-Bold.otf
 
     - family: Norwester
       fonts:
@@ -148,6 +135,3 @@ flutter:
         - asset: fonts/Orbitron-VariableFont_wght.ttf
         - asset: fonts/Orbitron-Bold.ttf
           weight: 500
-
-
-
