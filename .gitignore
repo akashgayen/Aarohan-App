@@ -50,6 +50,6 @@ linux
 macos
 windows
 
-/android/key.properties
-/android/app/aarohanKey.jks
+android/key.properties
+android/app/aarohanKey.jks
 android/app/.cxx

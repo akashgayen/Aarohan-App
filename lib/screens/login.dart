@@ -11,26 +11,25 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  void showLoadingDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      barrierDismissible: false, // Prevent user from dismissing the loader
-      builder: (context) {
-        return Dialog(
-          backgroundColor: Colors.transparent,
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Center(
-                child: LoadingAnimationWidget.staggeredDotsWave(
-                  color:
-                      Colors.deepOrangeAccent, // Change color as per your theme
-                  size: 40, // Adjust the size
-                ),
-              ),
-            ),
-          ),
-        );
+  bool _isLoading = false;
+
+  void _handleSignIn() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    AuthService authService = AuthService();
+    authService.gSignIn().then(
+          (value) {
+        setState(() {
+          _isLoading = false;
+        });
+
+        if (value != null) {
+          Navigator.pushReplacementNamed(context, '/home');
+        } else {
+          print("error in Signin");
+        }
       },
     );
   }
@@ -46,13 +45,13 @@ class _LoginState extends State<Login> {
                 body: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/splash-bg-new.png"),
-                        colorFilter: ColorFilter.mode(
-                            Color.fromARGB(175, 0, 5, 26), BlendMode.srcOver),
-                        fit: BoxFit.fill),
+                      image: AssetImage("assets/splash-bg-new.png"),
+                      colorFilter: ColorFilter.mode(
+                          Color.fromARGB(175, 0, 5, 26), BlendMode.srcOver),
+                      fit: BoxFit.fill,
+                    ),
                   ),
                   child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         height: MediaQuery.of(context).size.height * 0.1,
@@ -86,15 +85,6 @@ class _LoginState extends State<Login> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(4.0),
-                        // child: Text(
-                        //   'Aarohan',
-                        //   style: TextStyle(
-                        //     fontFamily: 'UrbanJungle',
-                        //     fontSize: 60,
-                        //     color: Colors.white,
-                        //     fontWeight: FontWeight.bold,
-                        //   ),
-                        // ),
                         child: Image.asset(
                           'assets/aarohan-text.png',
                           height: 50,
@@ -116,90 +106,6 @@ class _LoginState extends State<Login> {
                       SizedBox(
                         height: 10.h,
                       ),
-                      // GestureDetector(
-                      //   onTap: () async {
-                      //     AuthService authService = AuthService();
-                      //     authService.gSignIn().then(
-                      //       (value) {
-                      //         if (value != null) {
-                      //           Navigator.pushReplacementNamed(
-                      //               context, '/home');
-                      //         } else {
-                      //           print("error in Signin");
-                      //         }
-                      //       },
-                      //     );
-                      //   },
-                      //   child: Container(
-                      //     // padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
-                      //     decoration: BoxDecoration(
-                      //       borderRadius: BorderRadius.circular(15),
-                      //       gradient: LinearGradient(
-                      //         colors: [
-                      //           Colors.white,
-                      //           Colors.black,
-                      //         ],
-                      //         begin: Alignment.topCenter,
-                      //         end: Alignment.bottomCenter,
-                      //       ),
-                      //       color: Colors.black,
-                      //     ),
-                      //     child: Container(
-                      //       width: 75.w,
-                      //       height: 7.h,
-                      //       child: Container(
-                      //         decoration: BoxDecoration(
-                      //           border: Border.all(
-                      //             color: Color.fromARGB(255, 101, 170,
-                      //                 254), // rgba(101, 171, 254, 0.32),
-                      //             width: 1,
-                      //           ),
-                      //           // color: Color.fromRGBO(
-                      //           //   101,
-                      //           //   171,
-                      //           //   254,
-                      //           //   0.32,
-                      //           // ),
-                      //           gradient: LinearGradient(
-                      //             colors: [
-                      //               Color.fromARGB(255, 78, 178, 208),
-                      //               Color.fromARGB(255, 16, 59, 73),
-                      //             ],
-                      //             begin: Alignment.topLeft,
-                      //             end: Alignment.bottomRight,
-                      //           ),
-                      //           borderRadius: BorderRadius.circular(
-                      //             15,
-                      //           ),
-                      //         ),
-                      //         child: Row(
-                      //           mainAxisAlignment:
-                      //               MainAxisAlignment.spaceEvenly,
-                      //           children: [
-                      //             Padding(
-                      //               padding:
-                      //                   const EdgeInsets.fromLTRB(0, 8, 0, 8),
-                      //               child: Image(
-                      //                 image: AssetImage(
-                      //                   'assets/google-new-1.png',
-                      //                 ),
-                      //               ),
-                      //             ),
-                      //             Text(
-                      //               'Sign In With Google',
-                      //               style: TextStyle(
-                      //                 fontFamily: 'Staat',
-                      //                 color: Colors.white,
-                      //                 fontWeight: FontWeight.w400,
-                      //                 fontSize: 21,
-                      //               ),
-                      //             ),
-                      //           ],
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
                       Container(
                         width: 75.w,
                         height: 7.h,
@@ -212,26 +118,10 @@ class _LoginState extends State<Login> {
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                           ),
-                          borderRadius: BorderRadius.circular(
-                            15,
-                          ),
+                          borderRadius: BorderRadius.circular(15),
                         ),
                         child: OutlineGradientButton(
-                          onTap: () async {
-                            showLoadingDialog(context);
-                            AuthService authService = AuthService();
-                            authService.gSignIn().then(
-                              (value) {
-                                Navigator.pop(context);
-                                if (value != null) {
-                                  Navigator.pushReplacementNamed(
-                                      context, '/home');
-                                } else {
-                                  print("error in Signin");
-                                }
-                              },
-                            );
-                          },
+                          onTap: _isLoading ? null : _handleSignIn, // Disable button if loading
                           strokeWidth: 2,
                           radius: Radius.circular(15),
                           gradient: LinearGradient(
@@ -240,7 +130,14 @@ class _LoginState extends State<Login> {
                               Color.fromARGB(255, 251, 71, 10),
                             ],
                           ),
-                          child: Row(
+                          child: _isLoading
+                              ? Center(
+                            child: LoadingAnimationWidget.staggeredDotsWave(
+                              color: Colors.deepOrangeAccent,
+                              size: 40,
+                            ),
+                          )
+                              : Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Padding(
@@ -263,7 +160,7 @@ class _LoginState extends State<Login> {
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
