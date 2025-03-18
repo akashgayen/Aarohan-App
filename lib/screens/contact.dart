@@ -30,7 +30,8 @@ class _ContactState extends State<Contact> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/newbackground.jpg"),
+                  opacity: 0.8,
+                  image: AssetImage("assets/aarhn_new_bg2k25.png"),
                   colorFilter: new ColorFilter.mode(
                       Color.fromARGB(0, 48, 17, 6), BlendMode.srcOver),
                   fit: BoxFit.cover),
@@ -114,7 +115,7 @@ class _ContactState extends State<Contact> {
                                     Container(
                                       padding:
                                           EdgeInsets.symmetric(vertical: 5.sp),
-                                      // height: 9.h,
+                                      height: 12.h,
                                       decoration: ShapeDecoration(
                                         gradient: LinearGradient(
                                           begin: Alignment(0.00, -1.00),
@@ -175,7 +176,13 @@ class _ContactState extends State<Contact> {
                                             textAlign: TextAlign.center,
                                             // overflow: TextOverflow.clip,
                                             style: TextStyle(
-                                              fontSize: 13.sp,
+                                              fontSize: contactItems[index]
+                                                          .name
+                                                          .split('-')[0]
+                                                          .length >
+                                                      15
+                                                  ? 11.sp
+                                                  : 13.sp,
                                               color: Colors.white,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w600,
@@ -212,7 +219,8 @@ class _ContactState extends State<Contact> {
                                                   child: Container(
                                                       child: Icon(
                                                     Icons.phone,
-                                                    color: const Color.fromARGB(255, 255, 255, 255),
+                                                    color: const Color.fromARGB(
+                                                        255, 255, 255, 255),
                                                   ))),
                                               // SizedBox(width: 1.5.w,),
 

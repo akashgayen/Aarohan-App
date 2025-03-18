@@ -47,8 +47,8 @@ class _topBarState extends State<topBar> {
             // color: Color.fromRGBO(25, 102, 154, 0.5),
             gradient: LinearGradient(
               colors: [
-                Color.fromARGB(223, 47, 117, 138),
-                Color.fromARGB(255, 4, 29, 37),
+                Color.fromARGB(110, 68, 160, 189),
+                Color.fromARGB(197, 13, 83, 109),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -71,9 +71,9 @@ class _topBarState extends State<topBar> {
                           widget.pageName!,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontFamily: 'Bayon',
-                            color: Colors.blue[200],
-                            fontSize: 4.h,
+                            fontFamily: 'B Biger Over',
+                            color: const Color.fromARGB(255, 223, 243, 255),
+                            fontSize: 3.5.h,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -91,10 +91,13 @@ class _topBarState extends State<topBar> {
                       Navigator.pop(context);
                     }
                   },
-                  child: Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 25.sp,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: 25.sp,
+                    ),
                   ),
                 )
               ],

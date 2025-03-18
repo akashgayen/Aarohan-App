@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
@@ -63,7 +65,8 @@ class _Event_DetailState extends State<Event_Detail>
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/aarohan-bg-new.jpg"),
+                  opacity: 0.8,
+                  image: AssetImage("assets/aarhn_new_bg2k25.png"),
                   // colorFilter: new ColorFilter.mode(
                   //     Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
                   fit: BoxFit.cover),
@@ -116,7 +119,7 @@ class _Event_DetailState extends State<Event_Detail>
                                   ]),
                                   strokeWidth: 1.5,
                                   child: Container(
-                                    // height: 20.h,
+                                    // height: 70.h,
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
@@ -566,8 +569,8 @@ class _Event_DetailState extends State<Event_Detail>
                                           EdgeInsets.fromLTRB(5.w, 3.h, 2.w, 0),
                                       child: Text(eventItem.title!,
                                           style: TextStyle(
-                                              fontSize: 21.5.sp,
-                                              fontFamily: 'Poppins',
+                                              fontSize: 19.5.sp,
+                                              fontFamily: 'B Biger Over',
                                               letterSpacing: 1.1,
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600)),
@@ -575,13 +578,57 @@ class _Event_DetailState extends State<Event_Detail>
                                     Padding(
                                       padding: EdgeInsets.fromLTRB(
                                           5.w, 3.h, 7.w, 2.h),
-                                      child: Text(eventItem.body!,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12.sp,
-                                              fontFamily: 'Poppins',
-                                              letterSpacing: 1.1,
-                                              fontWeight: FontWeight.w200)),
+                                      child: Stack(
+                                        children: [
+                                          /// Blurred Background Container
+                                          ClipRRect(
+                                            borderRadius: BorderRadius.circular(
+                                                10.0), // Optional rounded corners
+                                            child: BackdropFilter(
+                                              filter: ImageFilter.blur(
+                                                  sigmaX: 5,
+                                                  sigmaY:
+                                                      5), // Adjust blur intensity
+                                              child: Container(
+                                                height: 85.h,
+                                                padding: EdgeInsets.all(12.0),
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255, 230, 74, 13),
+                                                      width:
+                                                          2 // Light translucent effect
+                                                      ),
+                                                  // Light translucent effect
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+
+                                          /// Text Content (Outside the Blur Effect)
+                                          Container(
+                                            //height: 70.h,
+                                            padding: EdgeInsets.all(10.0),
+                                            child: SingleChildScrollView(
+                                              physics: ClampingScrollPhysics(),
+                                              child: Text(
+                                                eventItem.body!,
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  letterSpacing: 1.1,
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 13.5.sp,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     )
                                   ],
                                 ),

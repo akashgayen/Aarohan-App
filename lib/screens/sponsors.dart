@@ -29,7 +29,8 @@ class _SponsorsState extends State<Sponsors> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/newbackground.jpg"),
+                  opacity: 0.9,
+                  image: AssetImage("assets/aarhn_new_bg2k25.png"),
                   colorFilter: new ColorFilter.mode(
                       Color.fromARGB(0, 48, 17, 6), BlendMode.srcOver),
                   fit: BoxFit.cover),
@@ -49,7 +50,7 @@ class _SponsorsState extends State<Sponsors> {
                     showBottomMenu = false;
                   });
                 },
-                onTap: (){},
+                onTap: () {},
                 child: Stack(
                   children: [
                     Column(

@@ -15,7 +15,8 @@ class _ComingState extends State<Coming> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/aarohan-bg-new.jpg"),
+                opacity: 0.7,
+                image: AssetImage("assets/aarhn_new_bg2k25.png"),
                 // colorFilter: new ColorFilter.mode(
                 //     Color.fromARGB(177, 48, 17, 6), BlendMode.srcOver),
                 fit: BoxFit.cover,

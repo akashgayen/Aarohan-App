@@ -61,8 +61,8 @@ class Timeline_List extends StatelessWidget {
                             : Corners(),
                         gradient: LinearGradient(
                           colors: [
+                            Color.fromARGB(255, 255, 110, 48),
                             Colors.white,
-                            Color.fromARGB(255, 163, 90, 58),
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -86,34 +86,39 @@ class Timeline_List extends StatelessWidget {
                               // ),
                               ),
                           height: 10.h,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(3.w, 1.5.h, 0, 0),
-                                child: Text(
-                                  "${data[index]}",
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 12.5.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.black.withOpacity(0.2)),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding:
+                                      EdgeInsets.fromLTRB(3.w, 1.5.h, 0, 0),
+                                  child: Text(
+                                    "${data[index]}",
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 12.5.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              // Padding(
-                              //   padding: EdgeInsets.fromLTRB(3.w, 0.4.h, 0, 0),
-                              //   child: Text(
-                              //     "Online",
-                              //     style: TextStyle(
-                              //       fontFamily: 'Poppins',
-                              //       fontSize: 11.sp,
-                              //       fontWeight: FontWeight.w500,
-                              //       color: Colors.white,
-                              //     ),
-                              //   ),
-                              // ),
-                            ],  
+                                // Padding(
+                                //   padding: EdgeInsets.fromLTRB(3.w, 0.4.h, 0, 0),
+                                //   child: Text(
+                                //     "Online",
+                                //     style: TextStyle(
+                                //       fontFamily: 'Poppins',
+                                //       fontSize: 11.sp,
+                                //       fontWeight: FontWeight.w500,
+                                //       color: Colors.white,
+                                //     ),
+                                //   ),
+                                // ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

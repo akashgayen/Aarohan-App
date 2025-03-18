@@ -135,3 +135,9 @@ flutter:
         - asset: fonts/Orbitron-VariableFont_wght.ttf
         - asset: fonts/Orbitron-Bold.ttf
           weight: 500
+    - family: B Biger Over
+      fonts:
+        - asset: assets/fonts/bBigerOver.ttf 
+    - family: AllertaStencil
+      fonts:
+        - asset: assets/fonts/AllertaStencil-Regular.ttf

@@ -32,7 +32,8 @@ class _ContributorsState extends State<Contributors> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/newbackground.jpg"),
+                  opacity: 0.8,
+                  image: AssetImage("assets/aarhn_new_bg2k25.png"),
                   colorFilter: new ColorFilter.mode(
                       Color.fromARGB(0, 48, 17, 6), BlendMode.srcOver),
                   fit: BoxFit.cover),
@@ -127,12 +128,11 @@ class _ContributorsState extends State<Contributors> {
                                             ],
                                           ),
                                           shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
+                                              borderRadius: BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(8),
                                                   bottomRight:
-                                                      Radius.circular(8))
-                                          ),
+                                                      Radius.circular(8))),
                                           shadows: [
                                             BoxShadow(
                                               color: Color(0x6D000000),
@@ -206,7 +206,12 @@ class _ContributorsState extends State<Contributors> {
                                                     child: Container(
                                                         child: Icon(
                                                       Icons.phone,
-                                                      color: const Color.fromARGB(255, 255, 255, 255),
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255,
+                                                              255,
+                                                              255,
+                                                              255),
                                                       size: 2.5.h,
                                                     ))),
                                                 // SizedBox(width: 1.5.w,),

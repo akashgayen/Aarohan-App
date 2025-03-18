@@ -112,7 +112,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/aarohan-bg-new.jpg"),
+              //opacity: 0.9,
+              image: AssetImage("assets/aarhn_new_bg2k25.png"),
               fit: BoxFit.cover,
               colorFilter: new ColorFilter.mode(
                   Color.fromARGB(38, 9, 75, 87), BlendMode.srcOver),
@@ -298,29 +299,27 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                       ),
                       child: OutlineGradientButton(
                         strokeWidth: 3,
-                        radius: Radius.circular(15),
+                        radius: Radius.circular(17),
                         gradient: LinearGradient(
                           begin: Alignment.bottomLeft,
                           end: Alignment.topRight,
                           colors: [
-                            Color.fromARGB(122, 251, 70, 10),
+                            Color(0xFFFF4E02),
                             Color.fromARGB(122, 251, 70, 10),
                             Colors.grey.shade800,
-                            const Color.fromARGB(111, 33, 33, 33),
+                            const Color.fromARGB(110, 175, 175, 175),
                           ],
                         ),
                         padding: EdgeInsets.all(0),
                         child: Container(
-                          // margin: EdgeInsets.symmetric(
-                          //   vertical: 3.h,
-                          //   horizontal: 2.5.w,
-                          // ),
-                          // alignment: Alignment.bottomCenter,
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 0.85.w, vertical: 0.8.w),
+                          alignment: Alignment.bottomCenter,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
                             gradient: LinearGradient(
                               colors: [
-                                Color.fromRGBO(16, 59, 73, 0.47),
+                                Color.fromRGBO(16, 59, 73, 0.664),
                                 Color.fromRGBO(78, 177, 208, 0.38),
                               ],
                               begin: Alignment.topLeft,
@@ -341,13 +340,15 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.25.h),
-                                  child: Text(
-                                    "Aarohan",
-                                    style: TextStyle(
-                                      fontFamily: 'UrbanJungle',
-                                      fontSize: 33.sp,
-                                      color: Color.fromRGBO(155, 204, 239, 1),
-                                      fontWeight: FontWeight.w500,
+                                  child: Center(
+                                    child: Text(
+                                      "Aarohan",
+                                      style: TextStyle(
+                                        fontFamily: 'B Biger Over',
+                                        fontSize: 29.sp,
+                                        color: Color.fromRGBO(255, 255, 255, 1),
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -401,18 +402,18 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           end: Alignment.bottomRight,
                         ),
                         boxShadow: [
-                          BoxShadow(
-                            color: Color(0x6D000000),
-                            blurRadius: 15,
-                            offset: Offset(6, 4),
-                            spreadRadius: 0,
-                          ),
-                          BoxShadow(
-                            color: Color(0x5E000000),
-                            blurRadius: 27,
-                            offset: Offset(23, 14),
-                            spreadRadius: 0,
-                          ),
+                          // BoxShadow(
+                          //   color: Color(0x6D000000),
+                          //   blurRadius: 15,
+                          //   offset: Offset(6, 4),
+                          //   spreadRadius: 0,
+                          // ),
+                          // BoxShadow(
+                          //   color: Color(0x5E000000),
+                          //   blurRadius: 27,
+                          //   offset: Offset(23, 14),
+                          //   spreadRadius: 0,
+                          // ),
                           BoxShadow(
                             color: Color(0x38000000),
                             blurRadius: 37,
@@ -441,10 +442,10 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                         radius: Radius.circular(15),
                         gradient: LinearGradient(
                           colors: [
-                            const Color.fromARGB(111, 33, 33, 33),
-                            Colors.grey.shade800,
-                            Color.fromARGB(132, 251, 70, 10),
-                            Color.fromARGB(132, 251, 70, 10),
+                            const Color.fromARGB(109, 143, 142, 142),
+                            const Color.fromARGB(122, 92, 90, 90),
+                            Color.fromARGB(160, 251, 70, 10),
+                            Color.fromARGB(230, 251, 70, 10),
                           ],
                         ),
                         child: Row(
@@ -455,8 +456,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   horizontal: 2.w, vertical: 0.1.h),
                               decoration: BoxDecoration(
                                 color: (selectedcategory == "All")
-                                    ? Color.fromRGBO(51, 130, 154, 0.75)
-                                    : Colors.transparent,
+                                    ? Color.fromRGBO(255, 255, 255, 0.288)
+                                    : const Color.fromARGB(0, 255, 255, 255),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: InkWell(
@@ -507,7 +508,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   horizontal: 2.w, vertical: 0.1.h),
                               decoration: BoxDecoration(
                                   color: (selectedcategory == "Workshop")
-                                      ? Color.fromRGBO(51, 130, 154, 0.75)
+                                      ? Color.fromRGBO(255, 255, 255, 0.288)
                                       : const Color.fromARGB(0, 0, 0, 0),
                                   borderRadius: BorderRadius.circular(20.0)),
                               child: InkWell(
@@ -560,7 +561,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   horizontal: 2.w, vertical: 0.5.h),
                               decoration: BoxDecoration(
                                   color: (selectedcategory == "Event")
-                                      ? Color.fromRGBO(51, 130, 154, 0.75)
+                                      ? Color.fromRGBO(255, 255, 255, 0.288)
                                       : const Color.fromARGB(0, 0, 0, 0),
                                   borderRadius: BorderRadius.circular(20.0)),
                               child: InkWell(
@@ -612,7 +613,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                   horizontal: 2.w, vertical: 0.5.h),
                               decoration: BoxDecoration(
                                   color: (selectedcategory == "Talk")
-                                      ? Color.fromRGBO(51, 130, 154, 0.75)
+                                      ? Color.fromRGBO(255, 255, 255, 0.288)
                                       : const Color.fromARGB(0, 0, 0, 0),
                                   borderRadius: BorderRadius.circular(20.0)),
                               child: InkWell(
@@ -668,7 +669,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     visible: !search,
                     child: Container(
                         margin: EdgeInsets.only(top: 1.h),
-                        height: 48.5.h,
+                        height: 47.5.h,
                         child: (arr.length != 0)
                             ? CarouselSlider.builder(
                                 itemCount: arr.length,
@@ -750,12 +751,13 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                           height: 1.h,
                                         ),
                                         Text(
+                                          textAlign: TextAlign.center,
                                           "${arr[index].title}",
                                           style: TextStyle(
                                               fontFamily: 'Gugi',
                                               color: Colors.white,
                                               fontWeight: FontWeight.w400,
-                                              fontSize: 14.sp,
+                                              fontSize: 12.sp,
                                               letterSpacing: 1.2),
                                         )
                                       ],
@@ -934,14 +936,14 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                   Visibility(
                       visible: !search,
                       child: Container(
-                        margin: EdgeInsets.only(bottom: 1.h),
+                        margin: EdgeInsets.only(bottom: 1.5.h),
                         child: Text(
                           "Fest Dates",
                           style: TextStyle(
                               color: Colors.white,
                               letterSpacing: 3,
-                              fontFamily: 'UrbanJungle',
-                              fontSize: 24.sp,
+                              fontFamily: 'AllertaStencil',
+                              fontSize: 27.sp,
                               fontWeight: FontWeight.w500),
                         ),
                       )),
@@ -954,11 +956,11 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           radius: 5.sp,
                           onTap: () {
                             setState(() {
-                              day = "3rd";
+                              day = "1rd";
                               selectedcategory = "";
                               arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date!).day == 8))
+                                      (DateTime.parse(element.date!).day == 20))
                                   .toList();
                             });
                           },
@@ -966,14 +968,14 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             width: 15.w,
                             height: 9.h,
                             decoration: BoxDecoration(
-                                color: (day == "3rd")
+                                color: (day == "1rd")
                                     ? Color.fromRGBO(51, 130, 154, 0.75)
                                     : Color.fromRGBO(0, 87, 115, 0.75),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,
                               radius: Radius.circular(5.sp),
-                              gradient: (day == "3rd")
+                              gradient: (day == "1rd")
                                   ? LinearGradient(
                                       colors: [
                                         const Color.fromARGB(111, 33, 33, 33),
@@ -1010,11 +1012,11 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           radius: 5.sp,
                           onTap: () {
                             setState(() {
-                              day = "4th";
+                              day = "2th";
                               selectedcategory = "";
                               arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date!).day == 9))
+                                      (DateTime.parse(element.date!).day == 21))
                                   .toList();
                             });
                           },
@@ -1022,14 +1024,14 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             width: 15.w,
                             height: 9.h,
                             decoration: BoxDecoration(
-                                color: (day == "4th")
+                                color: (day == "2th")
                                     ? Color.fromRGBO(51, 130, 154, 0.75)
                                     : Color.fromRGBO(0, 87, 115, 0.75),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,
                               radius: Radius.circular(5.sp),
-                              gradient: (day == "4th")
+                              gradient: (day == "2th")
                                   ? LinearGradient(
                                       colors: [
                                         const Color.fromARGB(111, 33, 33, 33),
@@ -1066,11 +1068,11 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           radius: 5.sp,
                           onTap: () {
                             setState(() {
-                              day = "5th";
+                              day = "3th";
                               selectedcategory = "";
                               arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date!).day == 10))
+                                      (DateTime.parse(element.date!).day == 22))
                                   .toList();
                             });
                           },
@@ -1078,14 +1080,14 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             width: 15.w,
                             height: 9.h,
                             decoration: BoxDecoration(
-                                color: (day == "5th")
+                                color: (day == "3th")
                                     ? Color.fromRGBO(51, 130, 154, 0.75)
                                     : Color.fromRGBO(0, 87, 115, 0.75),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,
                               radius: Radius.circular(5.sp),
-                              gradient: (day == "5th")
+                              gradient: (day == "3th")
                                   ? LinearGradient(
                                       colors: [
                                         const Color.fromARGB(111, 33, 33, 33),
@@ -1124,11 +1126,11 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           radius: 5.sp,
                           onTap: () {
                             setState(() {
-                              day = "6th";
+                              day = "4th";
                               selectedcategory = "";
                               arr = eventItems!
                                   .where((element) =>
-                                      (DateTime.parse(element.date!).day == 10))
+                                      (DateTime.parse(element.date!).day == 23))
                                   .toList();
                             });
                           },
@@ -1136,14 +1138,14 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             width: 15.w,
                             height: 9.h,
                             decoration: BoxDecoration(
-                                color: (day == "6th")
+                                color: (day == "4th")
                                     ? Color.fromRGBO(51, 130, 154, 0.75)
                                     : Color.fromRGBO(0, 87, 115, 0.75),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,
                               radius: Radius.circular(5.sp),
-                              gradient: (day == "6th")
+                              gradient: (day == "4th")
                                   ? LinearGradient(
                                       colors: [
                                         const Color.fromARGB(111, 33, 33, 33),
