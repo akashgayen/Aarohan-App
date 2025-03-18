@@ -193,7 +193,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           width: 90.w,
-                                          height: 50.h,
+                                          height: 40.h,
                                           child: OutlineGradientButton(
                                             strokeWidth: 2,
                                             radius: Radius.circular(10),
@@ -304,7 +304,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                   ),
                                                 ),
                                                 Container(
-                                                  height: 25.h,
+                                                  height: 15.h,
                                                   width: 90.w,
                                                   child: Scrollbar(
                                                       thickness: 2.w,
@@ -439,7 +439,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           width: 90.w,
-                                          height: 50.h,
+                                          height: 40.h,
                                           child: OutlineGradientButton(
                                             strokeWidth: 2,
                                             radius: Radius.circular(10),
@@ -548,7 +548,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                   ),
                                                 ),
                                                 Container(
-                                                  height: 25.h,
+                                                  height: 15.h,
                                                   width: 90.w,
                                                   child: Scrollbar(
                                                       thickness: 2.w,
@@ -662,7 +662,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
                                             width: 90.w,
-                                            height: 50.h,
+                                            height: 40.h,
                                             child: OutlineGradientButton(
                                               strokeWidth: 2,
                                               radius: Radius.circular(10),
@@ -775,7 +775,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                     ),
                                                   ),
                                                   Container(
-                                                    height: 25.h,
+                                                    height: 15.h,
                                                     width: 90.w,
                                                     child: Scrollbar(
                                                         thickness: 2.w,
