@@ -447,13 +447,13 @@ class _BottomMenuState extends State<BottomMenu> {
                                               begin: Alignment.bottomLeft,
                                               end: Alignment.topRight,
                                               colors: [
-                                                Colors.grey.shade600,
-                                                Colors.grey.shade600,
+                                                Colors.grey.shade500,
+                                                Colors.grey.shade500,
                                                 Colors.grey.shade600,
                                                 Color.fromARGB(
-                                                    122, 251, 70, 10),
+                                                    255, 253, 71, 10),
                                                 Color.fromARGB(
-                                                    122, 251, 70, 10),
+                                                    230, 245, 77, 21),
                                               ],
                                             ),
                                             child: Column(
@@ -559,14 +559,14 @@ class _BottomMenuState extends State<BottomMenu> {
                                                           SingleChildScrollView(
                                                         child: Column(
                                                           children: [
-                                                            MenuItems(
-                                                              leadingImage:
-                                                                  'assets/eurekoin.png',
-                                                              itemName:
-                                                                  'Eurekoin',
-                                                              routeName:
-                                                                  '/eurekoin',
-                                                            ),
+                                                            // MenuItems(
+                                                            //   leadingImage:
+                                                            //       'assets/eurekoin.png',
+                                                            //   itemName:
+                                                            //       'Eurekoin',
+                                                            //   routeName:
+                                                            //       '/eurekoin',
+                                                            // ),
                                                             MenuItems(
                                                               leadingImage:
                                                                   Icons.logout,
@@ -670,13 +670,13 @@ class _BottomMenuState extends State<BottomMenu> {
                                                 begin: Alignment.bottomLeft,
                                                 end: Alignment.topRight,
                                                 colors: [
-                                                  Colors.grey.shade600,
-                                                  Colors.grey.shade600,
+                                                  Colors.grey.shade500,
+                                                  Colors.grey.shade500,
                                                   Colors.grey.shade600,
                                                   Color.fromARGB(
-                                                      122, 251, 70, 10),
+                                                      255, 253, 71, 10),
                                                   Color.fromARGB(
-                                                      122, 251, 70, 10),
+                                                      230, 245, 77, 21),
                                                 ],
                                               ),
                                               child: Column(
