@@ -162,18 +162,26 @@ class _BottomMenuState extends State<BottomMenu> {
                               enableDrag: false,
                               context: context,
                               builder: (BuildContext context) {
-                                return Container(
-                                  color: Colors.transparent,
-                                  height: 100.h,
-                                  width: 100.w,
-                                  child: Column(
-                                    children: [
-                                      Expanded(
-                                          child: Container(
-                                        decoration: BoxDecoration(
-                                            color: Colors.transparent),
-                                      )),
-                                      Container(
+                                return Stack(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          sigmaX = 0;
+                                          sigmaY = 0;
+                                          settingIcon =
+                                              menuBarIconsUnSelected[0];
+                                          personIcon =
+                                              menuBarIconsUnSelected[1];
+                                          consoleIcon =
+                                              menuBarIconsUnSelected[2];
+                                        });
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: Container(
                                           margin: EdgeInsets.only(bottom: 10.h),
                                           decoration: BoxDecoration(
                                               gradient: LinearGradient(colors: [
@@ -185,6 +193,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           width: 90.w,
+                                          height: 50.h,
                                           child: OutlineGradientButton(
                                             strokeWidth: 2,
                                             radius: Radius.circular(10),
@@ -376,8 +385,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                               ],
                                             ),
                                           )),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 );
                               });
                         },
@@ -400,204 +409,204 @@ class _BottomMenuState extends State<BottomMenu> {
                                 enableDrag: false,
                                 context: context,
                                 builder: (BuildContext context) {
-                                  return Container(
-                                    color: Colors.transparent,
-                                    height: 100.h,
-                                    width: 100.w,
-                                    child: Column(
-                                      children: [
-                                        Expanded(
-                                            child: Container(
-                                          decoration: BoxDecoration(
-                                              color: Colors.transparent),
-                                        )),
-                                        Container(
-                                            margin:
-                                                EdgeInsets.only(bottom: 10.h),
-                                            decoration: BoxDecoration(
-                                                gradient:
-                                                    LinearGradient(colors: [
-                                                  Color.fromRGBO(
-                                                      2, 84, 114, 0.88),
-                                                  Color.fromRGBO(
-                                                      29, 95, 117, 0.865),
-                                                ]),
-                                                borderRadius:
-                                                    BorderRadius.circular(10)),
-                                            width: 90.w,
-                                            child: OutlineGradientButton(
-                                              strokeWidth: 2,
-                                              radius: Radius.circular(10),
-                                              gradient: LinearGradient(
-                                                begin: Alignment.bottomLeft,
-                                                end: Alignment.topRight,
-                                                colors: [
-                                                  Colors.grey.shade600,
-                                                  Colors.grey.shade600,
-                                                  Colors.grey.shade600,
-                                                  Color.fromARGB(
-                                                      122, 251, 70, 10),
-                                                  Color.fromARGB(
-                                                      122, 251, 70, 10),
-                                                ],
-                                              ),
-                                              child: Column(
-                                                children: [
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            vertical: 4.h),
-                                                    child: Center(
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Container(
-                                                            height: 8.h,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          15),
-                                                            ),
-                                                            child: (users
-                                                                        ?.photoURL !=
-                                                                    null)
-                                                                ? Image.network(
-                                                                    users!
-                                                                        .photoURL!,
-                                                                  )
-                                                                : Image.asset(
-                                                                    'assets/profile1.png'),
-                                                          ),
-                                                          SizedBox(
-                                                            width: 2.w,
-                                                          ),
-                                                          Column(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Text(
-                                                                (users?.name !=
-                                                                        null)
-                                                                    ? "${users?.name}"
-                                                                    : "",
-                                                                style: TextStyle(
-                                                                    fontFamily:
-                                                                        'Staat',
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        3.h,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        1.2),
-                                                              ),
-                                                              SizedBox(
-                                                                height: 1,
-                                                              ),
-                                                              Text(
-                                                                (users?.email !=
-                                                                        null)
-                                                                    ? "${users?.email}"
-                                                                    : "",
-                                                                style: TextStyle(
-                                                                    letterSpacing:
-                                                                        1.2,
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    fontSize:
-                                                                        8.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500),
-                                                              ),
-                                                            ],
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 5.w),
-                                                    child: Divider(
-                                                      thickness: 1.5,
-                                                      color:
-                                                          Colors.grey.shade400,
-                                                      height: 1.h,
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    height: 25.h,
-                                                    width: 90.w,
-                                                    child: Scrollbar(
-                                                        thickness: 2.w,
-                                                        radius:
-                                                            Radius.circular(15),
-                                                        thumbVisibility: true,
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Column(
-                                                            children: [
-                                                              MenuItems(
-                                                                leadingImage:
-                                                                    'assets/eurekoin.png',
-                                                                itemName:
-                                                                    'Eurekoin',
-                                                                routeName:
-                                                                    '/eurekoin',
-                                                              ),
-                                                              MenuItems(
-                                                                leadingImage:
-                                                                    Icons
-                                                                        .logout,
-                                                                itemName:
-                                                                    'Log Out',
-                                                                routeName:
-                                                                    '/logout',
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        )),
-                                                  ),
-                                                  MaterialButton(
-                                                    child: Icon(
-                                                      Icons.expand_more,
-                                                      color: Colors.white,
-                                                      size: 25.sp,
-                                                    ),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        sigmaX = 0;
-                                                        sigmaY = 0;
-                                                        settingIcon =
-                                                            menuBarIconsUnSelected[
-                                                                0];
-                                                        personIcon =
-                                                            menuBarIconsUnSelected[
-                                                                1];
-                                                        consoleIcon =
-                                                            menuBarIconsUnSelected[
-                                                                2];
-                                                      });
-                                                      Navigator.pop(context);
-                                                    },
-                                                  ),
-                                                ],
-                                              ),
-                                            )),
-                                      ],
+                                  return Stack(children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          sigmaX = 0;
+                                          sigmaY = 0;
+                                          settingIcon =
+                                              menuBarIconsUnSelected[0];
+                                          personIcon =
+                                              menuBarIconsUnSelected[1];
+                                          consoleIcon =
+                                              menuBarIconsUnSelected[2];
+                                        });
+                                        Navigator.pop(context);
+                                      },
                                     ),
-                                  );
+                                    Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: Container(
+                                          margin: EdgeInsets.only(bottom: 10.h),
+                                          decoration: BoxDecoration(
+                                              gradient: LinearGradient(colors: [
+                                                Color.fromRGBO(
+                                                    2, 84, 114, 0.88),
+                                                Color.fromRGBO(
+                                                    29, 95, 117, 0.865),
+                                              ]),
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          width: 90.w,
+                                          height: 50.h,
+                                          child: OutlineGradientButton(
+                                            strokeWidth: 2,
+                                            radius: Radius.circular(10),
+                                            gradient: LinearGradient(
+                                              begin: Alignment.bottomLeft,
+                                              end: Alignment.topRight,
+                                              colors: [
+                                                Colors.grey.shade600,
+                                                Colors.grey.shade600,
+                                                Colors.grey.shade600,
+                                                Color.fromARGB(
+                                                    122, 251, 70, 10),
+                                                Color.fromARGB(
+                                                    122, 251, 70, 10),
+                                              ],
+                                            ),
+                                            child: Column(
+                                              children: [
+                                                Container(
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 4.h),
+                                                  child: Center(
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Container(
+                                                          height: 8.h,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        15),
+                                                          ),
+                                                          child: (users
+                                                                      ?.photoURL !=
+                                                                  null)
+                                                              ? Image.network(
+                                                                  users!
+                                                                      .photoURL!,
+                                                                )
+                                                              : Image.asset(
+                                                                  'assets/profile1.png'),
+                                                        ),
+                                                        SizedBox(
+                                                          width: 2.w,
+                                                        ),
+                                                        Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Text(
+                                                              (users?.name !=
+                                                                      null)
+                                                                  ? "${users?.name}"
+                                                                  : "",
+                                                              style: TextStyle(
+                                                                  fontFamily:
+                                                                      'Staat',
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontSize: 3.h,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  letterSpacing:
+                                                                      1.2),
+                                                            ),
+                                                            SizedBox(
+                                                              height: 1,
+                                                            ),
+                                                            Text(
+                                                              (users?.email !=
+                                                                      null)
+                                                                  ? "${users?.email}"
+                                                                  : "",
+                                                              style: TextStyle(
+                                                                  letterSpacing:
+                                                                      1.2,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize:
+                                                                      8.sp,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500),
+                                                            ),
+                                                          ],
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 5.w),
+                                                  child: Divider(
+                                                    thickness: 1.5,
+                                                    color: Colors.grey.shade400,
+                                                    height: 1.h,
+                                                  ),
+                                                ),
+                                                Container(
+                                                  height: 25.h,
+                                                  width: 90.w,
+                                                  child: Scrollbar(
+                                                      thickness: 2.w,
+                                                      radius:
+                                                          Radius.circular(15),
+                                                      thumbVisibility: true,
+                                                      child:
+                                                          SingleChildScrollView(
+                                                        child: Column(
+                                                          children: [
+                                                            MenuItems(
+                                                              leadingImage:
+                                                                  'assets/eurekoin.png',
+                                                              itemName:
+                                                                  'Eurekoin',
+                                                              routeName:
+                                                                  '/eurekoin',
+                                                            ),
+                                                            MenuItems(
+                                                              leadingImage:
+                                                                  Icons.logout,
+                                                              itemName:
+                                                                  'Log Out',
+                                                              routeName:
+                                                                  '/logout',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      )),
+                                                ),
+                                                MaterialButton(
+                                                  child: Icon(
+                                                    Icons.expand_more,
+                                                    color: Colors.white,
+                                                    size: 25.sp,
+                                                  ),
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      sigmaX = 0;
+                                                      sigmaY = 0;
+                                                      settingIcon =
+                                                          menuBarIconsUnSelected[
+                                                              0];
+                                                      personIcon =
+                                                          menuBarIconsUnSelected[
+                                                              1];
+                                                      consoleIcon =
+                                                          menuBarIconsUnSelected[
+                                                              2];
+                                                    });
+                                                    Navigator.pop(context);
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          )),
+                                    ),
+                                  ]);
                                 });
                           });
                         },
@@ -620,18 +629,26 @@ class _BottomMenuState extends State<BottomMenu> {
                                 enableDrag: false,
                                 context: context,
                                 builder: (BuildContext context) {
-                                  return Container(
-                                    color: Colors.transparent,
-                                    height: 100.h,
-                                    width: 100.w,
-                                    child: Column(
-                                      children: [
-                                        Expanded(
-                                            child: Container(
-                                          decoration: BoxDecoration(
-                                              color: Colors.transparent),
-                                        )),
-                                        Container(
+                                  return Stack(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            sigmaX = 0;
+                                            sigmaY = 0;
+                                            settingIcon =
+                                                menuBarIconsUnSelected[0];
+                                            personIcon =
+                                                menuBarIconsUnSelected[1];
+                                            consoleIcon =
+                                                menuBarIconsUnSelected[2];
+                                          });
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                      Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: Container(
                                             margin:
                                                 EdgeInsets.only(bottom: 10.h),
                                             decoration: BoxDecoration(
@@ -645,6 +662,7 @@ class _BottomMenuState extends State<BottomMenu> {
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
                                             width: 90.w,
+                                            height: 50.h,
                                             child: OutlineGradientButton(
                                               strokeWidth: 2,
                                               radius: Radius.circular(10),
@@ -830,8 +848,8 @@ class _BottomMenuState extends State<BottomMenu> {
                                                 ],
                                               ),
                                             )),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   );
                                 });
                           });

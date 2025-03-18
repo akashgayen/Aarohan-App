@@ -22,9 +22,30 @@ bool checkCalendar(String eventName, List calendar) {
   return true;
 }
 
-class _Event_DetailState extends State<Event_Detail> {
+class _Event_DetailState extends State<Event_Detail>
+    with WidgetsBindingObserver {
   Map data = {};
   bool showBottomMenu = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      print("App moved to background from Event Detail screen");
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

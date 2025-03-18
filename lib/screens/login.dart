@@ -22,7 +22,7 @@ class _LoginState extends State<Login> {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Center(
-                child: LoadingAnimationWidget.threeArchedCircle(
+                child: LoadingAnimationWidget.staggeredDotsWave(
                   color:
                       Colors.deepOrangeAccent, // Change color as per your theme
                   size: 40, // Adjust the size
@@ -75,7 +75,7 @@ class _LoginState extends State<Login> {
                             CircleAvatar(
                               radius: 110,
                               backgroundImage: AssetImage(
-                                'assets/aarohan-logo-new.png',
+                                'assets/aarhn_logo2k25.png',
                               ),
                             ),
                           ],

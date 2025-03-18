@@ -293,7 +293,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     visible: !search,
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                        vertical: 3.h,
+                        vertical: 2.h,
                         horizontal: 2.5.w,
                       ),
                       child: OutlineGradientButton(
@@ -327,7 +327,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               end: Alignment.bottomRight,
                             ),
                           ),
-                          height: 9.h,
+                          height: 8.h,
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 4.w),
                             child: Row(
@@ -390,7 +390,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     child: Container(
                       margin:
                           EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
-                      height: 8.h,
+                      height: 7.5.h,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
@@ -668,7 +668,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     visible: !search,
                     child: Container(
                         margin: EdgeInsets.only(top: 1.h),
-                        height: 48.h,
+                        height: 48.5.h,
                         child: (arr.length != 0)
                             ? CarouselSlider.builder(
                                 itemCount: arr.length,
@@ -761,7 +761,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                       ],
                                     ))
                             : Center(
-                                child: LoadingAnimationWidget.threeArchedCircle(
+                                child: LoadingAnimationWidget.staggeredDotsWave(
                                   color: Colors.deepOrangeAccent,
                                   size: 40, // Adjust the size
                                 ),
@@ -770,9 +770,10 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                   Visibility(
                     visible: search,
                     child: Container(
-                      height: 77.h,
+                      height: 76.h,
                       child: (_foundUsers != null && _foundUsers!.isNotEmpty)
                           ? ListView.builder(
+                              padding: EdgeInsets.only(bottom: 10),
                               itemCount: _foundUsers!.length,
                               itemBuilder: (context, index) => Container(
                                 height: 10.h,
@@ -988,13 +989,13 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("8",
+                                  Text("20",
                                       style: TextStyle(
                                           fontFamily: 'Mons',
                                           fontSize: 15.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
-                                  Text("Mon",
+                                  Text("Thu",
                                       style: TextStyle(
                                           fontFamily: 'Mons',
                                           fontSize: 12.sp,
@@ -1044,13 +1045,13 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("9",
+                                  Text("21",
                                       style: TextStyle(
                                           fontFamily: 'Mons',
                                           fontSize: 15.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
-                                  Text("Tue",
+                                  Text("Fri",
                                       style: TextStyle(
                                           fontFamily: 'Mons',
                                           fontSize: 12.sp,
@@ -1100,14 +1101,72 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("10",
+                                  Text("22",
                                       style: TextStyle(
                                           fontFamily: 'Mons',
                                           fontSize: 15.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
                                   Text(
-                                    "Wed",
+                                    "Sat",
+                                    style: TextStyle(
+                                        fontFamily: 'Mons',
+                                        fontSize: 12.sp,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          radius: 5.sp,
+                          onTap: () {
+                            setState(() {
+                              day = "6th";
+                              selectedcategory = "";
+                              arr = eventItems!
+                                  .where((element) =>
+                                      (DateTime.parse(element.date!).day == 10))
+                                  .toList();
+                            });
+                          },
+                          child: Container(
+                            width: 15.w,
+                            height: 9.h,
+                            decoration: BoxDecoration(
+                                color: (day == "6th")
+                                    ? Color.fromRGBO(51, 130, 154, 0.75)
+                                    : Color.fromRGBO(0, 87, 115, 0.75),
+                                borderRadius: BorderRadius.circular(5.sp)),
+                            child: OutlineGradientButton(
+                              strokeWidth: 2,
+                              radius: Radius.circular(5.sp),
+                              gradient: (day == "6th")
+                                  ? LinearGradient(
+                                      colors: [
+                                        const Color.fromARGB(111, 33, 33, 33),
+                                        Colors.grey.shade800,
+                                        Color.fromARGB(132, 251, 70, 10),
+                                        Color.fromARGB(132, 251, 70, 10),
+                                      ],
+                                    )
+                                  : LinearGradient(colors: [
+                                      Colors.transparent,
+                                      Colors.transparent
+                                    ]),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("23",
+                                      style: TextStyle(
+                                          fontFamily: 'Mons',
+                                          fontSize: 15.sp,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500)),
+                                  Text(
+                                    "Sun",
                                     style: TextStyle(
                                         fontFamily: 'Mons',
                                         fontSize: 12.sp,

@@ -62,7 +62,7 @@ class _SplashState extends State<Splash> {
                             CircleAvatar(
                               radius: 110,
                               backgroundImage: AssetImage(
-                                'assets/aarohan-logo-new.png',
+                                'assets/aarhn_logo2k25.png',
                               ),
                             ),
                           ],

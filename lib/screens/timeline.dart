@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:aarohan_app/widgets/bottomMenu.dart';
 import 'package:aarohan_app/widgets/topBar.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:provider/provider.dart';
 import 'package:aarohan_app/models/schedule.dart';
@@ -146,7 +147,7 @@ class _TimelineState extends State<Timeline> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "8",
+                                    "20",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Staat',
@@ -194,7 +195,7 @@ class _TimelineState extends State<Timeline> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "9",
+                                    "21",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Staat',
@@ -241,7 +242,7 @@ class _TimelineState extends State<Timeline> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "10",
+                                    "22",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Staat',
@@ -252,6 +253,53 @@ class _TimelineState extends State<Timeline> {
                                   SizedBox(height: 3.5),
                                   Visibility(
                                     visible: (day == "10th"),
+                                    child: Container(
+                                      height: 5,
+                                      width: 5,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            radius: 20.0,
+                            onTap: () {
+                              setState(() {
+                                day = "11th";
+                                M = {};
+                                M = sort.func(dayItems[2].events);
+                                print(M);
+                              });
+                            },
+                            child: Container(
+                              height: 8.h,
+                              width: 23.w,
+                              decoration: BoxDecoration(
+                                color: (day == "11th")
+                                    ? Color.fromRGBO(252, 252, 252, 0.281)
+                                    : Colors.transparent,
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "23",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Staat',
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  SizedBox(height: 3.5),
+                                  Visibility(
+                                    visible: (day == "11th"),
                                     child: Container(
                                       height: 5,
                                       width: 5,
@@ -329,7 +377,10 @@ class _TimelineState extends State<Timeline> {
                                 },
                               )
                             : Center(
-                                child: CircularProgressIndicator(),
+                                child: LoadingAnimationWidget.staggeredDotsWave(
+                                  color: Colors.deepOrangeAccent,
+                                  size: 40, // Adjust the size
+                                ),
                               ),
                       ),
                     )
