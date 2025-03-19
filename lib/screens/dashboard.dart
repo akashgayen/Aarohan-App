@@ -319,8 +319,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             gradient: LinearGradient(
                               colors: [
-                                Color.fromRGBO(16, 59, 73, 0.664),
-                                Color.fromRGBO(78, 177, 208, 0.38),
+                                Color.fromRGBO(16, 59, 73, 0.76),
+                                Color.fromRGBO(78, 178, 208, 0.767),
                               ],
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
@@ -402,18 +402,18 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           end: Alignment.bottomRight,
                         ),
                         boxShadow: [
-                          // BoxShadow(
-                          //   color: Color(0x6D000000),
-                          //   blurRadius: 15,
-                          //   offset: Offset(6, 4),
-                          //   spreadRadius: 0,
-                          // ),
-                          // BoxShadow(
-                          //   color: Color(0x5E000000),
-                          //   blurRadius: 27,
-                          //   offset: Offset(23, 14),
-                          //   spreadRadius: 0,
-                          // ),
+                          BoxShadow(
+                            color: Color.fromARGB(129, 0, 183, 255),
+                            blurRadius: 15,
+                            offset: Offset(6, 4),
+                            spreadRadius: 0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromARGB(94, 0, 168, 132),
+                            blurRadius: 27,
+                            offset: Offset(23, 14),
+                            spreadRadius: 0,
+                          ),
                           BoxShadow(
                             color: Color(0x38000000),
                             blurRadius: 37,
@@ -421,13 +421,13 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             spreadRadius: 0,
                           ),
                           BoxShadow(
-                            color: Color(0x0F000000),
+                            color: Color.fromARGB(15, 0, 255, 213),
                             blurRadius: 44,
                             offset: Offset(93, 57),
                             spreadRadius: 0,
                           ),
                           BoxShadow(
-                            color: Color(0x02000000),
+                            color: Color.fromARGB(0, 0, 0, 0),
                             blurRadius: 48,
                             offset: Offset(145, 89),
                             spreadRadius: 0,
@@ -969,8 +969,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             height: 9.h,
                             decoration: BoxDecoration(
                                 color: (day == "1st")
-                                    ? Color.fromRGBO(51, 130, 154, 0.75)
-                                    : Color.fromRGBO(0, 87, 115, 0.75),
+                                    ? Color.fromRGBO(51, 130, 154, 0.85)
+                                    : Color.fromRGBO(0, 94, 126, 0.925),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,
@@ -1025,8 +1025,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             height: 9.h,
                             decoration: BoxDecoration(
                                 color: (day == "2nd")
-                                    ? Color.fromRGBO(51, 130, 154, 0.75)
-                                    : Color.fromRGBO(0, 87, 115, 0.75),
+                                    ? Color.fromRGBO(51, 130, 154, 0.85)
+                                    : Color.fromRGBO(0, 94, 126, 0.925),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,
@@ -1081,8 +1081,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             height: 9.h,
                             decoration: BoxDecoration(
                                 color: (day == "3rd")
-                                    ? Color.fromRGBO(51, 130, 154, 0.75)
-                                    : Color.fromRGBO(0, 87, 115, 0.75),
+                                    ? Color.fromRGBO(51, 130, 154, 0.85)
+                                    : Color.fromRGBO(0, 94, 126, 0.925),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,
@@ -1139,8 +1139,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             height: 9.h,
                             decoration: BoxDecoration(
                                 color: (day == "4th")
-                                    ? Color.fromRGBO(51, 130, 154, 0.75)
-                                    : Color.fromRGBO(0, 87, 115, 0.75),
+                                    ? Color.fromRGBO(51, 130, 154, 0.85)
+                                    : Color.fromRGBO(0, 94, 126, 0.925),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,

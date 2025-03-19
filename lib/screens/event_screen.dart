@@ -101,124 +101,133 @@ class _Event_DetailState extends State<Event_Detail>
                         child: Container(
                           // color: Colors.amber,
                           // height: 100.h,
-                          child: CustomScrollView(
-                            slivers: [
-                              SliverAppBar(
-                                leading: Container(
-                                  padding: EdgeInsets.fromLTRB(5.w, 2.h, 0, 0),
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: const Color.fromARGB(
-                                            216, 100, 180, 246),
-                                      ),
-                                      // margin: EdgeInsets.only(top: 5.h),
-                                      child: Icon(
-                                        Icons.arrow_back,
-                                        color: Colors.white,
-                                        size: 20.sp,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                flexibleSpace: OutlineGradientButton(
-                                  corners: Corners(
-                                    topLeft: Radius.circular(15),
-                                    topRight: Radius.circular(15),
-                                    bottomLeft: Radius.circular(15),
-                                    bottomRight: Radius.circular(15),
-                                  ),
-                                  padding: EdgeInsets.all(1),
-                                  gradient: LinearGradient(colors: [
-                                    Color.fromARGB(255, 251, 71, 10),
-                                    Color.fromARGB(124, 59, 58, 58),
-                                  ]),
-                                  strokeWidth: 1.5,
-                                  child: Container(
-                                    // height: 70.h,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color.fromARGB(223, 47, 117, 138),
-                                          Color.fromARGB(207, 16, 93, 119),
-                                        ],
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                      ),
-                                      borderRadius: BorderRadius.circular(15.0),
-                                      color: Color.fromRGBO(25, 102, 154, 1),
-
-                                      // border: Border.all(
-                                      //   color:
-                                      //       Color.fromRGBO(101, 171, 254, 0.32),
-                                      //   width: 0.5.w,
-                                      // ),
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(15),
+                          child: ScrollConfiguration(
+                            behavior:
+                                ScrollBehavior().copyWith(overscroll: false),
+                            child: CustomScrollView(
+                              physics: ClampingScrollPhysics(),
+                              slivers: [
+                                SliverAppBar(
+                                  leading: Container(
+                                    padding:
+                                        EdgeInsets.fromLTRB(5.w, 2.h, 0, 0),
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                      },
                                       child: Container(
-                                        child: FlexibleSpaceBar(
-                                          collapseMode: CollapseMode.pin,
-                                          title: SABT(
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.fromLTRB(
-                                                      0, 2.h, 0, 0),
-                                                  width: 70.w,
-                                                  // margin: EdgeInsets.only(
-                                                  //   bottom: 2.h,
-                                                  // ),
-                                                  child: Center(
-                                                    child: Text(
-                                                      eventItem.title!,
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        letterSpacing: 1,
-                                                        fontFamily: 'Orbitron',
-                                                        fontSize: 13.sp,
-                                                        fontWeight:
-                                                            FontWeight.w700,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: const Color.fromARGB(
+                                              216, 100, 180, 246),
+                                        ),
+                                        // margin: EdgeInsets.only(top: 5.h),
+                                        child: Icon(
+                                          Icons.arrow_back,
+                                          color: Colors.white,
+                                          size: 20.sp,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  flexibleSpace: OutlineGradientButton(
+                                    corners: Corners(
+                                      topLeft: Radius.circular(15),
+                                      topRight: Radius.circular(15),
+                                      bottomLeft: Radius.circular(15),
+                                      bottomRight: Radius.circular(15),
+                                    ),
+                                    padding: EdgeInsets.all(1),
+                                    gradient: LinearGradient(colors: [
+                                      Color.fromARGB(255, 251, 71, 10),
+                                      Color.fromARGB(124, 59, 58, 58),
+                                    ]),
+                                    strokeWidth: 1.5,
+                                    child: Container(
+                                      // height: 70.h,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromARGB(255, 47, 117, 138),
+                                            Color.fromARGB(207, 16, 93, 119),
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
+                                        color: Color.fromRGBO(25, 102, 154, 1),
+
+                                        // border: Border.all(
+                                        //   color:
+                                        //       Color.fromRGBO(101, 171, 254, 0.32),
+                                        //   width: 0.5.w,
+                                        // ),
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(15),
+                                        child: Container(
+                                          child: FlexibleSpaceBar(
+                                            collapseMode: CollapseMode.pin,
+                                            title: SABT(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.fromLTRB(
+                                                            0, 2.h, 0, 0),
+                                                    width: 70.w,
+                                                    // margin: EdgeInsets.only(
+                                                    //   bottom: 2.h,
+                                                    // ),
+                                                    child: Center(
+                                                      child: Text(
+                                                        eventItem.title!,
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          color: Colors.white,
+                                                          letterSpacing: 1,
+                                                          fontFamily:
+                                                              'Orbitron',
+                                                          fontSize: 13.sp,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                          background: Container(
-                                            child: Transform.scale(
-                                              scale: 1.015,
-                                              child: CachedNetworkImage(
-                                                imageUrl: eventItem.imageUrl!,
-                                                width: 80.w,
-                                                fit: BoxFit.cover,
-                                                height: 60.h,
-                                                errorWidget:
-                                                    (context, url, error) {
-                                                  print(
-                                                      "Could not load content");
-                                                  return Image.asset(
+                                            background: Container(
+                                              child: Transform.scale(
+                                                scale: 1.015,
+                                                child: CachedNetworkImage(
+                                                  imageUrl: eventItem.imageUrl!,
+                                                  width: 80.w,
+                                                  fit: BoxFit.cover,
+                                                  height: 60.h,
+                                                  errorWidget:
+                                                      (context, url, error) {
+                                                    print(
+                                                        "Could not load content");
+                                                    return Image.asset(
+                                                      "assets/placeholder.jpg",
+                                                      height: 60.h,
+                                                      width: 80.w,
+                                                      fit: BoxFit.cover,
+                                                    );
+                                                  },
+                                                  placeholder: (context, url) =>
+                                                      Image.asset(
                                                     "assets/placeholder.jpg",
                                                     height: 60.h,
                                                     width: 80.w,
                                                     fit: BoxFit.cover,
-                                                  );
-                                                },
-                                                placeholder: (context, url) =>
-                                                    Image.asset(
-                                                  "assets/placeholder.jpg",
-                                                  height: 60.h,
-                                                  width: 80.w,
-                                                  fit: BoxFit.cover,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -227,434 +236,443 @@ class _Event_DetailState extends State<Event_Detail>
                                       ),
                                     ),
                                   ),
+                                  pinned: true,
+                                  // floating: true,
+                                  expandedHeight: 40.h,
+                                  backgroundColor: Colors.transparent,
+                                  collapsedHeight: 8.h,
                                 ),
-                                pinned: true,
-                                // floating: true,
-                                expandedHeight: 40.h,
-                                backgroundColor: Colors.transparent,
-                                collapsedHeight: 8.h,
-                              ),
-                              SliverList(
-                                  delegate: SliverChildListDelegate([
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        top: 3.h,
-                                        right: 4.w,
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          InkWell(
-                                            onTap: () async {},
-                                            child: Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  4.w, 0, 0, 0),
-                                              child: Container(
-                                                height: 8.h,
-                                                width: 43.w,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10)),
-                                                    gradient:
-                                                        LinearGradient(colors: [
-                                                      Color.fromARGB(
-                                                          185, 105, 162, 189),
-                                                      Color.fromARGB(
-                                                          188, 8, 54, 75),
-                                                    ])),
-                                                child: OutlineGradientButton(
-                                                  strokeWidth: 1.5,
-                                                  corners: Corners(
-                                                    topLeft:
-                                                        Radius.circular(10),
-                                                    topRight:
-                                                        Radius.circular(10),
-                                                    bottomLeft:
-                                                        Radius.circular(10),
-                                                    bottomRight:
-                                                        Radius.circular(10),
-                                                  ),
-                                                  gradient: LinearGradient(
-                                                    colors: [
-                                                      Color.fromARGB(
-                                                          124, 59, 58, 58),
-                                                      Color.fromARGB(
-                                                          255, 251, 71, 10),
-                                                    ],
-                                                  ),
-                                                  child: GestureDetector(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        Icon(
-                                                            Icons
-                                                                .calendar_today,
-                                                            size: 23.5.sp,
-                                                            color:
-                                                                Colors.white),
-                                                        Text(eventItem.date!,
-                                                            style: TextStyle(
-                                                                fontSize: 14.sp,
-                                                                fontFamily:
-                                                                    'Staat',
-                                                                letterSpacing:
-                                                                    1.1,
-                                                                color: Colors
-                                                                    .white,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400))
+                                SliverList(
+                                    delegate: SliverChildListDelegate([
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          top: 3.h,
+                                          right: 4.w,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            InkWell(
+                                              onTap: () async {},
+                                              child: Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    4.w, 0, 0, 0),
+                                                child: Container(
+                                                  height: 8.h,
+                                                  width: 43.w,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  10)),
+                                                      gradient: LinearGradient(
+                                                          colors: [
+                                                            Color.fromARGB(185,
+                                                                105, 162, 189),
+                                                            Color.fromARGB(
+                                                                244, 8, 54, 75),
+                                                          ])),
+                                                  child: OutlineGradientButton(
+                                                    strokeWidth: 1.5,
+                                                    corners: Corners(
+                                                      topLeft:
+                                                          Radius.circular(10),
+                                                      topRight:
+                                                          Radius.circular(10),
+                                                      bottomLeft:
+                                                          Radius.circular(10),
+                                                      bottomRight:
+                                                          Radius.circular(10),
+                                                    ),
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        Color.fromARGB(
+                                                            124, 59, 58, 58),
+                                                        Color.fromARGB(
+                                                            255, 251, 71, 10),
                                                       ],
                                                     ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          InkWell(
-                                            onTap: () async {},
-                                            child: Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  4.w, 0, 0, 0),
-                                              child: Container(
-                                                height: 8.h,
-                                                width: 43.w,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10)),
-                                                    gradient:
-                                                        LinearGradient(colors: [
-                                                      Color.fromARGB(
-                                                          185, 105, 162, 189),
-                                                      Color.fromARGB(
-                                                          188, 8, 54, 75),
-                                                    ])),
-                                                child: OutlineGradientButton(
-                                                  strokeWidth: 1.5,
-                                                  corners: Corners(
-                                                    topLeft:
-                                                        Radius.circular(10),
-                                                    topRight:
-                                                        Radius.circular(10),
-                                                    bottomLeft:
-                                                        Radius.circular(10),
-                                                    bottomRight:
-                                                        Radius.circular(10),
-                                                  ),
-                                                  gradient: LinearGradient(
-                                                    colors: [
-                                                      Color.fromARGB(
-                                                          124, 59, 58, 58),
-                                                      Color.fromARGB(
-                                                          255, 251, 71, 10),
-                                                    ],
-                                                  ),
-                                                  child: GestureDetector(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        Icon(
-                                                            Icons
-                                                                .workspaces_filled,
-                                                            size: 23.5.sp,
-                                                            color:
-                                                                Colors.white),
-                                                        Text(
-                                                            eventItem.category!,
-                                                            style: TextStyle(
-                                                                fontSize: 14.sp,
-                                                                fontFamily:
-                                                                    'Staat',
-                                                                letterSpacing:
-                                                                    1.1,
-                                                                color: Colors
-                                                                    .white,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400)),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        top: 1.7.h,
-                                        right: 4.w,
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          InkWell(
-                                            onTap: () async {
-                                              final Uri phoneUri = Uri.parse(
-                                                  "tel:${textsplit[0]}");
-
-                                              try {
-                                                await UrlLauncher.launchUrl(
-                                                    phoneUri,
-                                                    mode: LaunchMode
-                                                        .externalApplication);
-                                              } catch (e) {
-                                                print(
-                                                    "Error launching dialer: $e");
-                                              }
-                                            },
-                                            child: Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  4.w, 0, 0, 0),
-                                              child: Container(
-                                                height: 8.h,
-                                                width: 43.w,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10)),
-                                                    gradient:
-                                                        LinearGradient(colors: [
-                                                      Color.fromARGB(
-                                                          185, 105, 162, 189),
-                                                      Color.fromARGB(
-                                                          188, 8, 54, 75),
-                                                    ])),
-                                                child: OutlineGradientButton(
-                                                  strokeWidth: 1.5,
-                                                  corners: Corners(
-                                                    topLeft:
-                                                        Radius.circular(10),
-                                                    topRight:
-                                                        Radius.circular(10),
-                                                    bottomLeft:
-                                                        Radius.circular(10),
-                                                    bottomRight:
-                                                        Radius.circular(10),
-                                                  ),
-                                                  gradient: LinearGradient(
-                                                    colors: [
-                                                      Color.fromARGB(
-                                                          124, 59, 58, 58),
-                                                      Color.fromARGB(
-                                                          255, 251, 71, 10),
-                                                    ],
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceEvenly,
-                                                    children: [
-                                                      Icon(
-                                                        Icons.call,
-                                                        size: 23.5.sp,
-                                                        color: Colors.white,
+                                                    child: GestureDetector(
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: [
+                                                          Icon(
+                                                              Icons
+                                                                  .calendar_today,
+                                                              size: 23.5.sp,
+                                                              color:
+                                                                  Colors.white),
+                                                          Text(eventItem.date!,
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      14.sp,
+                                                                  fontFamily:
+                                                                      'Staat',
+                                                                  letterSpacing:
+                                                                      1.1,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w400))
+                                                        ],
                                                       ),
-                                                      FittedBox(
-                                                        fit: BoxFit.scaleDown,
-                                                        child: Column(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Text(textsplit[0],
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        14.sp,
-                                                                    fontFamily:
-                                                                        'Staat',
-                                                                    letterSpacing:
-                                                                        1.1,
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w400)),
-                                                            // Text(textsplit[1],
-                                                            //     style: TextStyle(
-                                                            //         fontSize:
-                                                            //             14.sp,
-                                                            //         fontFamily:
-                                                            //             'Staat',
-                                                            //         letterSpacing:
-                                                            //             1.1,
-                                                            //         color: Colors
-                                                            //             .white,
-                                                            //         fontWeight:
-                                                            //             FontWeight
-                                                            //                 .w400)),
-                                                          ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            InkWell(
+                                              onTap: () async {},
+                                              child: Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    4.w, 0, 0, 0),
+                                                child: Container(
+                                                  height: 8.h,
+                                                  width: 43.w,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  10)),
+                                                      gradient: LinearGradient(
+                                                          colors: [
+                                                            Color.fromARGB(185,
+                                                                105, 162, 189),
+                                                            Color.fromARGB(
+                                                                244, 8, 54, 75),
+                                                          ])),
+                                                  child: OutlineGradientButton(
+                                                    strokeWidth: 1.5,
+                                                    corners: Corners(
+                                                      topLeft:
+                                                          Radius.circular(10),
+                                                      topRight:
+                                                          Radius.circular(10),
+                                                      bottomLeft:
+                                                          Radius.circular(10),
+                                                      bottomRight:
+                                                          Radius.circular(10),
+                                                    ),
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        Color.fromARGB(
+                                                            124, 59, 58, 58),
+                                                        Color.fromARGB(
+                                                            255, 251, 71, 10),
+                                                      ],
+                                                    ),
+                                                    child: GestureDetector(
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: [
+                                                          Icon(
+                                                              Icons
+                                                                  .workspaces_filled,
+                                                              size: 23.5.sp,
+                                                              color:
+                                                                  Colors.white),
+                                                          Text(
+                                                              eventItem
+                                                                  .category!,
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      14.sp,
+                                                                  fontFamily:
+                                                                      'Staat',
+                                                                  letterSpacing:
+                                                                      1.1,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w400)),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          top: 1.7.h,
+                                          right: 4.w,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            InkWell(
+                                              onTap: () async {
+                                                final Uri phoneUri = Uri.parse(
+                                                    "tel:${textsplit[0]}");
+
+                                                try {
+                                                  await UrlLauncher.launchUrl(
+                                                      phoneUri,
+                                                      mode: LaunchMode
+                                                          .externalApplication);
+                                                } catch (e) {
+                                                  print(
+                                                      "Error launching dialer: $e");
+                                                }
+                                              },
+                                              child: Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    4.w, 0, 0, 0),
+                                                child: Container(
+                                                  height: 8.h,
+                                                  width: 43.w,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  10)),
+                                                      gradient: LinearGradient(
+                                                          colors: [
+                                                            Color.fromARGB(185,
+                                                                105, 162, 189),
+                                                            Color.fromARGB(
+                                                                244, 8, 54, 75),
+                                                          ])),
+                                                  child: OutlineGradientButton(
+                                                    strokeWidth: 1.5,
+                                                    corners: Corners(
+                                                      topLeft:
+                                                          Radius.circular(10),
+                                                      topRight:
+                                                          Radius.circular(10),
+                                                      bottomLeft:
+                                                          Radius.circular(10),
+                                                      bottomRight:
+                                                          Radius.circular(10),
+                                                    ),
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        Color.fromARGB(
+                                                            124, 59, 58, 58),
+                                                        Color.fromARGB(
+                                                            255, 251, 71, 10),
+                                                      ],
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        Icon(
+                                                          Icons.call,
+                                                          size: 23.5.sp,
+                                                          color: Colors.white,
                                                         ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          InkWell(
-                                            onTap: () async {},
-                                            child: Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  4.w, 0, 0, 0),
-                                              child: Container(
-                                                height: 8.h,
-                                                width: 43.w,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10)),
-                                                    gradient:
-                                                        LinearGradient(colors: [
-                                                      Color.fromARGB(
-                                                          185, 105, 162, 189),
-                                                      Color.fromARGB(
-                                                          188, 8, 54, 75),
-                                                    ])),
-                                                child: OutlineGradientButton(
-                                                  strokeWidth: 1.5,
-                                                  corners: Corners(
-                                                    topLeft:
-                                                        Radius.circular(10),
-                                                    topRight:
-                                                        Radius.circular(10),
-                                                    bottomLeft:
-                                                        Radius.circular(10),
-                                                    bottomRight:
-                                                        Radius.circular(10),
-                                                  ),
-                                                  gradient: LinearGradient(
-                                                    colors: [
-                                                      Color.fromARGB(
-                                                          124, 59, 58, 58),
-                                                      Color.fromARGB(
-                                                          255, 251, 71, 10),
-                                                    ],
-                                                  ),
-                                                  child: GestureDetector(
-                                                    onTap: () {
-                                                      UrlLauncher.launch(
-                                                          "${eventItem.link}");
-                                                    },
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        Icon(Icons.open_in_new,
-                                                            size: 23.5.sp,
-                                                            color:
-                                                                Colors.white),
-                                                        Text('Go to Event',
-                                                            style: TextStyle(
-                                                                fontSize: 14.sp,
-                                                                fontFamily:
-                                                                    'Staat',
-                                                                letterSpacing:
-                                                                    1.1,
-                                                                color: Colors
-                                                                    .white,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400))
+                                                        FittedBox(
+                                                          fit: BoxFit.scaleDown,
+                                                          child: Column(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Text(textsplit[0],
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          14.sp,
+                                                                      fontFamily:
+                                                                          'Staat',
+                                                                      letterSpacing:
+                                                                          1.1,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w400)),
+                                                              // Text(textsplit[1],
+                                                              //     style: TextStyle(
+                                                              //         fontSize:
+                                                              //             14.sp,
+                                                              //         fontFamily:
+                                                              //             'Staat',
+                                                              //         letterSpacing:
+                                                              //             1.1,
+                                                              //         color: Colors
+                                                              //             .white,
+                                                              //         fontWeight:
+                                                              //             FontWeight
+                                                              //                 .w400)),
+                                                            ],
+                                                          ),
+                                                        )
                                                       ],
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.fromLTRB(5.w, 3.h, 2.w, 0),
-                                      child: Text(eventItem.title!,
-                                          style: TextStyle(
-                                              fontSize: 19.5.sp,
-                                              fontFamily: 'B Biger Over',
-                                              letterSpacing: 1.1,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.w600)),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.fromLTRB(
-                                          5.w, 3.h, 7.w, 2.h),
-                                      child: Stack(
-                                        children: [
-                                          /// Blurred Background Container
-                                          ClipRRect(
-                                            borderRadius: BorderRadius.circular(
-                                                10.0), // Optional rounded corners
-                                            child: BackdropFilter(
-                                              filter: ImageFilter.blur(
-                                                  sigmaX: 5,
-                                                  sigmaY:
-                                                      5), // Adjust blur intensity
-                                              child: Container(
-                                                height: _containerHeight,
-                                                padding: EdgeInsets.all(12.0),
-                                                decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      color:
-                                                          const Color.fromARGB(
-                                                              255, 230, 74, 13),
-                                                      width:
-                                                          2 // Light translucent effect
+                                            InkWell(
+                                              onTap: () async {},
+                                              child: Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    4.w, 0, 0, 0),
+                                                child: Container(
+                                                  height: 8.h,
+                                                  width: 43.w,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  10)),
+                                                      gradient: LinearGradient(
+                                                          colors: [
+                                                            Color.fromARGB(185,
+                                                                105, 162, 189),
+                                                            Color.fromARGB(
+                                                                244, 8, 54, 75),
+                                                          ])),
+                                                  child: OutlineGradientButton(
+                                                    strokeWidth: 1.5,
+                                                    corners: Corners(
+                                                      topLeft:
+                                                          Radius.circular(10),
+                                                      topRight:
+                                                          Radius.circular(10),
+                                                      bottomLeft:
+                                                          Radius.circular(10),
+                                                      bottomRight:
+                                                          Radius.circular(10),
+                                                    ),
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        Color.fromARGB(
+                                                            124, 59, 58, 58),
+                                                        Color.fromARGB(
+                                                            255, 251, 71, 10),
+                                                      ],
+                                                    ),
+                                                    child: GestureDetector(
+                                                      onTap: () {
+                                                        UrlLauncher.launch(
+                                                            "${eventItem.link}");
+                                                      },
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: [
+                                                          Icon(
+                                                              Icons.open_in_new,
+                                                              size: 23.5.sp,
+                                                              color:
+                                                                  Colors.white),
+                                                          Text('Go to Event',
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      14.sp,
+                                                                  fontFamily:
+                                                                      'Staat',
+                                                                  letterSpacing:
+                                                                      1.1,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w400))
+                                                        ],
                                                       ),
-                                                  // Light translucent effect
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-
-                                          /// Text Content (Outside the Blur Effect)
-                                          Container(
-                                            key: _textContainerKey,
-                                            //height: 70.h,
-                                            padding: EdgeInsets.all(10.0),
-                                            child: SingleChildScrollView(
-                                              physics: ClampingScrollPhysics(),
-                                              child: Text(
-                                                eventItem.body!,
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  letterSpacing: 1.1,
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 13.5.sp,
-                                                  fontWeight: FontWeight.w400,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    )
-                                  ],
-                                ),
-                              ]))
-                            ],
+                                      Padding(
+                                        padding: EdgeInsets.fromLTRB(
+                                            5.w, 3.h, 2.w, 0),
+                                        child: Text(eventItem.title!,
+                                            style: TextStyle(
+                                                fontSize: 19.5.sp,
+                                                fontFamily: 'B Biger Over',
+                                                letterSpacing: 1.1,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w600)),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.fromLTRB(
+                                            5.w, 3.h, 7.w, 2.h),
+                                        child: Stack(
+                                          children: [
+                                            /// Blurred Background Container
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(
+                                                  10.0), // Optional rounded corners
+                                              child: BackdropFilter(
+                                                filter: ImageFilter.blur(
+                                                    sigmaX: 5,
+                                                    sigmaY:
+                                                        5), // Adjust blur intensity
+                                                child: Container(
+                                                  height: _containerHeight,
+                                                  padding: EdgeInsets.all(12.0),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.black
+                                                        .withOpacity(0.15),
+                                                    border: Border.all(
+                                                        color: const Color
+                                                            .fromARGB(
+                                                            255, 230, 74, 13),
+                                                        width:
+                                                            2 // Light translucent effect
+                                                        ),
+                                                    // Light translucent effect
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+
+                                            /// Text Content (Outside the Blur Effect)
+                                            Container(
+                                              key: _textContainerKey,
+                                              //height: 70.h,
+                                              padding: EdgeInsets.all(10.0),
+                                              child: SingleChildScrollView(
+                                                physics:
+                                                    ClampingScrollPhysics(),
+                                                child: Text(
+                                                  eventItem.body!,
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    letterSpacing: 1.1,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 13.5.sp,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ]))
+                              ],
+                            ),
                           ),
                         ),
                       ),

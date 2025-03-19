@@ -33,10 +33,10 @@ class _SplashState extends State<Splash> {
                 body: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/splash-bg-new.png"),
+                        image: AssetImage("assets/aarhn-splash2k25.png"),
                         colorFilter: ColorFilter.mode(
-                            Color.fromARGB(175, 0, 5, 26), BlendMode.srcOver),
-                        fit: BoxFit.fill),
+                            Color.fromARGB(40, 0, 5, 26), BlendMode.srcOver),
+                        fit: BoxFit.cover),
                   ),
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
@@ -45,22 +45,22 @@ class _SplashState extends State<Splash> {
                         height: MediaQuery.of(context).size.height * 0.1,
                       ),
                       SizedBox(
-                        height: 5.h,
+                        height: 3.7.h,
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(0.0),
+                        padding: const EdgeInsets.only(left: 8.0),
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            RotatingImage(
-                              imagePath: 'assets/aarhn-logo-bg-new-outer.png',
-                            ),
-                            RotatingImage(
-                              reverse: true,
-                              imagePath: 'assets/aarhn-logo-bg-new-inner.png',
-                            ),
+                            // RotatingImage(
+                            //   imagePath: 'assets/aarhn-logo-bg-new-outer.png',
+                            // ),
+                            // RotatingImage(
+                            //   reverse: true,
+                            //   imagePath: 'assets/aarhn-logo-bg-new-inner.png',
+                            // ),
                             CircleAvatar(
-                              radius: 110,
+                              radius: 28.5.w,
                               backgroundImage: AssetImage(
                                 'assets/aarhn_logo2k25.png',
                               ),
@@ -69,7 +69,7 @@ class _SplashState extends State<Splash> {
                         ),
                       ),
                       SizedBox(
-                        height: 4.h,
+                        height: 10.h,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(4.0),
@@ -83,9 +83,8 @@ class _SplashState extends State<Splash> {
                         //   ),
                         // ),
                         child: Image.asset(
-                          'assets/aarohan-text.png',
+                          'assets/aarhn25-text.png',
                           height: 50,
-                          color: Colors.white,
                         ),
                       ),
                       Padding(
@@ -93,9 +92,9 @@ class _SplashState extends State<Splash> {
                         child: Text(
                           'By Team Aavishkar',
                           style: TextStyle(
-                            fontFamily: 'AllertaStencil',
+                            fontFamily: 'Bayon',
                             fontSize: 25,
-                            color: Colors.white,
+                            color: Color(0xFFACB9C9),
                             fontWeight: FontWeight.w400,
                           ),
                         ),

@@ -134,11 +134,11 @@ class _BottomMenuState extends State<BottomMenu> {
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Color.fromRGBO(17, 70, 105, 0.798),
-                        Color.fromRGBO(30, 72, 85, 0.778),
-                        Color.fromRGBO(2, 84, 114, 0.88),
-                        Color.fromRGBO(29, 95, 117, 0.865),
-                        Color.fromRGBO(30, 71, 83, 0.778),
+                        Color.fromRGBO(17, 70, 105, 0.977),
+                        Color.fromRGBO(30, 72, 85, 0.878),
+                        Color.fromRGBO(2, 84, 114, 0.98),
+                        Color.fromRGBO(29, 95, 117, 0.965),
+                        Color.fromRGBO(30, 71, 83, 0.878),
                         Color.fromRGBO(13, 55, 85, 1)
                       ],
                     ),

@@ -20,7 +20,7 @@ class _LoginState extends State<Login> {
 
     AuthService authService = AuthService();
     authService.gSignIn().then(
-          (value) {
+      (value) {
         setState(() {
           _isLoading = false;
         });
@@ -45,10 +45,10 @@ class _LoginState extends State<Login> {
                 body: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/splash-bg-new.png"),
+                      image: AssetImage("assets/aarhn-splash2k25.png"),
                       colorFilter: ColorFilter.mode(
-                          Color.fromARGB(175, 0, 5, 26), BlendMode.srcOver),
-                      fit: BoxFit.fill,
+                          Color.fromARGB(40, 0, 5, 26), BlendMode.srcOver),
+                      fit: BoxFit.cover,
                     ),
                   ),
                   child: Column(
@@ -57,22 +57,22 @@ class _LoginState extends State<Login> {
                         height: MediaQuery.of(context).size.height * 0.1,
                       ),
                       SizedBox(
-                        height: 5.h,
+                        height: 3.7.h,
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(0.0),
+                        padding: const EdgeInsets.only(left: 8),
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            RotatingImage(
-                              imagePath: 'assets/aarhn-logo-bg-new-outer.png',
-                            ),
-                            RotatingImage(
-                              reverse: true,
-                              imagePath: 'assets/aarhn-logo-bg-new-inner.png',
-                            ),
+                            // RotatingImage(
+                            //   imagePath: 'assets/aarhn-logo-bg-new-outer.png',
+                            // ),
+                            // RotatingImage(
+                            //   reverse: true,
+                            //   imagePath: 'assets/aarhn-logo-bg-new-inner.png',
+                            // ),
                             CircleAvatar(
-                              radius: 110,
+                              radius: 28.5.w,
                               backgroundImage: AssetImage(
                                 'assets/aarhn_logo2k25.png',
                               ),
@@ -81,14 +81,13 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       SizedBox(
-                        height: 4.h,
+                        height: 8.h,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Image.asset(
-                          'assets/aarohan-text.png',
+                          'assets/aarhn25-text.png',
                           height: 50,
-                          color: Colors.white,
                         ),
                       ),
                       Padding(
@@ -96,9 +95,9 @@ class _LoginState extends State<Login> {
                         child: Text(
                           'By Team Aavishkar',
                           style: TextStyle(
-                            fontFamily: 'AllertaStencil',
+                            fontFamily: 'Bayon',
                             fontSize: 25,
-                            color: Colors.white,
+                            color: Color(0xFFACB9C9),
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -112,8 +111,8 @@ class _LoginState extends State<Login> {
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
-                              Color.fromARGB(255, 47, 117, 138),
-                              Color.fromARGB(255, 4, 29, 37),
+                              Color.fromARGB(186, 47, 117, 138),
+                              Color.fromARGB(181, 2, 54, 71),
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
@@ -121,44 +120,49 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: OutlineGradientButton(
-                          onTap: _isLoading ? null : _handleSignIn, // Disable button if loading
+                          onTap: _isLoading
+                              ? null
+                              : _handleSignIn, // Disable button if loading
                           strokeWidth: 2,
                           radius: Radius.circular(15),
                           gradient: LinearGradient(
                             colors: [
-                              Colors.transparent,
+                              Colors.white12,
                               Color.fromARGB(255, 251, 71, 10),
                             ],
                           ),
                           child: _isLoading
                               ? Center(
-                            child: LoadingAnimationWidget.staggeredDotsWave(
-                              color: Colors.deepOrangeAccent,
-                              size: 40,
-                            ),
-                          )
-                              : Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
-                                child: Image(
-                                  image: AssetImage(
-                                    'assets/google-new-1.png',
+                                  child:
+                                      LoadingAnimationWidget.staggeredDotsWave(
+                                    color: Colors.deepOrangeAccent,
+                                    size: 40,
                                   ),
+                                )
+                              : Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                                      child: Image(
+                                        image: AssetImage(
+                                          'assets/google-new-1.png',
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'Sign In With Google',
+                                      style: TextStyle(
+                                        fontFamily: 'Staat',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 21,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              Text(
-                                'Sign In With Google',
-                                style: TextStyle(
-                                  fontFamily: 'Staat',
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 21,
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       ),
                     ],

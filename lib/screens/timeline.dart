@@ -454,45 +454,50 @@ class _TimelineState extends State<Timeline> with WidgetsBindingObserver {
                         height: 59.h,
                         // color: Colors.red,
                         child: (M.length != 0)
-                            ? ListView.builder(
-                                itemCount: M.length,
-                                itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding:
-                                        EdgeInsets.fromLTRB(8.w, 0, 0, 2.h),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.circle_outlined,
-                                              color: Colors.white,
-                                              size: 10.sp,
-                                            ),
-                                            SizedBox(
-                                              width: 2.5.w,
-                                            ),
-                                            Text(
-                                              "${M.keys.elementAt(index)}",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontFamily: 'Gugi',
-                                                  fontSize: 15.sp,
-                                                  fontWeight: FontWeight.w500),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
-                                        Timeline_List(
-                                            M[M.keys.elementAt(index)]!)
-                                      ],
-                                    ),
-                                  );
-                                },
+                            ? ScrollConfiguration(
+                                behavior: ScrollBehavior()
+                                    .copyWith(overscroll: false),
+                                child: ListView.builder(
+                                  itemCount: M.length,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding:
+                                          EdgeInsets.fromLTRB(8.w, 0, 0, 2.h),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.circle_outlined,
+                                                color: Colors.white,
+                                                size: 10.sp,
+                                              ),
+                                              SizedBox(
+                                                width: 2.5.w,
+                                              ),
+                                              Text(
+                                                "${M.keys.elementAt(index)}",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontFamily: 'Gugi',
+                                                    fontSize: 15.sp,
+                                                    fontWeight:
+                                                        FontWeight.w500),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 1.h,
+                                          ),
+                                          Timeline_List(
+                                              M[M.keys.elementAt(index)]!)
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
                               )
                             : Center(
                                 child: LoadingAnimationWidget.staggeredDotsWave(
