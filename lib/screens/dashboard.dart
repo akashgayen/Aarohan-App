@@ -956,7 +956,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           radius: 5.sp,
                           onTap: () {
                             setState(() {
-                              day = "1rd";
+                              day = "1st";
                               selectedcategory = "";
                               arr = eventItems!
                                   .where((element) =>
@@ -968,20 +968,20 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             width: 15.w,
                             height: 9.h,
                             decoration: BoxDecoration(
-                                color: (day == "1rd")
+                                color: (day == "1st")
                                     ? Color.fromRGBO(51, 130, 154, 0.75)
                                     : Color.fromRGBO(0, 87, 115, 0.75),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,
                               radius: Radius.circular(5.sp),
-                              gradient: (day == "1rd")
+                              gradient: (day == "1st")
                                   ? LinearGradient(
                                       colors: [
-                                        const Color.fromARGB(111, 33, 33, 33),
-                                        Colors.grey.shade800,
-                                        Color.fromARGB(132, 251, 70, 10),
-                                        Color.fromARGB(132, 251, 70, 10),
+                                        const Color.fromARGB(94, 82, 82, 82),
+                                        const Color.fromARGB(132, 255, 47, 47),
+                                        Color.fromARGB(206, 255, 64, 0),
+                                        Color.fromARGB(220, 255, 64, 0),
                                       ],
                                     )
                                   : LinearGradient(colors: [
@@ -1012,7 +1012,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           radius: 5.sp,
                           onTap: () {
                             setState(() {
-                              day = "2th";
+                              day = "2nd";
                               selectedcategory = "";
                               arr = eventItems!
                                   .where((element) =>
@@ -1024,20 +1024,20 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             width: 15.w,
                             height: 9.h,
                             decoration: BoxDecoration(
-                                color: (day == "2th")
+                                color: (day == "2nd")
                                     ? Color.fromRGBO(51, 130, 154, 0.75)
                                     : Color.fromRGBO(0, 87, 115, 0.75),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,
                               radius: Radius.circular(5.sp),
-                              gradient: (day == "2th")
+                              gradient: (day == "2nd")
                                   ? LinearGradient(
                                       colors: [
-                                        const Color.fromARGB(111, 33, 33, 33),
-                                        Colors.grey.shade800,
-                                        Color.fromARGB(132, 251, 70, 10),
-                                        Color.fromARGB(132, 251, 70, 10),
+                                        const Color.fromARGB(94, 82, 82, 82),
+                                        const Color.fromARGB(132, 255, 47, 47),
+                                        Color.fromARGB(206, 255, 64, 0),
+                                        Color.fromARGB(220, 255, 64, 0),
                                       ],
                                     )
                                   : LinearGradient(colors: [
@@ -1068,7 +1068,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                           radius: 5.sp,
                           onTap: () {
                             setState(() {
-                              day = "3th";
+                              day = "3rd";
                               selectedcategory = "";
                               arr = eventItems!
                                   .where((element) =>
@@ -1080,20 +1080,20 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             width: 15.w,
                             height: 9.h,
                             decoration: BoxDecoration(
-                                color: (day == "3th")
+                                color: (day == "3rd")
                                     ? Color.fromRGBO(51, 130, 154, 0.75)
                                     : Color.fromRGBO(0, 87, 115, 0.75),
                                 borderRadius: BorderRadius.circular(5.sp)),
                             child: OutlineGradientButton(
                               strokeWidth: 2,
                               radius: Radius.circular(5.sp),
-                              gradient: (day == "3th")
+                              gradient: (day == "3rd")
                                   ? LinearGradient(
                                       colors: [
-                                        const Color.fromARGB(111, 33, 33, 33),
-                                        Colors.grey.shade800,
-                                        Color.fromARGB(132, 251, 70, 10),
-                                        Color.fromARGB(132, 251, 70, 10),
+                                        const Color.fromARGB(94, 82, 82, 82),
+                                        const Color.fromARGB(132, 255, 47, 47),
+                                        Color.fromARGB(206, 255, 64, 0),
+                                        Color.fromARGB(220, 255, 64, 0),
                                       ],
                                     )
                                   : LinearGradient(colors: [
@@ -1148,10 +1148,10 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               gradient: (day == "4th")
                                   ? LinearGradient(
                                       colors: [
-                                        const Color.fromARGB(111, 33, 33, 33),
-                                        Colors.grey.shade800,
-                                        Color.fromARGB(132, 251, 70, 10),
-                                        Color.fromARGB(132, 251, 70, 10),
+                                        const Color.fromARGB(94, 82, 82, 82),
+                                        const Color.fromARGB(132, 255, 47, 47),
+                                        Color.fromARGB(206, 255, 64, 0),
+                                        Color.fromARGB(220, 255, 64, 0),
                                       ],
                                     )
                                   : LinearGradient(colors: [

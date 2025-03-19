@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'dart:async';
 
 import 'package:aarohan_app/widgets/bottomMenu.dart';
 import 'package:aarohan_app/widgets/custom_gesture_detector.dart';
@@ -13,8 +14,26 @@ class About extends StatefulWidget {
   _AboutState createState() => _AboutState();
 }
 
-class _AboutState extends State<About> {
+class _AboutState extends State<About> with WidgetsBindingObserver {
   bool showBottomMenu = false;
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      print("App moved to background from Event Detail screen");
+      Timer(Duration(milliseconds: 40), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => About()),
+        );
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

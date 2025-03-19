@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
@@ -28,11 +28,13 @@ class _Event_DetailState extends State<Event_Detail>
     with WidgetsBindingObserver {
   Map data = {};
   bool showBottomMenu = false;
+  Key _widgetKey = UniqueKey(); // Add a UniqueKey to force rebuild
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _getContainerHeight());
   }
 
   @override
@@ -46,6 +48,24 @@ class _Event_DetailState extends State<Event_Detail>
     if (state == AppLifecycleState.resumed) {
       print("App moved to background from Event Detail screen");
       setState(() {});
+      Timer(Duration(seconds: 1), () {
+        setState(() {
+          _widgetKey = UniqueKey(); // Assign a new key to force widget rebuild
+        });
+      });
+    }
+  }
+
+  final GlobalKey _textContainerKey = GlobalKey();
+  double _containerHeight = 0;
+
+  void _getContainerHeight() {
+    final renderBox =
+        _textContainerKey.currentContext?.findRenderObject() as RenderBox?;
+    if (renderBox != null) {
+      setState(() {
+        _containerHeight = renderBox.size.height;
+      });
     }
   }
 
@@ -124,7 +144,7 @@ class _Event_DetailState extends State<Event_Detail>
                                       gradient: LinearGradient(
                                         colors: [
                                           Color.fromARGB(223, 47, 117, 138),
-                                          Color.fromARGB(255, 4, 29, 37),
+                                          Color.fromARGB(207, 16, 93, 119),
                                         ],
                                         begin: Alignment.topLeft,
                                         end: Alignment.bottomRight,
@@ -590,7 +610,7 @@ class _Event_DetailState extends State<Event_Detail>
                                                   sigmaY:
                                                       5), // Adjust blur intensity
                                               child: Container(
-                                                height: 85.h,
+                                                height: _containerHeight,
                                                 padding: EdgeInsets.all(12.0),
                                                 decoration: BoxDecoration(
                                                   border: Border.all(
@@ -611,6 +631,7 @@ class _Event_DetailState extends State<Event_Detail>
 
                                           /// Text Content (Outside the Blur Effect)
                                           Container(
+                                            key: _textContainerKey,
                                             //height: 70.h,
                                             padding: EdgeInsets.all(10.0),
                                             child: SingleChildScrollView(

@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:ui';
+import 'dart:async';
 
 import 'package:aarohan_app/widgets/bottomMenu.dart';
 import 'package:aarohan_app/widgets/topBar.dart';
@@ -19,11 +20,30 @@ class Timeline extends StatefulWidget {
   _TimelineState createState() => _TimelineState();
 }
 
-class _TimelineState extends State<Timeline> {
+class _TimelineState extends State<Timeline> with WidgetsBindingObserver {
   Map<String, List> M = {};
   bool showBottomMenu = false;
   String day = "20th";
   int x = 0;
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      print("App moved to background from Event Detail screen");
+      Timer(Duration(milliseconds: 40), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => Timeline()),
+        );
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;

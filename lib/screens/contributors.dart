@@ -169,7 +169,7 @@ class _ContributorsState extends State<Contributors> {
                                         child: Column(
                                           children: [
                                             SizedBox(
-                                              height: 0.5.h,
+                                              height: 0.6.h,
                                             ),
                                             Row(
                                               children: [
@@ -258,7 +258,10 @@ class _ContributorsState extends State<Contributors> {
                                                   ),
                                                 ),
                                               ],
-                                            )
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
                                           ],
                                         ),
                                       )
