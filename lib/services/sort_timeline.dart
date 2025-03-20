@@ -1,7 +1,7 @@
 class Sort_Events {
   dynamic func(dynamic dayItem) {
-    List<dynamic> M = dayItem;
-    M.sort((a, b) {
+    List<dynamic>? M = dayItem;
+    M!.sort((a, b) {
       int x = a['time'].compareTo(b['time']);
       int y = a['time'].substring(6).compareTo(b['time'].substring(6));
       print(y);
@@ -41,10 +41,8 @@ class Sort_Events {
     for (var i in M) {
       if (N[i['time']] == null) {
         N[i['time']] = [i['name']];
-        
       } else
         N[i['time']]?.add(i['name']);
-        
     }
     return N;
   }

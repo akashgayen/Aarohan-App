@@ -21,7 +21,7 @@ class Timeline extends StatefulWidget {
 }
 
 class _TimelineState extends State<Timeline> with WidgetsBindingObserver {
-  Map<String, List> M = {};
+  Map<String?, List?> M = {};
   bool showBottomMenu = false;
   String day = "20th";
   int x = 0;
@@ -224,6 +224,7 @@ class _TimelineState extends State<Timeline> with WidgetsBindingObserver {
                                 setState(() {
                                   day = "21th";
                                   M = {};
+                                  print(dayItems[1].events);
                                   M = sort.func(dayItems[1].events);
                                   print(M);
                                 });
@@ -366,7 +367,8 @@ class _TimelineState extends State<Timeline> with WidgetsBindingObserver {
                                 setState(() {
                                   day = "23th";
                                   M = {};
-                                  M = sort.func(dayItems[2].events);
+                                  //print(dayItems[3].events);
+                                  M = sort.func(dayItems[3].events);
                                   print(M);
                                 });
                               },
