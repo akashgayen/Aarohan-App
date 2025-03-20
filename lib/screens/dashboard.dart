@@ -116,7 +116,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               image: AssetImage("assets/aarhn_new_bg2k25.png"),
               fit: BoxFit.cover,
               colorFilter: new ColorFilter.mode(
-                  Color.fromARGB(38, 9, 75, 87), BlendMode.srcOver),
+                  Color.fromARGB(88, 9, 75, 87), BlendMode.srcOver),
             ),
           ),
           child: Scaffold(
@@ -669,12 +669,12 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     visible: !search,
                     child: Container(
                         margin: EdgeInsets.only(top: 1.h),
-                        height: 47.5.h,
+                        height: 46.h,
                         child: (arr.length != 0)
                             ? CarouselSlider.builder(
                                 itemCount: arr.length,
                                 options: CarouselOptions(
-                                  height: 56.h,
+                                  height: 54.h,
                                   aspectRatio: 1.15,
                                   viewportFraction: 0.72,
                                   initialPage: 0,
@@ -775,7 +775,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                       height: 76.h,
                       child: (_foundUsers != null && _foundUsers!.isNotEmpty)
                           ? ListView.builder(
-                              padding: EdgeInsets.only(bottom: 10),
+                              padding: EdgeInsets.only(bottom: 5),
                               itemCount: _foundUsers!.length,
                               itemBuilder: (context, index) => Container(
                                 height: 10.h,

@@ -19,6 +19,8 @@ class _AboutState extends State<About> with WidgetsBindingObserver {
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _getContainerHeight());
+
     super.initState();
   }
 
@@ -31,6 +33,19 @@ class _AboutState extends State<About> with WidgetsBindingObserver {
           context,
           MaterialPageRoute(builder: (context) => About()),
         );
+      });
+    }
+  }
+
+  final GlobalKey _textContainerKey = GlobalKey();
+  double _containerHeight = 0;
+
+  void _getContainerHeight() {
+    final renderBox =
+        _textContainerKey.currentContext?.findRenderObject() as RenderBox?;
+    if (renderBox != null) {
+      setState(() {
+        _containerHeight = renderBox.size.height;
       });
     }
   }
@@ -80,12 +95,14 @@ class _AboutState extends State<About> with WidgetsBindingObserver {
                                       10.0), // Optional rounded corners
                                   child: BackdropFilter(
                                     filter: ImageFilter.blur(
-                                        sigmaX: 5,
-                                        sigmaY: 5), // Adjust blur intensity
+                                        sigmaX: 15,
+                                        sigmaY: 15), // Adjust blur intensity
                                     child: Container(
-                                      height: 85.h,
+                                      height: _containerHeight + 20,
                                       padding: EdgeInsets.all(12.0),
                                       decoration: BoxDecoration(
+                                        color: Colors.black.withOpacity(
+                                            0.2), // Darker background
                                         border: Border.all(
                                             color: const Color.fromARGB(
                                                 255, 230, 74, 13),
@@ -101,6 +118,7 @@ class _AboutState extends State<About> with WidgetsBindingObserver {
 
                                 /// Text Content (Outside the Blur Effect)
                                 Container(
+                                  key: _textContainerKey,
                                   //height: 70.h,
                                   padding: EdgeInsets.all(10.0),
                                   child: SingleChildScrollView(

@@ -203,31 +203,28 @@ class _Event_DetailState extends State<Event_Detail>
                                               ),
                                             ),
                                             background: Container(
-                                              child: Transform.scale(
-                                                scale: 1.015,
-                                                child: CachedNetworkImage(
-                                                  imageUrl: eventItem.imageUrl!,
-                                                  width: 80.w,
-                                                  fit: BoxFit.cover,
-                                                  height: 60.h,
-                                                  errorWidget:
-                                                      (context, url, error) {
-                                                    print(
-                                                        "Could not load content");
-                                                    return Image.asset(
-                                                      "assets/placeholder.jpg",
-                                                      height: 60.h,
-                                                      width: 80.w,
-                                                      fit: BoxFit.cover,
-                                                    );
-                                                  },
-                                                  placeholder: (context, url) =>
-                                                      Image.asset(
+                                              child: CachedNetworkImage(
+                                                imageUrl: eventItem.imageUrl!,
+                                                width: 80.w,
+                                                fit: BoxFit.fitWidth,
+                                                height: 60.h,
+                                                errorWidget:
+                                                    (context, url, error) {
+                                                  print(
+                                                      "Could not load content");
+                                                  return Image.asset(
                                                     "assets/placeholder.jpg",
                                                     height: 60.h,
                                                     width: 80.w,
                                                     fit: BoxFit.cover,
-                                                  ),
+                                                  );
+                                                },
+                                                placeholder: (context, url) =>
+                                                    Image.asset(
+                                                  "assets/placeholder.jpg",
+                                                  height: 60.h,
+                                                  width: 80.w,
+                                                  fit: BoxFit.cover,
                                                 ),
                                               ),
                                             ),
@@ -620,9 +617,9 @@ class _Event_DetailState extends State<Event_Detail>
                                                   10.0), // Optional rounded corners
                                               child: BackdropFilter(
                                                 filter: ImageFilter.blur(
-                                                    sigmaX: 5,
+                                                    sigmaX: 55,
                                                     sigmaY:
-                                                        5), // Adjust blur intensity
+                                                        55), // Adjust blur intensity
                                                 child: Container(
                                                   height: _containerHeight,
                                                   padding: EdgeInsets.all(12.0),

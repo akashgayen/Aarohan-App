@@ -5,7 +5,7 @@ description: Annual techno-management fest of NIT Durgapur.
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 4.8.0+45
+version: 5.0.1+50
 
 environment:
   sdk: ">=3.0.0 <=4.3.0"

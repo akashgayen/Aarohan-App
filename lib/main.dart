@@ -98,7 +98,7 @@ class _MyAppState extends State<MyApp> {
             android: AndroidNotificationDetails(
               notificationChannel.id,
               notificationChannel.name,
-              icon: 'aarhn_logo2k25',
+              icon: 'aarohan_logo',
               color: Colors.blue,
               playSound: true,
             ),
